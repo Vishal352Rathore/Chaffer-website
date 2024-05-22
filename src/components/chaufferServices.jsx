@@ -7,62 +7,15 @@ import address from "../cab_images/address.png";
 import phone from "../cab_images/phone.png";
 import email from "../cab_images/email.png";
 import "../CssStyle/ChaufferServices.css";
+import Header from "./Header";
+import Footer from "../Shared/Footer";
 
 const ChaufferServices = () => {
   const navigate = useNavigate();
   return (
     <div className="chaufferservices">
       <section className="bg-image-aboutus w-100%">
-        <nav class="navbar navbar-expand-sm  navbar-dark">
-          <div class="container customheader">
-            <img src={image1} alt="not found" className="logo" onClick={()=>navigate('/')}/>
-            <button
-              class="navbar-toggler"
-              type="button"
-              data-bs-toggle="collapse"
-              data-bs-target="#collapsibleNavbar"
-            >
-              <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarsFurni">
-              <ul class="custom-navbar-nav navbar-nav ms-auto mb-2 mb-md-0 custom-menu ">
-                <li class="nav-item">
-                  <NavLink to="/" class="nav-link active">
-                    Home
-                  </NavLink>
-                </li>
-                <li class="nav-item">
-                  <NavLink to="/about" class="nav-link">
-                    About Us
-                  </NavLink>
-                </li>
-                <li class="nav-item">
-                  <NavLink to="/help" class="nav-link">
-                    Help
-                  </NavLink>
-                </li>
-                <li class="nav-item">
-                  <NavLink to="/services" class="nav-link">
-                    Services
-                  </NavLink>
-                </li>
-                <li class="nav-item">
-                  <NavLink to="/cities" class="nav-link">
-                    Cities
-                  </NavLink>
-                </li>
-                <li class="nav-item">
-                  <button
-                    class="sign-in-btn"
-                    onClick={() => navigate("/login")}
-                  >
-                    Sign In
-                  </button>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </nav>
+      <Header/>
         <section className="container customheader">
           <div className="row">
             <div className="text-content-aboutus">
@@ -72,7 +25,7 @@ const ChaufferServices = () => {
         </section>
       </section>
 
-      <section className="container pt-5 customwidth">
+      <section className="container pt-5 customwidth mb-5 pb-5">
         <div className="row">
           <div className="col-md-8">
             {/* Carousel */}
@@ -311,6 +264,7 @@ const ChaufferServices = () => {
           </div>
         </div>
       </section>
+      <Footer/>
     </div>
   );
 };

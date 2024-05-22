@@ -7,6 +7,7 @@ import Upcoming from "./HistoryStages/Upcoming";
 import Past from "./HistoryStages/Past";
 import Cancel from "./HistoryStages/Cancel";
 import "../CssStyle/History.css";
+import Footer from "../Shared/Footer";
 
 const History = () => {
   const URL =
@@ -61,20 +62,19 @@ const History = () => {
   };
 
   return (
-    <div className="">
-      <div className="history-bg-image w-100%">
-        <Header />
-        <div className="text-content customheader">
-          <div className="text-div">
-            <div className="text-heading-first">
-              <h2> History</h2>
+    <div className="city-conatainer ">
+       <section className="bg-image-aboutus w-100%">
+        <Header/>
+        <section className="container customheader">
+          <div className="row">
+            <div className="text-content-aboutus">
+              <p className="text-heading-first pb-5">History</p>
             </div>
           </div>
-        </div>
-      </div>
+        </section>
+      </section>
 
-      <div className="history-container">
-
+      <div className="history-container mb-5 pb-5">
         <header>
           <nav className="tab-bar-container">
             <ul className="tab-bar">
@@ -95,6 +95,7 @@ const History = () => {
 
         <main>{renderPage()}</main>
       </div>
+      <Footer/>
     </div>
   );
 };

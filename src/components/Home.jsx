@@ -107,8 +107,9 @@ function Home() {
 
   return (
     <div className="home-container">
+      {/* <Header /> */}
       <div className="bg-image w-100%">
-        <Header />
+        <Header/>
         <div className="text-content customheader">
           <div className="text-div">
             <div className="text-heading-first">

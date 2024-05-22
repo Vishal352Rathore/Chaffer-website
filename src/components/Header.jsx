@@ -3,11 +3,20 @@ import image1 from "../cab_images/logo.png";
 import { useState, useEffect } from "react";
 import { useNavigate ,Link } from "react-router-dom";
 import "../CssStyle/Headers.css";
+import { toast } from 'react-toastify';
 
 const Header = () => {
   const [isLogin, setIsLogin] = useState(false);
   const token = localStorage.getItem("token");
+  const [isActive, setIsActive] = useState(null);
 
+  const handleClick = (index) => {
+    setIsActive(index); 
+   };
+   
+   useEffect(() => {
+    console.log("isActive:", isActive);
+  }, [isActive]);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -17,6 +26,7 @@ const Header = () => {
     } else {
       setIsLogin(false);
       console.log("islogin", isLogin);
+      toast.success('Logout successful!');
     }
   }, []);
 
@@ -49,56 +59,52 @@ const Header = () => {
           </button>
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-4 mb-2 mb-lg-0">
-              <li class="nav-item">
-                <Link class="nav-link active" aria-current="page" to="/">
+              <li className="nav-item" onClick={() => handleClick("home")} >
+                <Link className="nav-link"  to="/" id= {isActive === "home" ? "home" : "nav-link"}>
                   Home
                 </Link>
               </li>
-              {/* disabled class remove from li to enable routing */}
-              <li class="nav-item">
-                <Link class="nav-link" aria-current="page" to="/history">
+              
+              <li className="nav-item" onClick={() => handleClick("history")}>
+                <Link className="nav-link"  to="/history" id= {isActive === "history" ? "history" : ""}>
                   History
                 </Link>
               </li>
 
-              <li class="nav-item">
+              <li class="nav-item" onClick={() => handleClick("about")}>
                 <Link
-                  class="nav-link "
+                  className="nav-link" 
                   to="/about"
-                  tabindex="-1"
-                  aria-disabled="true"
+                  id= {isActive === "about" ? "about" : ""}
                 >
                   {" "}
                   About Us
                 </Link>
               </li>
-              <li class="nav-item">
+              <li class="nav-item" onClick={() => handleClick("help")}>
                 <Link
-                  class="nav-link "
+                  className="nav-link" 
                   to="/help"
-                  tabindex="-1"
-                  aria-disabled="true"
+                  id= {isActive === "help" ? "help" : ""}
                 >
                   {" "}
                   Help us
                 </Link>
               </li>
-              <li class="nav-item">
+              <li class="nav-item" onClick={() => handleClick("services")}>
                 <Link
-                  class="nav-link "
+                  className="nav-link " 
                   to="/services"
-                  tabindex="-1"
-                  aria-disabled="true"
+                  id= {isActive === "services" ? "services" : ""}
                 >
                   Services
                 </Link>
               </li>
-              <li class="nav-item">
+              <li class="nav-item" onClick={() => handleClick("cities")}>
               <Link
-                  class="nav-link "
+                  className="nav-link "
                   to="/cities"
-                  // tabindex="-1"
-                  // aria-disabled="true"
+                  id= {isActive === "cities" ? "cities" : ""}
                 >
                   Cities
                 </Link>
@@ -113,132 +119,6 @@ const Header = () => {
           </div>
         </div>
       </nav>
-      {/* <nav className="navbar navbar-expand-lg navbar-light ">
-          <div className="container customheader">
-            <Link className="navbar-brand" href="/">
-              <img
-                src={image1}
-                alt="not found"
-                className="logo"
-                // onClick={() => navigate("/")}
-              />
-            </Link>
-            <button
-              className="navbar-toggler collapsed"
-              type="button"
-              data-bs-toggle="collapse"
-              data-bs-target="#navbarNavDropdown"
-              aria-controls="navbarNavDropdown"
-              aria-expanded="false"
-              aria-label="Toggle navigation"
-            >
-              <span className="navbar-toggler-icon"></span>
-            </button>
-            <div className="collapse navbar-collapse" id="navbarNavDropdown">
-              <ul className="navbar-nav">
-                <li className="nav-item">
-                  <Link className="nav-link active" href="/">
-                    Home
-                  </Link>
-                </li>
-                <li className="nav-item">
-                  <Link className="nav-link" href="/history">
-                    History
-                  </Link>
-                </li>
-                <li className="nav-item">
-                  <Link className="nav-link" href="/about">
-                    About Us
-                  </Link>
-                </li>
-                <li className="nav-item">
-                  <Link className="nav-link" href="/help">
-                    Help
-                  </Link>
-                </li>
-                <li className="nav-item">
-                  <Link className="nav-link" href="/services">
-                    Services
-                  </Link>
-                </li>
-                <li className="nav-item">
-                  <Link className="nav-link" href="/cities">
-                    Cities
-                  </Link>
-                </li>
-                <li className="nav-item">
-                  <button className="sign-in-btn" onClick={handleLogin}>
-                    {isLogin ? "Logout" : "Sign In"}
-                  </button>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </nav> */}
-      {/* <nav class="navbar navbar-expand-lg navbar-light ">
-        <div class="container nav-custom customheader">
-          <Link class="navbar-brand" href="/">
-            <img
-              src={image1}
-              alt="not found"
-              className="logo"
-              onClick={() => navigate("/")}
-            />
-          </Link>
-          <button
-            class="navbar-toggler collapsed"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent"
-            aria-expanded="false"
-            aria-label="Toggle navigation"
-          >
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="navbar-collapse collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav mb-2 mb-lg-0">
-              <li class="active">
-                <Link class="nav-link" href="/">
-                  Home
-                </Link>
-              </li>
-
-              <li>
-                <Link class="nav-link" href="/history">
-                  History
-                </Link>
-              </li>
-
-              <li>
-                <Link class="nav-link" href="/about">
-                  About Us
-                </Link>
-              </li>
-              <li>
-                <Link class="nav-link" href="/help">
-                  Help
-                </Link>
-              </li>
-              <li>
-                <Link class="nav-link" href="/services">
-                  Services
-                </Link>
-              </li>
-              <li>
-                <Link class="nav-link" href="/cities">
-                  Cities
-                </Link>
-              </li>
-            </ul>
-            <form class="d-flex">
-              <button className="sign-in-btn" onClick={handleLogin}>
-                {isLogin ? "Logout" : "Sign In"}
-              </button>
-            </form>
-          </div>
-        </div>
-      </nav> */}
     </div>
   );
 };
