@@ -26,12 +26,18 @@ const History = () => {
     const fetchData = async () => {
       try {
         if (token) {
-          const response = await axios.get(URL, {
-            method: "GET",
-            headers: headers,
-          });
-          console.error("response for ride", response);
-          setRideData(response.data.items);
+          try {
+            const response = await axios.get(URL, {
+              method: "GET",
+              headers: headers,
+            });
+
+            if (response.status) {
+              setRideData(response.data.items);
+            }
+          } catch (error) {
+            console.error("response for ride", error);
+          }
         } else {
           navigate("/login", { state: { from: "/history" } });
         }

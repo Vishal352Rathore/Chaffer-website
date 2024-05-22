@@ -20,17 +20,21 @@ const Header = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
+    console.log("Running useEffect");
+    console.log("token before condition:", token);
     if (token) {
       setIsLogin(true);
-      console.log("islogin", isLogin);
+      console.log("Setting isLogin to true");
     } else {
       setIsLogin(false);
       console.log("islogin", isLogin);
       toast.success('Logout successful!');
     }
+    console.log("token after condition:", token);
   }, []);
 
-  const handleLogin = () => {
+  const handleLogin = (e) => {
+    e.preventDefault();
     if (isLogin) {
       localStorage.removeItem("token");
       setIsLogin(false);
@@ -41,13 +45,13 @@ const Header = () => {
 
   return (
     <div>
-      <nav class="navbar navbar-expand-lg navbar-light">
-        <div class="container customheader">
-          <Link class="navbar-brand" to="/">
+      <nav className="navbar navbar-expand-lg navbar-light">
+        <div className="container customheader">
+          <Link className="navbar-brand" to="/">
             <img src={image1} alt="not found" className="logo" />
           </Link>
           <button
-            class="navbar-toggler"
+            className="navbar-toggler"
             type="button"
             data-bs-toggle="collapse"
             data-bs-target="#navbarSupportedContent"
@@ -55,7 +59,7 @@ const Header = () => {
             aria-expanded="false"
             aria-label="Toggle navigation"
           >
-            <span class="navbar-toggler-icon"></span>
+            <span className="navbar-toggler-icon"></span>
           </button>
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-4 mb-2 mb-lg-0">
@@ -110,9 +114,9 @@ const Header = () => {
                 </Link>
               </li>
             </ul>
-            <form class="d-flex sign-form">
+            <form className="d-flex sign-form">
               
-            <button className="sign-in-btn" onClick={handleLogin}>
+            <button className="sign-in-btn" onClick={(e)=>{handleLogin(e)}}>
                 {isLogin ? "Logout" : "Sign In"}
               </button>
             </form>

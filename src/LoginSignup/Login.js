@@ -8,8 +8,6 @@ import { useNavigate ,useLocation  } from "react-router-dom";
 import axios from "axios";
 import { toast } from 'react-toastify';
 
-
-
 const Login = () => {
   const navigate = useNavigate();
   const location = useLocation();
@@ -39,9 +37,12 @@ const Login = () => {
        localStorage.setItem('token',response.data.items.token);
        localStorage.setItem('email',response.data.items.email);
        localStorage.setItem('user_id',response.data.items.userId);
+       localStorage.setItem('firstName',response.data.items.firstName);
+       localStorage.setItem('lastName',response.data.items.lastName);
+       localStorage.setItem('mobileNumber',response.data.items.mobileNumber);
 
        
-      if (response.data.status == true) {
+      if (response.data.status === true) {
         console.log("login successfully", response.data); 
         toast.success('Login successful!');
         e.target.reset();
@@ -127,7 +128,6 @@ const Login = () => {
               <button
                 type="submit"
                 className="btn btn-dark col-md-12 btn-login"
-                
               >
                 Log in
               </button>

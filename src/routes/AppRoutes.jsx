@@ -24,9 +24,9 @@ function AppRoutes() {
   return (
     <div>
       <Routes>
+        <Route path="/" element={<Home />} />
         <Route path="/signup" element={<Signup />} />
         <Route path="/login" element={<Login />} />
-        <Route path="/" element={<Home />} />
         <Route path="/forgotpassword" element={<ForgotPassword />} />
         <Route path="/forgotpassword/otpverify" element={<OtpVerify />} />
         <Route
@@ -42,19 +42,12 @@ function AppRoutes() {
         />
         <Route path="/cities" element={<CitiesAndClasses />} />
         <Route path="/termsandcondition" element={<TermsAndCondition />} />
-        <Route path='/signup' element={<Signup/>}/>
-        <Route path='/login' element={<Login/>}/>
         {/* <Route path='/resetpassword' element={<ResetPassword/>}/> */}
-        <Route path="/" element={<Home />} />
-        <Route path='/about' element={<About/>}/>
-        <Route path='/help' element={<Help/>}/>
-        <Route path='/services' element={<Services/>}/>
         <Route path='/services/bookride' element={<BookRide/>}/>
         <Route path='/services/serviceclass' element={<ServiceClass/>}/>
         <Route path='/services/serviceclass/pickup' element={<Pickup/>}/>
         <Route path='/services/serviceclass/pickup/payment' element={<PaymentCard/>}/>
         <Route path='/citiesandclasses' element={<CitiesAndClasses/>}/>
-        <Route path='/termsandcondition' element={<TermsAndCondition/>}/>
         <Route path='/history' element={<History/>}/>
 
       </Routes>

@@ -24,22 +24,22 @@ const Footer = () => {
               </span>
               <span className="icon-container">
                 <span>
-                  <i class="fa-brands fa-facebook-f "></i>
+                  <i className="fa-brands fa-facebook-f "></i>
                 </span>
                 <span>
-                  <i class="fa-brands fa-twitter "></i>
+                  <i className="fa-brands fa-twitter "></i>
                 </span>
                 <span>
-                  <i class="fa-brands fa-instagram "></i>
+                  <i className="fa-brands fa-instagram "></i>
                 </span>
                 <span>
-                  <i class="fa-brands fa-pinterest "></i>
+                  <i className="fa-brands fa-pinterest "></i>
                 </span>
                 <span>
-                  <i class="fa-solid fa-globe "></i>
+                  <i className="fa-solid fa-globe "></i>
                 </span>
                 <span>
-                  <i class="fa-brands fa-google "></i>
+                  <i className="fa-brands fa-google "></i>
                 </span>
               </span>
             </div>
@@ -72,7 +72,7 @@ const Footer = () => {
               <div className="row">
                 <div className="mobile_container">
                   <div className="mobile_icon" >
-                    <i class="fa-solid fa-mobile-screen-button"></i>
+                    <i className="fa-solid fa-mobile-screen-button"></i>
                   </div>
                   <div className="app_container">
                     <p className="appStore_text">App Store</p>
