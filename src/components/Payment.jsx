@@ -95,10 +95,10 @@ const PaymentCard = ({ handleNextButon, handlePreviousButton }) => {
       flightNumber: userDetails.flight_no,
       notesForChauffer: userDetails.chauffer_notes,
       referenceNumberOrCostCenter: userDetails.cost_center,
-      firstName: userDetails.firstName,
-      lastName: userDetails.lastName,
-      email: userDetails.email,
-      phoneNumber: userDetails.mobileNumber,
+      firstName: userDetails.firstName || localStorage.getItem("firstName"),
+      lastName: userDetails.lastName  || localStorage.getItem("lastName"),
+      email: userDetails.email  || localStorage.getItem("email"),
+      phoneNumber: userDetails.mobileNumber || localStorage.getItem("mobileNumber"),
       status: 0, // Initial status
       cardName: paymentDetails.nameofcard,
       cardNumber: paymentDetails.cardnumber,
@@ -108,12 +108,13 @@ const PaymentCard = ({ handleNextButon, handlePreviousButton }) => {
     }, 
   );
 
-    console.log("final booking data", rideBookingData);
 
     // bookingDone();
   };
 
   useEffect(() => {
+    console.log("final booking data", rideBookingData);
+
     bookingDone();
   }, [rideBookingData]);
 
@@ -122,7 +123,7 @@ const PaymentCard = ({ handleNextButon, handlePreviousButton }) => {
         await axios.post(URL, rideBookingData,{
           method: "GET", // or 'POST', 'PUT', 'DELETE', etc.
           headers: {
-            Authorization: `Bearer ${token}`,
+            token: token,
             "Content-Type": "application/json", // Adjust content type as needed
           },
         })

@@ -7,14 +7,16 @@ import bag from "../cab_images/bagicon.png";
 import Footer from "../Shared/Footer";
 import axios from "axios";
 
-const ServiceClass = ({handleNextButon}) => {
-  const URL = "https://chauffer-staging-tse4a.ondigitalocean.app/v1/vehicle/getAllVehicle";
+const ServiceClass = ({ handleNextButon }) => {
+  const URL =
+    "https://chauffer-staging-tse4a.ondigitalocean.app/v1/vehicle/getAllVehicle";
   const [vehicleData, setVehicleData] = useState(null);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
         const response = await axios.get(URL);
+        console.log("responseFromServieClass", response);
         setVehicleData(response.data.items);
       } catch (error) {
         console.error("Error fetching data:", error);
@@ -24,52 +26,60 @@ const ServiceClass = ({handleNextButon}) => {
     fetchData();
   }, []);
 
-
   const [selectedVehicle, setSelectedVehicle] = useState(null);
 
   const handleVehicleClick = (vehicle) => {
     setSelectedVehicle(selectedVehicle === vehicle ? null : vehicle);
-    };
+  };
 
-
-    const handleSubmit = () =>{
-      handleNextButon();
-      localStorage.setItem("selected vehicle" , JSON.stringify(selectedVehicle ))
-    }
+  const handleSubmit = () => {
+    handleNextButon();
+    localStorage.setItem("selected vehicle", JSON.stringify(selectedVehicle));
+  };
 
   return (
     <div className="serviceclass-container">
       <section className="container">
         {/*above code is common in pickup component  */}
 
-        <section className="row"> 
-          { vehicleData?.map((vehicle) => {
-            return (
-              <div key={vehicle._id} className="col-md-6">
-                <div className= 'business-class-container'>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      
-                  <div className= {`car-container ${selectedVehicle === vehicle ? 'selected' : ''}`}   onClick={() => handleVehicleClick(vehicle)}>
-                    <div>
-                      <img src={car1} alt="not found" />
-                    </div>
-                    <p>Business class</p>
-                    <p>{vehicle.brand}</p>
-                    <div className="business-class-icon-row">
+        <section className="row">
+          {vehicleData && vehicleData.length > 0 ? (
+            vehicleData.map((vehicle) => {
+              return (
+                <div key={vehicle._id} className="col-md-6">
+                  <div className="business-class-container">
+                    <div
+                      className={`car-container ${
+                        selectedVehicle === vehicle ? "selected" : ""
+                      }`}
+                      onClick={() => handleVehicleClick(vehicle)}
+                    >
                       <div>
-                        <img src={family} alt="not found" />
-                        <span>{vehicle.seatingCapacity}</span>
+                        <img src={car1} alt="not found" />
                       </div>
-                      <div>
-                        <img src={bag} alt="not found" />
-                        <span>{vehicle.maxLaggauge}</span>
+                      <p>Business class</p>
+                      <p>{vehicle.brand}</p>
+                      <div className="business-class-icon-row">
+                        <div>
+                          <img src={family} alt="not found" />
+                          <span>{vehicle.seatingCapacity}</span>
+                        </div>
+                        <div>
+                          <img src={bag} alt="not found" />
+                          <span>{vehicle.maxLaggauge}</span>
+                        </div>
                       </div>
+                      <p>{vehicle.vehicleFare} USD</p>
                     </div>
-                    <p>{vehicle.vehicleFare} USD</p>
                   </div>
                 </div>
-              </div>
-            );
-          })}
-
+              );
+            })
+          ) : (
+            <div>
+              <p>No vehicle available at this moment</p>
+            </div>
+          )}
         </section>
 
         <section className="row">
@@ -77,7 +87,7 @@ const ServiceClass = ({handleNextButon}) => {
             <div className="all-class-include-container">
               <div className="all-class-include font-inter">
                 <p>All classes include:</p>
-                <hr style={{color:"#D9D9D9"}}/>
+                <hr style={{ color: "#D9D9D9" }} />
                 <ul>
                   <li>Free cancellation up until 1 hour before pickup</li>
                   <li>Free 15 minutes of wait time</li>
@@ -94,7 +104,7 @@ const ServiceClass = ({handleNextButon}) => {
             <div className="please-note-container">
               <div className="please-note-include font-inter">
                 <p>Please note:</p>
-                <hr style={{color:"#D9D9D9"}}/>
+                <hr style={{ color: "#D9D9D9" }} />
                 <ul>
                   <li>
                     Guest/luggage capacities must be abided by for safety
@@ -113,10 +123,7 @@ const ServiceClass = ({handleNextButon}) => {
 
         <section className="row  mb-5 pb-5">
           <div className="col-md-3 offset-md-9">
-            <button
-              className="continue-btn"
-              onClick={handleSubmit}
-            >
+            <button className="continue-btn" onClick={handleSubmit}>
               Continue
             </button>
           </div>

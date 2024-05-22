@@ -5,11 +5,12 @@ import { useSelector, useDispatch } from "react-redux";
 import { updateBookingData } from "../Actions/actions.js";
 
 const Pickup = ({handleNextButon ,handlePreviousButton}) => {
-  const [selectedRadio, setSelectedRadio] = useState("option1");
+  const [selectedRadio, setSelectedRadio] = useState("Myself");
   const userDetailFromRedux = useSelector((state) => state.userDetailReducer);
   const dispatch = useDispatch();
 
   const [bookingDetails, setBookingDetails] = useState({
+    bookingFor: "Myself",
     firstName: "",
     lastName: "",
     email: "",
@@ -29,12 +30,13 @@ const Pickup = ({handleNextButon ,handlePreviousButton}) => {
 
   const handleSubmit = () =>{
     handleNextButon();
-    dispatch(updateBookingData(bookingDetails)) 
-    localStorage.setItem("boking details" , JSON.stringify(bookingDetails))
+    dispatch(updateBookingData(bookingDetails));
+    localStorage.setItem("booking details" , JSON.stringify(bookingDetails));
   }
 
   const handleRadioBUttonChange = (e) => {
     setSelectedRadio(e.target.value);
+    setBookingDetails({ ...bookingDetails, [e.target.name]: e.target.value });
   };
 
   return (
@@ -50,12 +52,12 @@ const Pickup = ({handleNextButon ,handlePreviousButton}) => {
                     type="radio"
                     className="form-check-input"
                     id="radio1"
-                    name="optradio"
-                    value="option1"
+                    name="bookingFor"
+                    value="Myself"
                     onChange={handleRadioBUttonChange}
-                    checked={selectedRadio === "option1"}
+                    checked={selectedRadio === "Myself"}
                   />
-                  <label class="form-check-label" for="radio1">
+                  <label class="form-check-label" htmlFor="radio1">
                     Book for myself
                   </label>
                 </div>
@@ -64,18 +66,18 @@ const Pickup = ({handleNextButon ,handlePreviousButton}) => {
                     type="radio"
                     className="form-check-input"
                     id="radio2"
-                    name="optradio"
-                    value="option2"
+                    name="bookingFor"
+                    value="Someone Else"
                     onChange={handleRadioBUttonChange}
-                    checked={selectedRadio === "option2"}
+                    checked={selectedRadio === "Someone Else"}
                   />
-                  <label class="form-check-label" for="radio2">
+                  <label class="form-check-label" htmlFor="radio2">
                     Book for someone else
                   </label>
                 </div>
               </div>
             </div>
-            { selectedRadio === "option2" ?
+            { selectedRadio === "Someone Else" ?
               <div className="row">
                 <div className="someone-else m-auto ">
                   <form className="p-3 mt-3 ">
