@@ -253,7 +253,7 @@ const About = () => {
         <div className="row">
           <div className="col-md-4   about-our-service-coloumn-forma1">
             <img src={forma1} alt="not found" />
-            <p>Limousine Service</p>
+            <p>Limousine Events</p>
           </div>
           <div className="col-md-4   about-our-service-coloumn-forma1">
             <img src={forma2} alt="not found" />

@@ -8,9 +8,9 @@ import { toast } from 'react-toastify';
 const Header = () => {
   const [isLogin, setIsLogin] = useState(false);
   const token = localStorage.getItem("token");
-  const [isActive, setIsActive] = useState(null);
+  const [isActive, setIsActive] = useState("home");
 
-  const handleClick = (index) => {
+  const handleClick = (e,index) => {
     setIsActive(index); 
    };
    
@@ -39,6 +39,7 @@ const Header = () => {
       localStorage.removeItem("token");
       setIsLogin(false);
       toast.success('Logout successful!');
+      navigate('/');
     } else {
       navigate("./login");
     }
@@ -64,52 +65,62 @@ const Header = () => {
           </button>
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-4 mb-2 mb-lg-0">
-              <li className="nav-item" onClick={() => handleClick("home")} >
-                <Link className="nav-link"  to="/" id= {isActive === "home" ? "home" : "nav-link"}>
+              <li className="nav-item"
+              //  onClick={() => handleClick("home")}
+                >
+                <Link className={`nav-link ${isActive === "home" ? 'active' : ''}`}
+                      onClick={(e) => handleClick(e, "home")} 
+                      to="/"
+                // id= {isActive === "home" ? "home" : ""}
+                >
                   Home
                 </Link>
               </li>
               
-              <li className="nav-item" onClick={() => handleClick("history")}>
-                <Link className="nav-link"  to="/history" id= {isActive === "history" ? "history" : ""}>
+              <li className="nav-item" >
+                <Link className={`nav-link ${isActive === "history" ? 'active' : ''}`} 
+                   onClick={(e) => handleClick(e, "history")}
+                to="/history" >
                   History
                 </Link>
               </li>
 
-              <li class="nav-item" onClick={() => handleClick("about")}>
+              <li class="nav-item">
                 <Link
-                  className="nav-link" 
+                  className={`nav-link ${isActive === "about" ? 'active' : ''}`} 
+                  onClick={(e) => handleClick(e, "about")}
                   to="/about"
-                  id= {isActive === "about" ? "about" : ""}
+                 
                 >
                   {" "}
                   About Us
                 </Link>
               </li>
-              <li class="nav-item" onClick={() => handleClick("help")}>
+              <li class="nav-item">
                 <Link
-                  className="nav-link" 
-                  to="/help"
-                  id= {isActive === "help" ? "help" : ""}
+                 className={`nav-link ${isActive === "help" ? 'active' : ''}`} 
+                 onClick={(e) => handleClick(e, "help")}
+                 to="/help"
                 >
                   {" "}
                   Help us
                 </Link>
               </li>
-              <li class="nav-item" onClick={() => handleClick("services")}>
+              <li class="nav-item" >
                 <Link
-                  className="nav-link " 
+                  className={`nav-link ${isActive === "services" ? 'active' : ''}`} 
+                  onClick={(e) => handleClick(e, "services")}
                   to="/services"
-                  id= {isActive === "services" ? "services" : ""}
+                 
                 >
                   Services
                 </Link>
               </li>
               <li class="nav-item" onClick={() => handleClick("cities")}>
               <Link
-                  className="nav-link "
-                  to="/cities"
-                  id= {isActive === "cities" ? "cities" : ""}
+                  className={`nav-link ${isActive === "cities" ? 'active' : ''}`} 
+                  onClick={(e) => handleClick(e, "cities")}
+                  
                 >
                   Cities
                 </Link>
