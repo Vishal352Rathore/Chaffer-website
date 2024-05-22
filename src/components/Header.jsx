@@ -14,7 +14,7 @@ const Header = () => {
     setIsActive(index); 
    };
    
-   useEffect(() => {
+   useEffect(() => { 
     console.log("isActive:", isActive);
   }, [isActive]);
   const navigate = useNavigate();
