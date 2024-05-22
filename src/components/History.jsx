@@ -38,7 +38,7 @@ const History = () => {
             console.error("response for ride", error);
           }
         } else {
-          navigate("/login", { state: { from: "/history" } });
+          navigate("/login", { state: { from: "/" } });
         }
       } catch (error) {
         console.error("Error fetching data:", error);
