@@ -35,10 +35,15 @@ const History = () => {
             if (response.status) {
               setRideData(response.data.items);
             }
-          } catch (error) {
+            else if(!response.status)   {
+              navigate("/login", { state: { from: "/history" } });
+            }
+          }
+          catch (error) {
             console.error("response for ride", error);
           }
-        } else {
+        } 
+        else if(!token)  {
           navigate("/login", { state: { from: "/history" } });
         }
       } catch (error) {

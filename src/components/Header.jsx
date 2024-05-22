@@ -28,7 +28,7 @@ const Header = () => {
     } else {
       setIsLogin(false);
       console.log("islogin", isLogin);
-      toast.success('Logout successful!');
+      
     }
     console.log("token after condition:", token);
   }, []);
@@ -38,6 +38,7 @@ const Header = () => {
     if (isLogin) {
       localStorage.removeItem("token");
       setIsLogin(false);
+      toast.success('Logout successful!');
     } else {
       navigate("./login");
     }
