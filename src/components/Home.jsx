@@ -57,8 +57,11 @@ function Home() {
     pickUpLocation: "",
     dropLocation: "",
     dateTime: "",
-    category: "",
+    category: "Ride",
   });
+
+  const [isSuggestionSelected, setIsSuggestionSelected] = useState({ pickUpLocation: false, dropOffLocation: false });
+
 
   const handlePlaceSelect = (place ,name) => {
     const { lat, lng } = place.geometry.location;
@@ -66,11 +69,19 @@ function Home() {
     setCoordinates(prevCoordinates =>({...prevCoordinates , [name] : `${lat()},${lng()}` }))
     console.log("Selected place:", place.formatted_address);
     console.log('Coordinates:name', `${name} ${lat()},${lng()}` );
+    setIsSuggestionSelected({ ...isSuggestionSelected, [name]: true });
   };
 
 
   const handleChange = (e) => {
     setInfo({ ...Info, [e.target.name]: e.target.value });
+    setIsSuggestionSelected({ ...isSuggestionSelected, [e.target.name]: false });
+  };
+
+  const handleBlur = (fieldName) => {
+    if (!isSuggestionSelected[fieldName]) {
+      setInfo({ ...Info, [fieldName]: '' });
+    }
   };
 
   const handleDate = (date, name) => {
@@ -159,6 +170,7 @@ function Home() {
                         name="pickUpLocation"
                         value={Info.pickUpLocation}
                         onChange={handleChange}
+                        onBlur={() => handleBlur("pickUpLocation")}
                         required
                       />
                     </div>
@@ -194,6 +206,7 @@ function Home() {
                         name="dropLocation"
                         value={Info.dropLocation}
                         onChange={handleChange}
+                        onBlur={() => handleBlur("dropLocation")}
                         required
                       />
                     </div>
@@ -218,6 +231,7 @@ function Home() {
                     placeholderText="DD/MM/YYYY"
                     minDate={new Date()}
                     className="datapicker"
+                    required
                   />
                   {/* <input
                   type="datetime-local" 

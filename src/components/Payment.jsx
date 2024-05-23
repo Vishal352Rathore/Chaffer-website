@@ -13,10 +13,11 @@ const PaymentCard = ({ handleNextButon, handlePreviousButton }) => {
   const token = localStorage.getItem("token");
   const headers = {
     // 'Content-Type': 'application/json', // Assuming JSON data
-    'token': token  // Include your token here
+    token: token, // Include your token here
   };
 
-  const URL = "https://chauffer-staging-tse4a.ondigitalocean.app/v1/ride/bookRide";
+  const URL =
+    "https://chauffer-staging-tse4a.ondigitalocean.app/v1/ride/bookRide";
   const [rideBookingData, setRideBookingData] = useState({
     pickUpLocation: "",
     dropLocation: "",
@@ -78,11 +79,10 @@ const PaymentCard = ({ handleNextButon, handlePreviousButton }) => {
     setPaymentDetails({ ...paymentDetails, [e.target.name]: e.target.value });
   };
 
-
   const datafetchingForBookRide = () => {
     const [datePart, timePart] = localStorage.getItem("dateTime").split("T");
-    const vehicleId = JSON.parse(localStorage.getItem("selected vehicle"))._id
-    console.log("vehicleId",vehicleId)
+    const vehicleId = JSON.parse(localStorage.getItem("selected vehicle"))._id;
+    console.log("vehicleId", vehicleId);
 
     setRideBookingData({
       pickUpLocation: localStorage.getItem("pickUpLocationCoordinates"),
@@ -91,23 +91,22 @@ const PaymentCard = ({ handleNextButon, handlePreviousButton }) => {
       time: timePart,
       userId: localStorage.getItem("user_id"),
       vehicleId: vehicleId,
-      bookingFor: "Myself",
+      bookingFor: userDetails.bookingFor || "Myself",
       flightNumber: userDetails.flight_no,
       notesForChauffer: userDetails.chauffer_notes,
       referenceNumberOrCostCenter: userDetails.cost_center,
       firstName: userDetails.firstName || localStorage.getItem("firstName"),
-      lastName: userDetails.lastName  || localStorage.getItem("lastName"),
-      email: userDetails.email  || localStorage.getItem("email"),
-      phoneNumber: userDetails.mobileNumber || localStorage.getItem("mobileNumber"),
+      lastName: userDetails.lastName || localStorage.getItem("lastName"),
+      email: userDetails.email || localStorage.getItem("email"),
+      phoneNumber:
+        userDetails.mobileNumber || localStorage.getItem("mobileNumber"),
       status: 0, // Initial status
       cardName: paymentDetails.nameofcard,
       cardNumber: paymentDetails.cardnumber,
       expiryDate: paymentDetails.expirationdate, // Card expiry date
       cvv: paymentDetails.cvv,
       amount: "535",
-    }, 
-  );
-
+    });
 
     // bookingDone();
   };
@@ -118,28 +117,28 @@ const PaymentCard = ({ handleNextButon, handlePreviousButton }) => {
     bookingDone();
   }, [rideBookingData]);
 
-    const bookingDone = async () => {
-      try {
-        await axios.post(URL, rideBookingData,{
+  const bookingDone = async () => {
+    try {
+      await axios
+        .post(URL, rideBookingData, {
           method: "GET", // or 'POST', 'PUT', 'DELETE', etc.
           headers: {
             token: token,
             "Content-Type": "application/json", // Adjust content type as needed
           },
         })
-          .then((res) => {
-            console.log("Booking DOne", res);
-            if (res.data.status === true) {
-              handleNextButon();
-            }
-          })
-          .catch(() => console.log("Booking fail"));
-      } catch (error) {
-        console.error("Error fetching data:", error);
-      }
-    };
-  
- 
+        .then((res) => {
+          console.log("Booking DOne", res);
+          if (res.data.status === true) {
+            handleNextButon();
+          }
+        })
+        .catch(() => console.log("Booking fail"));
+    } catch (error) {
+      console.error("Error fetching data:", error);
+    }
+  };
+
   return (
     <div className="payment-container ">
       <section className="container">
