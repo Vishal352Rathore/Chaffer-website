@@ -4,12 +4,14 @@ import card from "../cab_images/cards.png";
 import { useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { updatePaymentData } from "../Actions/actions.js";
+import { toast } from "react-toastify";
 
 import axios from "axios";
 
 const PaymentCard = ({ handleNextButon, handlePreviousButton }) => {
   const userDetails = useSelector((state) => state.userDetailReducer);
   const token = localStorage.getItem("token");
+  const navigate = useNavigate();
   // const headers = {
   //   'Content-Type': 'application/json', 
   //   'token': token  
@@ -38,7 +40,7 @@ const PaymentCard = ({ handleNextButon, handlePreviousButton }) => {
     cvv: null,
     amount: null,
   });
-  const navigate = useNavigate();
+ 
   const paymentDetailFromRedux = useSelector(
     (state) => state.paymentDetailReducer
   );
@@ -63,6 +65,8 @@ const PaymentCard = ({ handleNextButon, handlePreviousButton }) => {
         console.log("user is logined", paymentDetails);
         dispatch(updatePaymentData(paymentDetails));
         datafetchingForBookRide();
+        toast.success("Payment has done Successfully ! ")
+        
       } else {
         dispatch(updatePaymentData(paymentDetails));
         navigate("/login", { state: { from: "/services/bookride" } });

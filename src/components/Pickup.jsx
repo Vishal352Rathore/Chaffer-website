@@ -3,6 +3,7 @@ import "../CssStyle/Pickup.css";
 import { useSelector, useDispatch } from "react-redux";
 import { updateBookingData } from "../Actions/actions.js";
 
+
 const Pickup = ({handleNextButon ,handlePreviousButton}) => {
   const [selectedRadio, setSelectedRadio] = useState("Myself");
   const userDetailFromRedux = useSelector((state) => state.userDetailReducer);
