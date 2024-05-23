@@ -1,13 +1,11 @@
 import React, { useState } from "react";
-import { NavLink, useNavigate } from "react-router-dom";
-import image1 from "../cab_images/logo.png";
+// import {useNavigate } from "react-router-dom";
 import "../CssStyle/Help.css";
 import Header from "./Header";
-import Footer from "../Shared/Footer";
 
 const Help = () => {
-  const [question, setQuestion] = useState(false);
-  const navigate = useNavigate();
+  // const [question, setQuestion] = useState(false);
+  // const navigate = useNavigate();
 
   return (
     <div className="help-container ">
@@ -222,7 +220,7 @@ const Help = () => {
         </div>
       </section>
       
-      <Footer/>
+      {/* <Footer/> */}
      
     </div>
   );

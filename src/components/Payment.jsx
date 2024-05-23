@@ -1,20 +1,21 @@
 import React, { useState, useEffect } from "react";
 import "../CssStyle/Payment.css";
 import card from "../cab_images/cards.png";
-import Footer from "../Shared/Footer";
 import { useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { updatePaymentData } from "../Actions/actions.js";
+import { toast } from "react-toastify";
 
 import axios from "axios";
 
 const PaymentCard = ({ handleNextButon, handlePreviousButton }) => {
   const userDetails = useSelector((state) => state.userDetailReducer);
   const token = localStorage.getItem("token");
-  const headers = {
-    // 'Content-Type': 'application/json', // Assuming JSON data
-    'token': token  // Include your token here
-  };
+  const navigate = useNavigate();
+  // const headers = {
+  //   'Content-Type': 'application/json', 
+  //   'token': token  
+  // };
 
   const URL = "https://chauffer-staging-tse4a.ondigitalocean.app/v1/ride/bookRide";
   const [rideBookingData, setRideBookingData] = useState({
@@ -39,7 +40,7 @@ const PaymentCard = ({ handleNextButon, handlePreviousButton }) => {
     cvv: null,
     amount: null,
   });
-  const navigate = useNavigate();
+ 
   const paymentDetailFromRedux = useSelector(
     (state) => state.paymentDetailReducer
   );
@@ -64,6 +65,8 @@ const PaymentCard = ({ handleNextButon, handlePreviousButton }) => {
         console.log("user is logined", paymentDetails);
         dispatch(updatePaymentData(paymentDetails));
         datafetchingForBookRide();
+        toast.success("Payment has done Successfully ! ")
+        
       } else {
         dispatch(updatePaymentData(paymentDetails));
         navigate("/login", { state: { from: "/services/bookride" } });
@@ -260,7 +263,7 @@ const PaymentCard = ({ handleNextButon, handlePreviousButton }) => {
           </div>
         </section>
       </section>
-      <Footer />
+      {/* <Footer /> */}
     </div>
   );
 };

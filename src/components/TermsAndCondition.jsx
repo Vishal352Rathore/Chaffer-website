@@ -3,7 +3,6 @@ import { NavLink, useNavigate } from "react-router-dom";
 import image1 from "../cab_images/logo.png";
 import "../CssStyle/TermsandCondition.css";
 import "bootstrap/dist/css/bootstrap.min.css";
-import Footer from "../Shared/Footer";
 
 const TermsAndCondition = () => {
   const navigate = useNavigate();
@@ -79,7 +78,7 @@ const TermsAndCondition = () => {
           </div>
         </div>
       </section>
-      <Footer/>
+      {/* <Footer/> */}
     </div>
   );
 };

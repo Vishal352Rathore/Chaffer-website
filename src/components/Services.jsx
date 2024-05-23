@@ -4,7 +4,6 @@ import "../CssStyle/Services.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import img1 from "../cabimages-22/3.jpg";
 import Header from "./Header";
-import Footer from "../Shared/Footer";
 
 const Services = () => {
   const navigate = useNavigate();
@@ -113,7 +112,7 @@ const Services = () => {
         </div>
       </section>
 
-      <Footer/>
+      {/* <Footer/> */}
     </div>
   );
 };

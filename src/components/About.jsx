@@ -1,6 +1,4 @@
 import React from "react";
-import { NavLink, useNavigate } from "react-router-dom";
-import image1 from "../cab_images/logo.png";
 import "../CssStyle/About.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import aboutus from "../cab_images/taxi-driver-getting-ready-customer 1.png";
@@ -9,10 +7,8 @@ import forma1 from "../cab_images/forma1.png";
 import forma2 from "../cab_images/forma2.png";
 import forma3 from "../cab_images/forma3.png";
 import Header from "./Header";
-import Footer from "../Shared/Footer";
 
 const About = () => {
-  const navigate = useNavigate();
 
   return (
     <div>
@@ -282,7 +278,7 @@ const About = () => {
           </p>
         </div>
       </section>
-      <Footer />
+
     </div>
   );
 };
