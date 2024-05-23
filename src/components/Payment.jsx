@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "../CssStyle/Payment.css";
 import card from "../cab_images/cards.png";
-import Footer from "../Shared/Footer";
 import { useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { updatePaymentData } from "../Actions/actions.js";
@@ -11,10 +10,10 @@ import axios from "axios";
 const PaymentCard = ({ handleNextButon, handlePreviousButton }) => {
   const userDetails = useSelector((state) => state.userDetailReducer);
   const token = localStorage.getItem("token");
-  const headers = {
-    // 'Content-Type': 'application/json', // Assuming JSON data
-    'token': token  // Include your token here
-  };
+  // const headers = {
+  //   'Content-Type': 'application/json', 
+  //   'token': token  
+  // };
 
   const URL = "https://chauffer-staging-tse4a.ondigitalocean.app/v1/ride/bookRide";
   const [rideBookingData, setRideBookingData] = useState({
@@ -260,7 +259,7 @@ const PaymentCard = ({ handleNextButon, handlePreviousButton }) => {
           </div>
         </section>
       </section>
-      <Footer />
+      {/* <Footer /> */}
     </div>
   );
 };

@@ -7,7 +7,6 @@ import Upcoming from "./HistoryStages/Upcoming";
 import Past from "./HistoryStages/Past";
 import Cancel from "./HistoryStages/Cancel";
 import "../CssStyle/History.css";
-import Footer from "../Shared/Footer";
 
 const History = () => {
   const URL =
@@ -103,7 +102,7 @@ const History = () => {
         </header>
         <main>{renderPage()}</main>
       </div>
-      <Footer />
+      {/* <Footer /> */}
     </div>
   );
 };

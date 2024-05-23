@@ -1,6 +1,5 @@
 import React, { useState ,useEffect} from "react";
 import "../CssStyle/Pickup.css";
- import Footer from "../Shared/Footer";
 import { useSelector, useDispatch } from "react-redux";
 import { updateBookingData } from "../Actions/actions.js";
 
@@ -229,7 +228,7 @@ const Pickup = ({handleNextButon ,handlePreviousButton}) => {
           </div>
         </section>
       </section>
-      <Footer />
+      {/* <Footer /> */}
     </div>
   );
 };

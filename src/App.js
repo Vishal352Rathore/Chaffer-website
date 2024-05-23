@@ -5,6 +5,7 @@ import AppRoutes from "./routes/AppRoutes";
 
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import Footer from "./Shared/Footer";
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
         <ToastContainer />
      
         <AppRoutes />
+        <Footer/>
       </BrowserRouter>
     </div>
   );

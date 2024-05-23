@@ -1,6 +1,4 @@
 import React from "react";
-import { NavLink, useNavigate } from "react-router-dom";
-import image1 from "../cab_images/logo.png";
 import img1 from "../cab_images/01.jpg";
 import pdf from "../cab_images/download.png";
 import address from "../cab_images/address.png";
@@ -8,10 +6,9 @@ import phone from "../cab_images/phone.png";
 import email from "../cab_images/email.png";
 import "../CssStyle/ChaufferServices.css";
 import Header from "./Header";
-import Footer from "../Shared/Footer";
 
 const ChaufferServices = () => {
-  const navigate = useNavigate();
+
   return (
     <div className="chaufferservices">
       <section className="bg-image-aboutus w-100%">
@@ -264,7 +261,7 @@ const ChaufferServices = () => {
           </div>
         </div>
       </section>
-      <Footer/>
+      {/* <Footer/> */}
     </div>
   );
 };
