@@ -8,12 +8,14 @@ export const isLoggedIn = () => {
         
         if (decodedToken.exp * 1000 > Date.now()) {
           return true; 
-        } else {
+        } 
+        else {
           // Token is expired
           localStorage.removeItem('token'); 
           return false; 
         }
-      } catch (error) {
+      } 
+      catch (error) {
         console.log("Error decoding token:", error);
         localStorage.removeItem('token'); 
         return false;
