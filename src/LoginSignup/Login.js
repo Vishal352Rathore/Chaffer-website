@@ -48,6 +48,7 @@ const Login = () => {
         e.target.reset();
         navigate(from);       
       } 
+      
       else {
         console.error("Login failed:", response.data);
         toast.error('Login failed. Please check your credentials.');
@@ -76,7 +77,7 @@ const Login = () => {
         <div className="row ">
           <div className="col-md-8 m-auto pb-5">
             <form className="login-form p-5 text-left" onSubmit={handleSubmit}>
-              <p className="formtitle">Welcome to GenAlphaPlus</p>
+              <p className="formtitle">Welcome to GenAlphaPlas</p>
               <p className="registered-email">
                 You'll be able to easily book and manage rides, and get ride
                 status updates on the day of travel.
@@ -131,7 +132,7 @@ const Login = () => {
                 Log in
               </button>
               <p className="navi-login">
-                New to GenAlphaPlus? <span onClick={() => navigate("/signup")}>Create account</span>
+                New to GenAlphaPlas? <span onClick={() => navigate("/signup")}>Create account</span>
               </p>
               <div className="or-container ">
                 <div className="or-parent d-flex justify-content-center align-items-center">

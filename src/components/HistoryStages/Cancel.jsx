@@ -11,7 +11,7 @@ const Cancel = ({ rideData }) => {
     <div className="ride-history-container">
       <div className="container-fluid">
         <div className="row">
-        { rideData && rideData.length > 0 &&
+        { rideData && rideData.length>0 &&
             rideData.map((ride, index) => {
               return (
                 ride.status === 2 &&
@@ -19,12 +19,12 @@ const Cancel = ({ rideData }) => {
                   <div className="history-card">
                     <div className="card-row">
                       <img src={Pickup_green} alt="" />
-                      <p>{ride.pickUpLocation.substring(0,35)+" ..."}</p>
+                      <p>{ride.pickUpLocation.substring(0,34)+" ..."}</p>
                     </div>
 
                     <div className="card-row">
                       <img src={Drop_red} alt="" />
-                      <p>{ride.dropLocation.substring(0,35)+" ..."}</p>
+                      <p>{ride.dropLocation.substring(0,34)+" ..."}</p>
                     </div>
 
                     <hr  style={{border: "1px solid black"}}/>

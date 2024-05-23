@@ -33,7 +33,10 @@ const History = () => {
 
             if (response.status) {
               setRideData(response.data.items);
+            } else if (!response.status) {
+              navigate('/login', { state: { from: "/history" } });
             }
+            
           } catch (error) {
             console.error("response for ride", error);
           }
@@ -67,19 +70,19 @@ const History = () => {
   };
 
   return (
-    <div className="">
-      <div className="history-bg-image w-100%">
+    <div className="city-conatainer ">
+      <section className="bg-image-aboutus w-100%">
         <Header />
-        <div className="text-content customheader">
-          <div className="text-div">
-            <div className="text-heading-first">
-              <h2> History</h2>
+        <section className="container customheader">
+          <div className="row">
+            <div className="text-content-aboutus">
+              <p className="text-heading-first pb-5">History</p>
             </div>
           </div>
-        </div>
-      </div>
+        </section>
+      </section>
 
-      <div className="history-container">
+      <div className="history-container mb-5 pb-5">
         <header>
           <nav className="tab-bar-container">
             <ul className="tab-bar">
@@ -95,11 +98,11 @@ const History = () => {
                 </li>
               ))}
             </ul>
-          </nav>
+          </nav>  
         </header>
-
         <main>{renderPage()}</main>
       </div>
+      {/* <Footer /> */}
     </div>
   );
 };

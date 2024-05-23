@@ -14,7 +14,6 @@ import { useNavigate } from "react-router-dom";
 import "../CssStyle/Headers.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import google from "../cab_images/googleAppimg.png";
-import Footer from "../Shared/Footer";
 import Header from "./Header";
 import { LoadScript, Autocomplete } from "@react-google-maps/api";
 import DatePicker from "react-datepicker";
@@ -42,23 +41,17 @@ function Home() {
     }
   }, []);
 
-  // Function to get the current date in the format YYYY-MM-DD
-  const getCurrentDateTime = () => {
-    const now = new Date();
-    const year = now.getFullYear();
-    const month = (now.getMonth() + 1).toString().padStart(2, "0");
-    const day = now.getDate().toString().padStart(2, "0");
-    const hours = now.getHours().toString().padStart(2, "0");
-    const minutes = now.getMinutes().toString().padStart(2, "0");
-    return `${year}-${month}-${day} ${hours}:${minutes}`;
-  };
+  
 
   const [Info, setInfo] = useState({
     pickUpLocation: "",
     dropLocation: "",
     dateTime: "",
-    category: "",
+    category: "Ride",
   });
+
+  const [isSuggestionSelected, setIsSuggestionSelected] = useState({ pickUpLocation: false, dropOffLocation: false });
+
 
   const handlePlaceSelect = (place ,name) => {
     const { lat, lng } = place.geometry.location;
@@ -66,11 +59,19 @@ function Home() {
     setCoordinates(prevCoordinates =>({...prevCoordinates , [name] : `${lat()},${lng()}` }))
     console.log("Selected place:", place.formatted_address);
     console.log('Coordinates:name', `${name} ${lat()},${lng()}` );
+    setIsSuggestionSelected({ ...isSuggestionSelected, [name]: true });
   };
 
 
   const handleChange = (e) => {
     setInfo({ ...Info, [e.target.name]: e.target.value });
+    setIsSuggestionSelected({ ...isSuggestionSelected, [e.target.name]: false });
+  };
+
+  const handleBlur = (fieldName) => {
+    if (!isSuggestionSelected[fieldName]) {
+      setInfo({ ...Info, [fieldName]: '' });
+    }
   };
 
   const handleDate = (date, name) => {
@@ -107,8 +108,9 @@ function Home() {
 
   return (
     <div className="home-container">
+      {/* <Header /> */}
       <div className="bg-image w-100%">
-        <Header />
+        <Header/>
         <div className="text-content customheader">
           <div className="text-div">
             <div className="text-heading-first">
@@ -158,6 +160,7 @@ function Home() {
                         name="pickUpLocation"
                         value={Info.pickUpLocation}
                         onChange={handleChange}
+                        onBlur={() => handleBlur("pickUpLocation")}
                         required
                       />
                     </div>
@@ -193,6 +196,7 @@ function Home() {
                         name="dropLocation"
                         value={Info.dropLocation}
                         onChange={handleChange}
+                        onBlur={() => handleBlur("dropLocation")}
                         required
                       />
                     </div>
@@ -217,16 +221,9 @@ function Home() {
                     placeholderText="DD/MM/YYYY"
                     minDate={new Date()}
                     className="datapicker"
+                    required
                   />
-                  {/* <input
-                  type="datetime-local" 
-                  className="form-control input-text"
-                  name="dateTime"
-                  value={Info.dateTime}
-                  onChange={handleChange}
-                  required
-                
-                /> */}
+                 
                 </div>
               </div>
               <div className="col-md-3 form-contain">
@@ -266,7 +263,7 @@ function Home() {
           <div className=" row bg-white media-bg-white">
             <div className="col-md-12 ">
               <div className="gen-heading pb-4">
-                <h1>How GenAlphaPlus Works</h1>
+                <h1>How GenAlphaPlas Works</h1>
                 <p className="explore">
                   Explore our first className limousine & car rental services
                 </p>
@@ -391,7 +388,7 @@ function Home() {
               <div>
                 <img src={ourservices2} alt="not found" />
               </div>
-              <h3>Limousin Service</h3>
+              <h3>Limousin Events</h3>
             </div>
             <div className="col-md-4">
               <div>
@@ -426,7 +423,7 @@ function Home() {
       <section className="prodrive-container">
         <div className="container">
           <div className="row">
-            <p>GenAlphaPlus Pro Fleet</p>
+            <p>GenAlphaPlas Pro Fleet</p>
             <p>
               We also take custom orders and will help you acquire a specific
               yacht
@@ -565,7 +562,7 @@ function Home() {
           </div>
         </div>
       </section>
-      <Footer />
+      
     </div>
   );
 }

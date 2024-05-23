@@ -4,7 +4,8 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import car1 from "../cab_images/blackcar1.png";
 import family from "../cab_images/familyicon.png";
 import bag from "../cab_images/bagicon.png";
-import Footer from "../Shared/Footer";
+import { toast } from "react-toastify";
+
 import axios from "axios";
 
 const ServiceClass = ({ handleNextButon }) => {
@@ -33,6 +34,7 @@ const ServiceClass = ({ handleNextButon }) => {
   };
 
   const handleSubmit = () => {
+    toast.success('Vehcile has selected !');
     handleNextButon();
     localStorage.setItem("selected vehicle", JSON.stringify(selectedVehicle));
   };
@@ -129,7 +131,7 @@ const ServiceClass = ({ handleNextButon }) => {
           </div>
         </section>
       </section>
-      <Footer />
+   
     </div>
   );
 };
