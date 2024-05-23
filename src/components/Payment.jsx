@@ -13,11 +13,12 @@ const PaymentCard = ({ handleNextButon, handlePreviousButton }) => {
   const token = localStorage.getItem("token");
   const navigate = useNavigate();
   // const headers = {
-  //   'Content-Type': 'application/json', 
-  //   'token': token  
+  //   'Content-Type': 'application/json',
+  //   'token': token
   // };
 
-  const URL = "https://chauffer-staging-tse4a.ondigitalocean.app/v1/ride/bookRide";
+  const URL =
+    "https://chauffer-staging-tse4a.ondigitalocean.app/v1/ride/bookRide";
   const [rideBookingData, setRideBookingData] = useState({
     pickUpLocation: "",
     dropLocation: "",
@@ -40,7 +41,7 @@ const PaymentCard = ({ handleNextButon, handlePreviousButton }) => {
     cvv: null,
     amount: null,
   });
- 
+
   const paymentDetailFromRedux = useSelector(
     (state) => state.paymentDetailReducer
   );
@@ -65,8 +66,8 @@ const PaymentCard = ({ handleNextButon, handlePreviousButton }) => {
         console.log("user is logined", paymentDetails);
         dispatch(updatePaymentData(paymentDetails));
         datafetchingForBookRide();
-        toast.success("Payment has done Successfully ! ")
         
+        // toast.success("Payment has done Successfully ! ")
       } else {
         dispatch(updatePaymentData(paymentDetails));
         navigate("/login", { state: { from: "/services/bookride" } });
@@ -81,11 +82,10 @@ const PaymentCard = ({ handleNextButon, handlePreviousButton }) => {
     setPaymentDetails({ ...paymentDetails, [e.target.name]: e.target.value });
   };
 
-
   const datafetchingForBookRide = () => {
     const [datePart, timePart] = localStorage.getItem("dateTime").split("T");
-    const vehicleId = JSON.parse(localStorage.getItem("selected vehicle"))._id
-    console.log("vehicleId",vehicleId)
+    const vehicleId = JSON.parse(localStorage.getItem("selected vehicle"))._id;
+    console.log("vehicleId", vehicleId);
 
     setRideBookingData({
       pickUpLocation: localStorage.getItem("pickUpLocationCoordinates"),
@@ -99,18 +99,17 @@ const PaymentCard = ({ handleNextButon, handlePreviousButton }) => {
       notesForChauffer: userDetails.chauffer_notes,
       referenceNumberOrCostCenter: userDetails.cost_center,
       firstName: userDetails.firstName || localStorage.getItem("firstName"),
-      lastName: userDetails.lastName  || localStorage.getItem("lastName"),
-      email: userDetails.email  || localStorage.getItem("email"),
-      phoneNumber: userDetails.mobileNumber || localStorage.getItem("mobileNumber"),
+      lastName: userDetails.lastName || localStorage.getItem("lastName"),
+      email: userDetails.email || localStorage.getItem("email"),
+      phoneNumber:
+        userDetails.mobileNumber || localStorage.getItem("mobileNumber"),
       status: 0, // Initial status
       cardName: paymentDetails.nameofcard,
       cardNumber: paymentDetails.cardnumber,
       expiryDate: paymentDetails.expirationdate, // Card expiry date
       cvv: paymentDetails.cvv,
       amount: "535",
-    }, 
-  );
-
+    });
 
     // bookingDone();
   };
@@ -121,28 +120,29 @@ const PaymentCard = ({ handleNextButon, handlePreviousButton }) => {
     bookingDone();
   }, [rideBookingData]);
 
-    const bookingDone = async () => {
-      try {
-        await axios.post(URL, rideBookingData,{
-          method: "GET", // or 'POST', 'PUT', 'DELETE', etc.
+  const bookingDone = async () => {
+    try {
+      await axios
+        .post(URL, rideBookingData, {
+          method: "POST",
           headers: {
             token: token,
             "Content-Type": "application/json", // Adjust content type as needed
           },
         })
-          .then((res) => {
-            console.log("Booking DOne", res);
-            if (res.data.status === true) {
-              handleNextButon();
-            }
-          })
-          .catch(() => console.log("Booking fail"));
-      } catch (error) {
-        console.error("Error fetching data:", error);
-      }
-    };
-  
- 
+        .then((res) => {
+          console.log("Booking DOne", res);
+          if (res.data.status === true) {
+            console.log("Book ride done Data:",res.data)
+            handleNextButon();
+          }
+        })
+        .catch(() => console.log("Booking fail"));
+    } catch (error) {
+      console.error("Error fetching data:", error);
+    }
+  };
+
   return (
     <div className="payment-container ">
       <section className="container">
@@ -256,9 +256,51 @@ const PaymentCard = ({ handleNextButon, handlePreviousButton }) => {
               </button>
             </div>
             <div className="col-md-3 col-sm-6">
-              <button className="pay-continue-btn" onClick={isUserLogin}>
+              <button
+                className="pay-continue-btn"
+                data-bs-toggle="modal"
+                data-bs-target="#exampleModal"
+              >
                 Continue
               </button>
+
+              <div
+                class="modal fade"
+                id="exampleModal"
+                tabindex="-1"
+                aria-labelledby="exampleModalLabel"
+                aria-hidden="true"
+              >
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <button
+                        type="button"
+                        class="btn-close"
+                        data-bs-dismiss="modal"
+                        aria-label="Close"
+                      ></button>
+                    </div>
+                    <div class="modal-body">Please confirm Your Payment !!</div>
+                    <div class="modal-footer">
+                      <button
+                        type="button"
+                        class="btn sign-in-btn"
+                        data-bs-dismiss="modal"
+                      >
+                        Close
+                      </button>
+                      <button
+                        type="button"
+                        class=" continue-btn"
+                        onClick={isUserLogin}
+                      >
+                        Confirm
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </section>

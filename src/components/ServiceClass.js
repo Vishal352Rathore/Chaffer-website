@@ -34,7 +34,6 @@ const ServiceClass = ({ handleNextButon }) => {
   };
 
   const handleSubmit = () => {
-    toast.success('Vehcile has selected !');
     handleNextButon();
     localStorage.setItem("selected vehicle", JSON.stringify(selectedVehicle));
   };
