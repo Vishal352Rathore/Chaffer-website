@@ -1,22 +1,24 @@
 import React from "react";
 import image1 from "../cab_images/logo.png";
 import { useState, useEffect } from "react";
-import { useNavigate ,Link } from "react-router-dom";
+import { useNavigate, Link ,useLocation  } from "react-router-dom";
 import "../CssStyle/Headers.css";
-import { toast } from 'react-toastify';
+import { toast } from "react-toastify";
 
 const Header = () => {
   const [isLogin, setIsLogin] = useState(false);
   const token = localStorage.getItem("token");
-  const [isActive, setIsActive] = useState("home");
 
-  const handleClick = (e,index) => {
-    setIsActive(index); 
-   };
-   
-   useEffect(() => {
+  const location = useLocation();
+  const [isActive, setIsActive] = useState(location.pathname);
+
+  useEffect(() => {
+    setIsActive(location.pathname);
+  }, [location.pathname]);
+  useEffect(() => {
     console.log("isActive:", isActive);
   }, [isActive]);
+
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -28,7 +30,6 @@ const Header = () => {
     } else {
       setIsLogin(false);
       console.log("islogin", isLogin);
-      
     }
     console.log("token after condition:", token);
   }, []);
@@ -38,8 +39,8 @@ const Header = () => {
     if (isLogin) {
       localStorage.removeItem("token");
       setIsLogin(false);
-      toast.success('Logout successful!');
-      navigate('/');
+      toast.success("Logout successful!");
+      navigate("/");
     } else {
       navigate("./login");
     }
@@ -65,70 +66,85 @@ const Header = () => {
           </button>
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-4 mb-2 mb-lg-0">
-              <li className="nav-item"
-              //  onClick={() => handleClick("home")}
-                >
-                <Link className={`nav-link ${isActive === "home" ? 'active' : ''}`}
-                      onClick={(e) => handleClick(e, "home")} 
-                      to="/"
-                // id= {isActive === "home" ? "home" : ""}
+              <li className="nav-item" 
+              // onClick={(e) => handleClick(e, "home")}
+              >
+                <Link
+                  className={`nav-link ${isActive === "/" ? "active" : ""}`}
+                  to="/"
                 >
                   Home
                 </Link>
               </li>
-              
-              <li className="nav-item" >
-                <Link className={`nav-link ${isActive === "history" ? 'active' : ''}`} 
-                   onClick={(e) => handleClick(e, "history")}
-                to="/history" >
+
+              <li
+                className="nav-item"
+                // onClick={(e) => handleClick(e, "history")}
+              >
+                <Link
+                  className={`nav-link ${
+                    isActive === "/history" ? "active" : ""
+                  }`}
+                  to="/history"
+                >
                   History
                 </Link>
               </li>
 
-              <li class="nav-item">
+              <li class="nav-item" 
+              // onClick={(e) => handleClick(e, "about")}
+              >
                 <Link
-                  className={`nav-link ${isActive === "about" ? 'active' : ''}`} 
-                  onClick={(e) => handleClick(e, "about")}
+                  className={`nav-link ${isActive === "/about" ? "active" : ""}`}
                   to="/about"
-                 
                 >
                   {" "}
                   About Us
                 </Link>
               </li>
-              <li class="nav-item">
+              <li class="nav-item" 
+              // onClick={(e) => handleClick(e, "help")}
+              >
                 <Link
-                 className={`nav-link ${isActive === "help" ? 'active' : ''}`} 
-                 onClick={(e) => handleClick(e, "help")}
-                 to="/help"
+                  className={`nav-link ${isActive === "/help" ? "active" : ""}`}
+                  to="/help"
                 >
                   {" "}
                   Help us
                 </Link>
               </li>
-              <li class="nav-item" >
+              <li class="nav-item"
+              //  onClick={(e) => handleClick(e, "services")}
+               >
                 <Link
-                  className={`nav-link ${isActive === "services" ? 'active' : ''}`} 
-                  onClick={(e) => handleClick(e, "services")}
+                  className={`nav-link ${
+                    isActive === "/services" ? "active" : ""
+                  }`}
                   to="/services"
-                 
                 >
                   Services
                 </Link>
               </li>
-              <li class="nav-item" onClick={() => handleClick("cities")}>
-              <Link
-                  className={`nav-link ${isActive === "cities" ? 'active' : ''}`} 
-                  onClick={(e) => handleClick(e, "cities")}
-                  
+              <li class="nav-item" 
+              // onClick={(e) => handleClick(e,"cities")}
+              >
+                <Link
+                  className={`nav-link ${
+                    isActive === "/cities" ? "active" : ""
+                  }`}
+                  to="/cities"
                 >
                   Cities
                 </Link>
               </li>
             </ul>
             <form className="d-flex sign-form">
-              
-            <button className="sign-in-btn" onClick={(e)=>{handleLogin(e)}}>
+              <button
+                className="sign-in-btn"
+                onClick={(e) => {
+                  handleLogin(e);
+                }}
+              >
                 {isLogin ? "Logout" : "Sign In"}
               </button>
             </form>
