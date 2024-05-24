@@ -13,8 +13,8 @@ const PaymentCard = ({ handleNextButon, handlePreviousButton }) => {
   const token = localStorage.getItem("token");
   const navigate = useNavigate();
   // const headers = {
-  //   'Content-Type': 'application/json', 
-  //   'token': token  
+  //   'Content-Type': 'application/json',
+  //   'token': token
   // };
   const headers = {
     // 'Content-Type': 'application/json', // Assuming JSON data
@@ -45,7 +45,7 @@ const PaymentCard = ({ handleNextButon, handlePreviousButton }) => {
     cvv: null,
     amount: null,
   });
- 
+
   const paymentDetailFromRedux = useSelector(
     (state) => state.paymentDetailReducer
   );
@@ -70,8 +70,8 @@ const PaymentCard = ({ handleNextButon, handlePreviousButton }) => {
         console.log("user is logined", paymentDetails);
         dispatch(updatePaymentData(paymentDetails));
         datafetchingForBookRide();
-        toast.success("Payment has done Successfully ! ")
         
+        // toast.success("Payment has done Successfully ! ")
       } else {
         dispatch(updatePaymentData(paymentDetails));
         navigate("/login", { state: { from: "/services/bookride" } });
@@ -259,9 +259,51 @@ const PaymentCard = ({ handleNextButon, handlePreviousButton }) => {
               </button>
             </div>
             <div className="col-md-3 col-sm-6">
-              <button className="pay-continue-btn" onClick={isUserLogin}>
+              <button
+                className="pay-continue-btn"
+                data-bs-toggle="modal"
+                data-bs-target="#exampleModal"
+              >
                 Continue
               </button>
+
+              <div
+                class="modal fade"
+                id="exampleModal"
+                tabindex="-1"
+                aria-labelledby="exampleModalLabel"
+                aria-hidden="true"
+              >
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <button
+                        type="button"
+                        class="btn-close"
+                        data-bs-dismiss="modal"
+                        aria-label="Close"
+                      ></button>
+                    </div>
+                    <div class="modal-body">Please confirm Your Payment !!</div>
+                    <div class="modal-footer">
+                      <button
+                        type="button"
+                        class="btn sign-in-btn"
+                        data-bs-dismiss="modal"
+                      >
+                        Close
+                      </button>
+                      <button
+                        type="button"
+                        class=" continue-btn"
+                        onClick={isUserLogin}
+                      >
+                        Confirm
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </section>

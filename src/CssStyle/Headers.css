@@ -56,7 +56,7 @@ body {
 }
 
 .navbar-toggler {
-    background-color: #000 !important;
+    background-color: #6c6364 !important;
 }
 .nav-link:hover{
     text-shadow: 3px 3px 3px #908889;
@@ -549,16 +549,23 @@ div#navbarNavDropdown {
 }
 
 .navbar-toggler-icon {
-    background-color: #fff;
-    /* Color of hamburger icon */
+    background-color: #8b8485;
 }
-
-@media(max-width: 575.5px) {
+.download-container .google-img-container {
+    display: flex;
+    justify-content: unset;
+    align-items: center;
+    width: 100%;
+}
+.download-container .google-img {
+    margin-top: 0px;
+}
+/* @media(max-width: 575.5px) {
     .container {
         margin: 0px;
         padding: 20px
     }
-}
+} */
 
 
 @media (max-width: 767px) {
@@ -568,39 +575,41 @@ div#navbarNavDropdown {
         padding: 10px;
         border-radius: 5px;
         position: absolute;
-        top: 110px;
-        left: 40px;
+        top: 100px;
+        left: 0px;
         opacity: .9;
-        width: 80%;
+        width: 100%;
         z-index: 999;
         box-shadow: 0px 3px 3px 2px #ccc;
-
     }
-
+    .container.customheader {
+        max-width: 100%;
+        padding: 0 10px;
+    }
+   
+    .container .logo {
+        width: 160px;
+    }
     .container .navbar-collapse .navbar-nav .nav-item a.nav-link {
         font-family: Poppins;
-        font-size: 18px;
+        font-size: 20px;
         /* color: #000; */
-        color:#fff;
+        color: #fff;
         text-transform: capitalize;
         text-align: center;
-
+        line-height: 0px;
     }
-
     a.nav-link.active {
         color: #CC4452;
     }
-
     .navbar-nav {
         width: 100%;
         text-align: center;
     }
-
     .nav-item {
         display: block;
         margin-bottom: 10px;
     }
-
     .nav-link {
         padding: 10px 0;
     }
@@ -614,37 +623,96 @@ div#navbarNavDropdown {
     height: 60vh;
 }
 .text-content {
-    height: calc(100% - 273px); 
-    font-size: 30px;
-    padding-left: 54px;
-    line-height: 40.41px;
+    height: calc(100% - 273px);
+    font-size: 24px;
+    padding-left: 30px;
+    line-height: 30.41px;
+    padding-top: 100px;
 }
 .text-heading-second {
     font-size: 16px;
-
+    padding: 0 0 20px 0px;
+}
+.book-btn {
+    width: 120px;
+    font-size: 16px;
+    font-weight: 700;
+    border: none;
+    font-family: sans-serif;
 }
 .custom-form {
-    margin-top: -107px;
+    margin-top: 10px;
 }
 .form-label {
     margin-bottom: .5rem;
     margin-top: .5rem  !important;
 }
+.chooseUs {
+    margin-top: 100px;
+    background-color: #fff;
+    height: auto;
+    z-index: 999;
+}
 .chooseUs img {
-    height: 58px;
+    height: auto;
 }
 .online-booking-img {
-    width: 50px;
+    width: 80px;
 }
 .text-title {
-    font-size: 14px;
+    font-size: 18px;
+    font-weight: 500;
 }
 .chooseUs .paragraph {
-    font-size: 9px;
+    font-size: 16px;
+}
+.aboutus {
+    margin-top: 0px;
 }
 .aboutus-text-container {
-    margin-top: 121px;
+    margin-top: 10px;
     margin-left: 0px;
+}
+img.image-aboutus {
+    width: 100%;
+    height: auto;
+}
+.service-container div h3:nth-child(1) {
+    font-size: 35px;
+    margin-top: 0px;
+    margin-bottom: 10px;
+    color: #1e1e1e;
+}
+.service-container .row .col-md-4 h3 {
+    font-size: 20px;
+    font-weight: 1;
+    color: #6a6a6a;
+    margin: 10px 0px 40px 0px;
+}
+.anywhere {
+    margin-top: 100px;
+    height: auto;
+}
+.anywhere-text {
+    padding-top: 40px;
+    
+}
+.anywhere-text h1 {
+    font-size: 34px;
+}
+.anywhere-text p {
+    font-weight: 100;
+    font-family: 'Dosis';
+    font-size: 18px;
+}
+.prodrive-container div div p:nth-child(2) {
+    font-size: 18px;
+}
+.download-container h1 {
+    font-size: 34px;
+}
+.owl-nav {
+    padding: 10px 0px;
 }
 /* .owl-carousel .owl-item {
     float: unset  !important;
@@ -752,6 +820,9 @@ div#navbarNavDropdown {
      }
      .text-content {
         height: calc(100% - 190px);
+    }
+    .sign-in-btn{
+        font-size: 16px;
     }
 
 }
