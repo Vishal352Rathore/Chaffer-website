@@ -58,3 +58,9 @@
 .services .page-link {
     color: #D7D2BD;
 }
+
+@media (max-width:767px){
+    .our-services-about {
+        padding: 0px 0px 10px 0px;
+    }
+}
