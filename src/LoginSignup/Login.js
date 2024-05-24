@@ -25,7 +25,7 @@ const Login = () => {
     setLoginInfo({ ...loginInfo, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = async (e) => { 
     e.preventDefault();
     try {
       const userData = {
@@ -46,8 +46,7 @@ const Login = () => {
         console.log("login successfully", response.data); 
         toast.success('Login successful!');
         e.target.reset();
-        navigate(from);
-        
+        navigate(from);       
       } 
       
       else {
