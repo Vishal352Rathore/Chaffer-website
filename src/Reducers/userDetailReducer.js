@@ -1,5 +1,5 @@
 const initialState = {
-   bookingFor : "",
+    bookingFor : "",
     firstName: "",
     lastName: "",
     email: "",

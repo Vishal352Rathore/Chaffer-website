@@ -13,7 +13,7 @@ import "../CssStyle/StepBar.css";
 
 const CHECKOUT_STEPS = [
     {
-      name: "service Class",
+      name: "Service Class",
       Component: ServiceClass,
     },
     {

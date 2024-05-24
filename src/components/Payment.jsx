@@ -10,19 +10,16 @@ import axios from "axios";
 
 const PaymentCard = ({ handleNextButon, handlePreviousButton }) => {
   const userDetails = useSelector((state) => state.userDetailReducer);
+  const dispatch = useDispatch();
   const token = localStorage.getItem("token");
   const headers = {
     // 'Content-Type': 'application/json', // Assuming JSON data
     token: token, // Include your token here
   };
   const navigate = useNavigate();
-  // const headers = {
-  //   'Content-Type': 'application/json',
-  //   'token': token
-  // };
 
-  const URL =
-    "https://chauffer-staging-tse4a.ondigitalocean.app/v1/ride/bookRide";
+  const URL = "https://chauffer-staging-tse4a.ondigitalocean.app/v1/ride/bookRide";
+
   const [rideBookingData, setRideBookingData] = useState({
     pickUpLocation: "",
     dropLocation: "",
@@ -36,12 +33,12 @@ const PaymentCard = ({ handleNextButon, handlePreviousButton }) => {
     referenceNumberOrCostCenter: "",
     firstName: "",
     lastName: "",
-    email: "@gmail.com",
+    email: "",
     phoneNumber: null,
     status: 0,
     cardName: " ",
     cardNumber: null,
-    expiryDate: "02/26",
+    expiryDate: "",
     cvv: null,
     amount: null,
   });
@@ -49,7 +46,6 @@ const PaymentCard = ({ handleNextButon, handlePreviousButton }) => {
   const paymentDetailFromRedux = useSelector(
     (state) => state.paymentDetailReducer
   );
-  const dispatch = useDispatch();
 
   const [paymentDetails, setPaymentDetails] = useState({
     nameofcard: "",
@@ -105,8 +101,7 @@ const PaymentCard = ({ handleNextButon, handlePreviousButton }) => {
       firstName: userDetails.firstName || localStorage.getItem("firstName"),
       lastName: userDetails.lastName || localStorage.getItem("lastName"),
       email: userDetails.email || localStorage.getItem("email"),
-      phoneNumber:
-        userDetails.mobileNumber || localStorage.getItem("mobileNumber"),
+      phoneNumber: userDetails.mobileNumber || localStorage.getItem("mobileNumber"),
       status: 0, // Initial status
       cardName: paymentDetails.nameofcard,
       cardNumber: paymentDetails.cardnumber,
@@ -298,6 +293,7 @@ const PaymentCard = ({ handleNextButon, handlePreviousButton }) => {
                         type="button"
                         class=" continue-btn"
                         onClick={isUserLogin}
+                        data-bs-dismiss="modal"
                       >
                         Confirm
                       </button>
@@ -305,6 +301,7 @@ const PaymentCard = ({ handleNextButon, handlePreviousButton }) => {
                   </div>
                 </div>
               </div>
+              
             </div>
           </div>
         </section>
