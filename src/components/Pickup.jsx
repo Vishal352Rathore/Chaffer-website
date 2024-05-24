@@ -1,8 +1,8 @@
 import React, { useState ,useEffect} from "react";
 import "../CssStyle/Pickup.css";
- import Footer from "../Shared/Footer";
 import { useSelector, useDispatch } from "react-redux";
 import { updateBookingData } from "../Actions/actions.js";
+
 
 const Pickup = ({handleNextButon ,handlePreviousButton}) => {
   const [selectedRadio, setSelectedRadio] = useState("Myself");
@@ -176,14 +176,10 @@ const Pickup = ({handleNextButon ,handlePreviousButton}) => {
                 <label htmlFor="chauffer-notes" class="form-label">
                   Notes for the chauffeur
                 </label>
-                <input
-                  type="text"
-                  class="form-control"
-                  id="chauffer_notes"
-                  name="chauffer_notes"
-                  value={bookingDetails.chauffer_notes}
-                  onChange={handleChange}
-                />
+                <textarea class="form-control" id="chauffer_notes"
+                  name="chauffer_notes" rows="5y"  value={bookingDetails.chauffer_notes}
+                  onChange={handleChange}></textarea>
+                
                 <p>
                   Add special requests, e.g. number of bags, child seats, etc.
                   Please do not include confidential information.
@@ -193,14 +189,11 @@ const Pickup = ({handleNextButon ,handlePreviousButton}) => {
                 <label htmlFor="cost-center" class="form-label">
                   Reference number or cost center
                 </label>
-                <input
-                  type="text"
-                  class="form-control"
-                  id="cost_center"
-                  name="cost_center"
+                <textarea class="form-control" id="cost_center"
+                  rows="5y"  name="cost_center"
                   value={bookingDetails.cost_center}
-                  onChange={handleChange}
-                />
+                  onChange={handleChange}></textarea>
+                
                 <p>
                   Booking for business? What you enter above will appear on the
                   invoice.
@@ -229,7 +222,7 @@ const Pickup = ({handleNextButon ,handlePreviousButton}) => {
           </div>
         </section>
       </section>
-      <Footer />
+      {/* <Footer /> */}
     </div>
   );
 };

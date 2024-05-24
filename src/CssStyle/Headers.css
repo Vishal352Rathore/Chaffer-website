@@ -25,7 +25,7 @@ body {
 
 .container .navbar-collapse .navbar-nav .nav-item a.nav-link {
     font-family: poppins;
-    font-size: 18px;
+    font-size: 16px;
     /* font-size: 18px; */
     font-weight: 400;
     line-height: 21px;
@@ -707,8 +707,8 @@ div#navbarNavDropdown {
     
 .container .navbar-collapse .navbar-nav .nav-item a.nav-link {
     font-family: poppins;
-    font-size: 24px;
-    font-weight: 600;
+    font-size: 20px;
+    font-weight: 400;
     line-height: 21px;
     text-align: left;
     color:#fff;

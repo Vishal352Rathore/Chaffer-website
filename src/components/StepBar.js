@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState, useNavigate } from "react";
+import { useEffect, useRef, useState} from "react";
 import "../CssStyle/StepBar.css";
 import { useSelector, useDispatch } from "react-redux";
 import { nextStage, previousStage ,intialStage } from "../Actions/actions.js";
@@ -163,16 +163,7 @@ function MultiStepForm({ stepsConfig, actionIndex }) {
           handlePreviousButton={handlePrevious}
         />
 
-        {/* {!isComplete && (
-        <button className="btn continue-btn" onClick={handleNext}>
-          {currentStep === stepsConfig.length ? "Finish" : "Next"}
-        </button>
-      )} */}
-        {/* {!isComplete && (
-        <button className="btn continue-btn" onClick={handlePrevious}>
-          {currentStep === stepsConfig.length ? "Finish" : "Next"}
-        </button>
-      )} */}
+       
       </div>
     </div>
   );

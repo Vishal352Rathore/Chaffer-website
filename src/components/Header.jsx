@@ -67,7 +67,6 @@ const Header = () => {
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-4 mb-2 mb-lg-0">
               <li className="nav-item" 
-              // onClick={(e) => handleClick(e, "home")}
               >
                 <Link
                   className={`nav-link ${isActive === "/" ? "active" : ""}`}
@@ -79,7 +78,6 @@ const Header = () => {
 
               <li
                 className="nav-item"
-                // onClick={(e) => handleClick(e, "history")}
               >
                 <Link
                   className={`nav-link ${
@@ -92,7 +90,6 @@ const Header = () => {
               </li>
 
               <li class="nav-item" 
-              // onClick={(e) => handleClick(e, "about")}
               >
                 <Link
                   className={`nav-link ${isActive === "/about" ? "active" : ""}`}
@@ -103,7 +100,6 @@ const Header = () => {
                 </Link>
               </li>
               <li class="nav-item" 
-              // onClick={(e) => handleClick(e, "help")}
               >
                 <Link
                   className={`nav-link ${isActive === "/help" ? "active" : ""}`}
@@ -114,7 +110,6 @@ const Header = () => {
                 </Link>
               </li>
               <li class="nav-item"
-              //  onClick={(e) => handleClick(e, "services")}
                >
                 <Link
                   className={`nav-link ${
@@ -126,7 +121,7 @@ const Header = () => {
                 </Link>
               </li>
               <li class="nav-item" 
-              // onClick={(e) => handleClick(e,"cities")}
+             
               >
                 <Link
                   className={`nav-link ${

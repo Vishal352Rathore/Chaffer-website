@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
 import "../CssStyle/Payment.css";
 import card from "../cab_images/cards.png";
-import Footer from "../Shared/Footer";
 import { useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { updatePaymentData } from "../Actions/actions.js";
+import { toast } from "react-toastify";
 
 import axios from "axios";
 
@@ -15,6 +15,11 @@ const PaymentCard = ({ handleNextButon, handlePreviousButton }) => {
     // 'Content-Type': 'application/json', // Assuming JSON data
     token: token, // Include your token here
   };
+  const navigate = useNavigate();
+  // const headers = {
+  //   'Content-Type': 'application/json',
+  //   'token': token
+  // };
 
   const URL =
     "https://chauffer-staging-tse4a.ondigitalocean.app/v1/ride/bookRide";
@@ -40,7 +45,7 @@ const PaymentCard = ({ handleNextButon, handlePreviousButton }) => {
     cvv: null,
     amount: null,
   });
-  const navigate = useNavigate();
+
   const paymentDetailFromRedux = useSelector(
     (state) => state.paymentDetailReducer
   );
@@ -65,6 +70,8 @@ const PaymentCard = ({ handleNextButon, handlePreviousButton }) => {
         console.log("user is logined", paymentDetails);
         dispatch(updatePaymentData(paymentDetails));
         datafetchingForBookRide();
+        
+        // toast.success("Payment has done Successfully ! ")
       } else {
         dispatch(updatePaymentData(paymentDetails));
         navigate("/login", { state: { from: "/services/bookride" } });
@@ -121,7 +128,7 @@ const PaymentCard = ({ handleNextButon, handlePreviousButton }) => {
     try {
       await axios
         .post(URL, rideBookingData, {
-          method: "GET", // or 'POST', 'PUT', 'DELETE', etc.
+          method: "POST",
           headers: {
             token: token,
             "Content-Type": "application/json", // Adjust content type as needed
@@ -130,6 +137,7 @@ const PaymentCard = ({ handleNextButon, handlePreviousButton }) => {
         .then((res) => {
           console.log("Booking DOne", res);
           if (res.data.status === true) {
+            console.log("Book ride done Data:",res.data)
             handleNextButon();
           }
         })
@@ -252,14 +260,56 @@ const PaymentCard = ({ handleNextButon, handlePreviousButton }) => {
               </button>
             </div>
             <div className="col-md-3 col-sm-6">
-              <button className="pay-continue-btn" onClick={isUserLogin}>
+              <button
+                className="pay-continue-btn"
+                data-bs-toggle="modal"
+                data-bs-target="#exampleModal"
+              >
                 Continue
               </button>
+
+              <div
+                class="modal fade"
+                id="exampleModal"
+                tabindex="-1"
+                aria-labelledby="exampleModalLabel"
+                aria-hidden="true"
+              >
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <button
+                        type="button"
+                        class="btn-close"
+                        data-bs-dismiss="modal"
+                        aria-label="Close"
+                      ></button>
+                    </div>
+                    <div class="modal-body">Please confirm Your Payment !!</div>
+                    <div class="modal-footer">
+                      <button
+                        type="button"
+                        class="btn sign-in-btn"
+                        data-bs-dismiss="modal"
+                      >
+                        Close
+                      </button>
+                      <button
+                        type="button"
+                        class=" continue-btn"
+                        onClick={isUserLogin}
+                      >
+                        Confirm
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </section>
       </section>
-      <Footer />
+      {/* <Footer /> */}
     </div>
   );
 };

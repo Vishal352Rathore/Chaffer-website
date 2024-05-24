@@ -14,7 +14,6 @@ import { useNavigate } from "react-router-dom";
 import "../CssStyle/Headers.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import google from "../cab_images/googleAppimg.png";
-import Footer from "../Shared/Footer";
 import Header from "./Header";
 import { LoadScript, Autocomplete } from "@react-google-maps/api";
 import DatePicker from "react-datepicker";
@@ -42,16 +41,7 @@ function Home() {
     }
   }, []);
 
-  // Function to get the current date in the format YYYY-MM-DD
-  const getCurrentDateTime = () => {
-    const now = new Date();
-    const year = now.getFullYear();
-    const month = (now.getMonth() + 1).toString().padStart(2, "0");
-    const day = now.getDate().toString().padStart(2, "0");
-    const hours = now.getHours().toString().padStart(2, "0");
-    const minutes = now.getMinutes().toString().padStart(2, "0");
-    return `${year}-${month}-${day} ${hours}:${minutes}`;
-  };
+  
 
   const [Info, setInfo] = useState({
     pickUpLocation: "",
@@ -233,15 +223,7 @@ function Home() {
                     className="datapicker"
                     required
                   />
-                  {/* <input
-                  type="datetime-local" 
-                  className="form-control input-text"
-                  name="dateTime"
-                  value={Info.dateTime}
-                  onChange={handleChange}
-                  required
-                
-                /> */}
+                 
                 </div>
               </div>
               <div className="col-md-3 form-contain">
@@ -580,7 +562,7 @@ function Home() {
           </div>
         </div>
       </section>
-      <Footer />
+      
     </div>
   );
 }

@@ -1,8 +1,6 @@
 import React from "react";
-import { NavLink, useNavigate } from "react-router-dom";
-import image1 from "../cab_images/logo.png";
+import {  useNavigate } from "react-router-dom";
 import "../CssStyle/CitiesAndClasses.css";
-import Footer from "../Shared/Footer";
 import Header from "./Header";
 
 const CitiesAndClasses = () => {
@@ -187,7 +185,7 @@ const CitiesAndClasses = () => {
         </div>
       </section>
       
-      <Footer/>
+   
       
     </div>
   );
