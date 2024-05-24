@@ -30,6 +30,7 @@ const Pickup = ({handleNextButon ,handlePreviousButton}) => {
 
   const handleSubmit = () =>{
     handleNextButon();
+    
     dispatch(updateBookingData(bookingDetails));
     localStorage.setItem("booking details" , JSON.stringify(bookingDetails));
   }

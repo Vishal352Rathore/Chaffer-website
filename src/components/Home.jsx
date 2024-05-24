@@ -41,7 +41,6 @@ function Home() {
     }
   }, []);
 
-  
 
   const [Info, setInfo] = useState({
     pickUpLocation: "",
@@ -61,7 +60,6 @@ function Home() {
     console.log('Coordinates:name', `${name} ${lat()},${lng()}` );
     setIsSuggestionSelected({ ...isSuggestionSelected, [name]: true });
   };
-
 
   const handleChange = (e) => {
     setInfo({ ...Info, [e.target.name]: e.target.value });
@@ -100,7 +98,7 @@ function Home() {
       console.log("Bookride Data:", userData);
 
       e.target.reset();
-      navigate("/services/bookride");
+      navigate("/services/bookride", { state: { from: "Fresh Booking" } });
     } catch (error) {
       console.log("Error in booking ride:", error);
     }
@@ -111,6 +109,7 @@ function Home() {
       {/* <Header /> */}
       <div className="bg-image w-100%">
         <Header/>
+        {/* <button onClick={()=>{ navigate("/services/bookride", { state: { from: "Continue Booking" } })}}>Continue Booking</button> */}
         <div className="text-content customheader">
           <div className="text-div">
             <div className="text-heading-first">
@@ -563,6 +562,7 @@ function Home() {
         </div>
       </section>
       
+
     </div>
   );
 }

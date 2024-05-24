@@ -2,12 +2,19 @@ import { useEffect, useRef, useState} from "react";
 import "../CssStyle/StepBar.css";
 import { useSelector, useDispatch } from "react-redux";
 import { nextStage, previousStage ,intialStage } from "../Actions/actions.js";
+import { useLocation } from "react-router-dom";
 
 function MultiStepForm({ stepsConfig, actionIndex }) {
-  const bookingStage = useSelector((state) => state.bookingStageReducer);
+  const location = useLocation();
+  const { from } = location.state ;
+
+  const bookingStageFromRedux = useSelector((state) => state.bookingStageReducer) 
+
+  const bookingStage = from ===  "Continue Booking" ? bookingStageFromRedux : actionIndex ;
   const dispatch = useDispatch();
 
   console.log("bookingStage", bookingStage);
+
 
   const pickUpLocation = localStorage.getItem("pickUpLocation");
   const dropLocation = localStorage.getItem("dropLocation");
