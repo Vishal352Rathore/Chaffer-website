@@ -130,7 +130,7 @@ const Login = () => {
                       Log in
                     </button>
                     <p className="navi-login">
-                      New to GenAlphaPlas?{" "}
+                      New to GenAlphaPlus ?{" "}
                       <span onClick={() => navigate("/signup")}>
                         Create account
                       </span>
