@@ -113,7 +113,7 @@
         padding: 10px !important;
     }
     .login-form .formtitle {
-        font-size: 26px;
+        font-size: 24px;
         line-height: 28px;
         padding: 30px 0 0;
     }
@@ -125,7 +125,7 @@
     
     .login-form .form-label {
         font-size: 18px;
-        padding-top: 10px;
+        padding-top: 0px;
     }
     .login-form input {
         margin-bottom: 8px;
@@ -137,11 +137,12 @@
     }
     .login-form .btn-login {
         border-radius: 5px;
-        font-size: 14px;
-        font-weight: 400;
+        width: 100%;
     }
     .login-form-contaner .navi-login {
-        font-size: 15px; 
+        font-size: 15px;
+        padding: 10px 0 0 0;
+       
     }
     .login-form .or-parent p {
         left: 42%;

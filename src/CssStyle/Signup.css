@@ -64,24 +64,23 @@
 button.mb-3.btn.btn-dark.btn-create-acc {
     width: 100%;
 }
-.margin-field-container{
-    padding: 50px 0px 25px 0px;
+.form-label.label-padding{
+    padding-top: 30px;
 }
-.margin-field-container-2 {
-    padding: 0px 0px 25px 0px;
-}
-.margin-field-container-3{
-    padding: 0px 0px 25px 0px;
-}
-.margin-field-container-4{
-    padding: 0px 0px 25px 0px;
+.btn-container-login button span{
+    padding-left: 10px;
 }
 @media (max-width:767px){
+    .signup-container .container .signup-logo-container {
+        width: 160px;
+        height: auto;
+        padding: 30px 0px 30px 0px;
+    }
     .signup-form {
         padding: 10px;
     }
     .signup-form .formtitle {
-        font-size: 24px;
+        font-size: 20px;
     }
     .signup-form .formtitle span {
         padding-left: 7px;
@@ -90,16 +89,15 @@ button.mb-3.btn.btn-dark.btn-create-acc {
         line-height: 18px;
         
     }
-    .margin-field-container {
-        padding: 10px 0px 0px 0px;
+    .signup-form input {
+        border: 1px solid #D7D2BD !important;
+        padding: 10px;
+        border-radius: 1px;
     }
-    .margin-field-container-2{
-        padding: 0px 0px 25px 0px;
+    .form-label.label-padding{
+        padding-top: 10px;
     }
-    .margin-field-container-3{
-        padding: 0px 0px 25px 0px;
-    }
-    .margin-field-container-4{
-        padding: 0px 0px 25px 0px;
+    .btn-container-login button span{
+        display: none;
     }
 }

@@ -77,13 +77,14 @@ const Pickup = ({handleNextButon ,handlePreviousButton}) => {
                 </div>
               </div>
             </div>
+            
             { selectedRadio === "Someone Else" ?
               <div className="row">
                 <div className="someone-else m-auto ">
-                  <form className="p-3 mt-3 ">
+                  <form className="container ">
                     <div className="row">
-                      <div className="col mt-2">
-                        <label htmlFor="firstname" className="form-label">
+                      <div className="col-md-6 ">
+                        <label htmlFor="firstname" className="form-label label-padding">
                           First Name
                         </label>
                         <input
@@ -97,8 +98,8 @@ const Pickup = ({handleNextButon ,handlePreviousButton}) => {
                           required
                         />
                       </div>
-                      <div className="col mt-2">
-                        <label htmlFor="lastname" className="form-label">
+                      <div className="col-md-6 ">
+                        <label htmlFor="lastname" className="form-label label-padding">
                           Last Name
                         </label>
                         <input
@@ -114,8 +115,8 @@ const Pickup = ({handleNextButon ,handlePreviousButton}) => {
                       </div>
                     </div>
                     <div className="row">
-                      <div className="col mt-4">
-                        <label htmlFor="email" className="form-label">
+                      <div className="col-md-6">
+                        <label htmlFor="email" className="form-label label-padding">
                           Email
                         </label>
                         <input
@@ -129,8 +130,8 @@ const Pickup = ({handleNextButon ,handlePreviousButton}) => {
                           required
                         />
                       </div>
-                      <div className="col mt-4">
-                        <label htmlFor="number" className="form-label">
+                      <div className="col-md-6">
+                        <label htmlFor="number" className="form-label label-padding">
                           Phone Number
                         </label>
                         <input

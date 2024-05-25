@@ -72,15 +72,15 @@ const Signup = () => {
           <div className="col-md-9 m-auto ">
             <form className="signup-form  " onSubmit={handleSubmit}>
               <p className="formtitle">
-                <i className="fa-solid fa-arrow-left"></i> <span>Create your account</span>
+                <i className="fa-solid fa-arrow-left"></i>{" "}
+                <span>Create your account</span>
               </p>
 
-
               {/* mt-4 acc to figma but mt-2 looking good so replaced  it */}
-              <div className="container margin-field-container">
+              <div className="container">
                 <div className="row">
                   <div className="col-md-6 ">
-                    <label htmlFor="firstname" className="form-label">
+                    <label htmlFor="firstname" className="form-label label-padding">
                       First Name
                     </label>
                     <input
@@ -95,7 +95,7 @@ const Signup = () => {
                     />
                   </div>
                   <div className="col-md-6 ">
-                    <label htmlFor="lastname" className="form-label">
+                    <label htmlFor="lastname" className="form-label label-padding">
                       Last Name
                     </label>
                     <input
@@ -111,10 +111,10 @@ const Signup = () => {
                   </div>
                 </div>
               </div>
-              <div className="container margin-field-container-2">
+              <div className="container ">
                 <div className="row">
                   <div className="col-md-6 ">
-                    <label htmlFor="email" className="form-label">
+                    <label htmlFor="email" className="form-label label-padding">
                       Email
                     </label>
                     <input
@@ -129,7 +129,7 @@ const Signup = () => {
                     />
                   </div>
                   <div className="col-md-6 ">
-                    <label htmlFor="number" className="form-label">
+                    <label htmlFor="number" className="form-label label-padding">
                       Phone Number
                     </label>
                     <input
@@ -147,29 +147,27 @@ const Signup = () => {
                   </div>
                 </div>
               </div>
-              <div className="container margin-field-container-3">
+              <div className="container">
                 <div className="row">
                   <div className="col-md-12">
-                    <div className="mb-3">
-                      <label htmlFor="password" className="form-label">
-                        Password
-                      </label>
-                      <input
-                        type="password"
-                        className="form-control"
-                        id="password"
-                        placeholder=""
-                        name="password"
-                        value={signupInfo.password}
-                        onChange={handleChange}
-                        required
-                      />
-                    </div>
+                    <label htmlFor="password" className="form-label label-padding">
+                      Password
+                    </label>
+                    <input
+                      type="password"
+                      className="form-control"
+                      id="password"
+                      placeholder=""
+                      name="password"
+                      value={signupInfo.password}
+                      onChange={handleChange}
+                      required
+                    />
                   </div>
                 </div>
               </div>
 
-              <div className="container margin-field-container-4">
+              <div className="container ">
                 <div className="row">
                   <div className="col-md-12">
                     <p className="termandcondition ">

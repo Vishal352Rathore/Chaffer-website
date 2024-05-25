@@ -4,9 +4,9 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import google from "../cabimages-22/google.png";
 import facebook from "../cabimages-22/facebook.png";
 import logo from "../cab_images/logo.png";
-import { useNavigate ,useLocation  } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import axios from "axios";
-import { toast } from 'react-toastify';
+import { toast } from "react-toastify";
 
 const Login = () => {
   const navigate = useNavigate();
@@ -14,11 +14,12 @@ const Login = () => {
   const { from } = location.state || { from: "/" };
   console.log("Redirected from:", location.state);
 
-  const URL = "https://chauffer-staging-tse4a.ondigitalocean.app/v1/authRouter/logIn";
-  
+  const URL =
+    "https://chauffer-staging-tse4a.ondigitalocean.app/v1/authRouter/logIn";
+
   const [loginInfo, setLoginInfo] = useState({
     email: "",
-    password: ""
+    password: "",
   });
 
   const handleChange = (e) => {
@@ -30,36 +31,29 @@ const Login = () => {
     try {
       const userData = {
         email: loginInfo.email,
-        password: loginInfo.password
-      }
+        password: loginInfo.password,
+      };
       const response = await axios.post(URL, userData);
-      
-       localStorage.setItem('token',response.data.items.token);
-       localStorage.setItem('email',response.data.items.email);
-       localStorage.setItem('user_id',response.data.items.userId);
-       localStorage.setItem('firstName',response.data.items.firstName);
-       localStorage.setItem('lastName',response.data.items.lastName);
-       localStorage.setItem('mobileNumber',response.data.items.mobileNumber);
 
-       
+      localStorage.setItem("token", response.data.items.token);
+      localStorage.setItem("email", response.data.items.email);
+      localStorage.setItem("user_id", response.data.items.userId);
+      localStorage.setItem("firstName", response.data.items.firstName);
+      localStorage.setItem("lastName", response.data.items.lastName);
+      localStorage.setItem("mobileNumber", response.data.items.mobileNumber);
+
       if (response.data.status === true) {
-        console.log("login successfully", response.data); 
-        toast.success('Login successful!');
+        console.log("login successfully", response.data);
+        toast.success("Login successful!");
         e.target.reset();
         navigate(from);
-        
-      } 
-      
-      else {
+      } else {
         console.error("Login failed:", response.data);
-        toast.error('Login failed. Please check your credentials.');
+        toast.error("Login failed. Please check your credentials.");
       }
-      setLoginInfo({ email: '', password: '' });
-      
-      
+      setLoginInfo({ email: "", password: "" });
     } catch (error) {
       console.log("Error in login Data :", error);
-      
     }
   };
 
@@ -78,21 +72,17 @@ const Login = () => {
         <div className="row ">
           <div className="col-md-8 m-auto pb-5">
             <form className="login-form p-5 text-left" onSubmit={handleSubmit}>
-              <p className="formtitle">Welcome to GenAlphaPlas</p>
-              <p className="registered-email">
-                You'll be able to easily book and manage rides, and get ride
-                status updates on the day of travel.
-              </p>
-
-              <div className="row">
-                <div className="col-md-12">
-                <form className="login-form p-5 text-left" onSubmit={handleSubmit}>
-              <p className="formtitle">Welcome to GenAlphaPlas</p>
-              <p className="registered-email">
-                You'll be able to easily book and manage rides, and get ride
-                status updates on the day of travel.
-              </p>
-
+              <div className="container">
+                <div className="row">
+                  <div className="col-md-12">
+                    <p className="formtitle">Welcome to GenAlphaPlas</p>
+                    <p className="registered-email">
+                      You'll be able to easily book and manage rides, and get
+                      ride status updates on the day of travel.
+                    </p>
+                  </div>
+                </div>
+              </div>
               <div className="container">
                 <div className="row">
                   <div className="col-md-6">
@@ -155,68 +145,19 @@ const Login = () => {
                         <p className="m-auto p-3 text-white w-10 h-10">OR</p>
                       </div>
                     </div>
+                    <div className="quickly">
+                      You can log in quickly with your account.
+                    </div>
+                    <div className="btn-container-login">
+                      <button>
+                        <img src={google} alt="not-found" /><span>Continue with google</span>
+                      </button>
+                      <button>
+                        <img src={facebook} alt="not-found" /><span>Continue with facebook</span>
+                      </button>
+                    </div>
                   </div>
                 </div>
-              </div>
-
-              <div className="quickly">
-                You can log in quickly with your account.
-              </div>
-              <div className="btn-container-login">
-                <button>
-                  <img src={google} alt="not-found" /><span> Continue with Google</span>
-                </button>
-                <button>
-                  <img src={facebook} alt="not-found" /> <span>Continue with Facebook</span>
-                </button>
-              </div>
-            </form>
-                </div>
-              </div>
-              <div className="row">
-                <p
-                  className="forgot-password"
-                  onClick={() => navigate("/forgotpassword")}
-                >
-                  Forgot Password?
-                </p>
-              </div>
-              <button
-                type="submit"
-                className="btn btn-dark col-md-12 btn-login"
-              >
-                Log in
-              </button>
-              <p className="navi-login">
-                New to GenAlphaPlas? <span onClick={() => navigate("/signup")}>Create account</span>
-              </p>
-              <div className="or-container ">
-                <div className="or-parent d-flex justify-content-center align-items-center">
-                  <p className="m-auto p-3 text-white w-10 h-10">OR</p>
-                </div>
-              </div>
-              <div className="quickly">
-                You can log in quickly with your account.
-              </div>
-              <div className="btn-container-login">
-                <button>
-                  <img src={google} alt="not-found" /> Continue with Google
-                </button>
-                <button>
-                  <img src={facebook} alt="not-found" /> Continue with Facebook
-                </button>
-              </div>
-
-              <div className="quickly">
-                You can log in quickly with your account.
-              </div>
-              <div className="btn-container-login">
-                <button>
-                  <img src={google} alt="not-found" /><span> Continue with Google</span>
-                </button>
-                <button>
-                  <img src={facebook} alt="not-found" /> <span>Continue with Facebook</span>
-                </button>
               </div>
             </form>
           </div>

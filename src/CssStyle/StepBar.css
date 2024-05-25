@@ -96,3 +96,40 @@ body {
 .signup-logo-container img{
   width: 100%;
 }
+
+@media (max-width:767px){
+  .bookride-container {
+    margin: 0px 0px;
+    width: 100%;
+}
+.bookride-container .signup-logo-container {
+  width: 160px;
+  text-align: left;
+  padding-bottom: 30px;
+  }
+.step-name {
+  font-size: 10px;
+  }
+  .step-bar .mst p:nth-child(1) {
+    font-size: 18px;
+  }  
+  .step-bar .mst p span {
+    font-size: 17px;
+  }
+  .step-bar .mst {
+    padding: 20px 20px;
+}
+.step-bar .mst p:nth-child(2) {
+  font-size: 17px;
+  font-weight: 400;
+}
+.stepper {
+  width: 95%;
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: auto;
+  margin-bottom: 20px;
+}
+}
