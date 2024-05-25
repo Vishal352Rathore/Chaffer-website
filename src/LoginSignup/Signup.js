@@ -68,105 +68,124 @@ const Signup = () => {
           </div>
         </div>
 
-        <div className="row">
+        <div className="row mb-5">
           <div className="col-md-9 m-auto ">
-            <form className="signup-form p-5 mb-5 " onSubmit={handleSubmit}>
-              <p className="formtitle mb-5">
-                <i className="fa-solid fa-arrow-left"></i> Create your account
-              </p>
-              <div className="row">
-                <div className="col mt-2">
-                  <label htmlFor="firstname" className="form-label">
-                    First Name
-                  </label>
-                  <input
-                    type="text"
-                    className="form-control "
-                    id="firstname"
-                    placeholder=""
-                    name="firstName"
-                    value={signupInfo.firstName}
-                    onChange={handleChange}
-                    required
-                  />
-                </div>
-                <div className="col mt-2">
-                  <label htmlFor="lastname" className="form-label">
-                    Last Name
-                  </label>
-                  <input
-                    type="text"
-                    className="form-control"
-                    id="lastname"
-                    placeholder=""
-                    name="lastName"
-                    value={signupInfo.lastName}
-                    onChange={handleChange}
-                    required
-                  />
-                </div>
-              </div>
-              <div className="row">
-                <div className="col mt-4">
-                  <label htmlFor="email" className="form-label">
-                    Email
-                  </label>
-                  <input
-                    type="email"
-                    className="form-control"
-                    id="email"
-                    placeholder=""
-                    name="email"
-                    value={signupInfo.email}
-                    onChange={handleChange}
-                    required
-                  />
-                </div>
-                <div className="col mt-4">
-                  <label htmlFor="number" className="form-label">
-                    Phone Number
-                  </label>
-                  <input
-                    type="tel"
-                    className="form-control"
-                    id="number"
-                    placeholder=""
-                    name="mobileNumber"
-                    value={signupInfo.mobileNumber}
-                    onChange={handleChange}
-                    required
-                    maxLength="10"
-                    minLength="10"
-                  />
-                </div>
-              </div>
-              <div className="mb-3 mt-4">
-                <label htmlFor="password" className="form-label">
-                  Password
-                </label>
-                <input
-                  type="password"
-                  className="form-control"
-                  id="password"
-                  placeholder=""
-                  name="password"
-                  value={signupInfo.password}
-                  onChange={handleChange}
-                  required
-                />
-              </div>
-
-              <p className="termandcondition ">
-                By selecting Create account, you agree with Blacklane's 
-                <span>Terms & Conditions </span>and<span> policies</span>.
+            <form className="signup-form  " onSubmit={handleSubmit}>
+              <p className="formtitle">
+                <i className="fa-solid fa-arrow-left"></i> <span>Create your account</span>
               </p>
 
-              <button
-                type="submit"
-                className="mb-3 btn btn-dark col-md-12 btn-create-acc"
-              >
-                Create account
-              </button>
+
+              {/* mt-4 acc to figma but mt-2 looking good so replaced  it */}
+              <div className="container margin-field-container">
+                <div className="row">
+                  <div className="col-md-6 ">
+                    <label htmlFor="firstname" className="form-label">
+                      First Name
+                    </label>
+                    <input
+                      type="text"
+                      className="form-control "
+                      id="firstname"
+                      placeholder=""
+                      name="firstName"
+                      value={signupInfo.firstName}
+                      onChange={handleChange}
+                      required
+                    />
+                  </div>
+                  <div className="col-md-6 ">
+                    <label htmlFor="lastname" className="form-label">
+                      Last Name
+                    </label>
+                    <input
+                      type="text"
+                      className="form-control"
+                      id="lastname"
+                      placeholder=""
+                      name="lastName"
+                      value={signupInfo.lastName}
+                      onChange={handleChange}
+                      required
+                    />
+                  </div>
+                </div>
+              </div>
+              <div className="container margin-field-container-2">
+                <div className="row">
+                  <div className="col-md-6 ">
+                    <label htmlFor="email" className="form-label">
+                      Email
+                    </label>
+                    <input
+                      type="email"
+                      className="form-control"
+                      id="email"
+                      placeholder=""
+                      name="email"
+                      value={signupInfo.email}
+                      onChange={handleChange}
+                      required
+                    />
+                  </div>
+                  <div className="col-md-6 ">
+                    <label htmlFor="number" className="form-label">
+                      Phone Number
+                    </label>
+                    <input
+                      type="tel"
+                      className="form-control"
+                      id="number"
+                      placeholder=""
+                      name="mobileNumber"
+                      value={signupInfo.mobileNumber}
+                      onChange={handleChange}
+                      required
+                      maxLength="10"
+                      minLength="10"
+                    />
+                  </div>
+                </div>
+              </div>
+              <div className="container margin-field-container-3">
+                <div className="row">
+                  <div className="col-md-12">
+                    <div className="mb-3">
+                      <label htmlFor="password" className="form-label">
+                        Password
+                      </label>
+                      <input
+                        type="password"
+                        className="form-control"
+                        id="password"
+                        placeholder=""
+                        name="password"
+                        value={signupInfo.password}
+                        onChange={handleChange}
+                        required
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div className="container margin-field-container-4">
+                <div className="row">
+                  <div className="col-md-12">
+                    <p className="termandcondition ">
+                      By selecting Create account, you agree with Blacklane's 
+                      <span>Terms & Conditions </span>and<span> policies</span>.
+                    </p>
+
+                    <button
+                      type="submit"
+                      className="mb-3 btn btn-dark btn-create-acc"
+                    >
+                      Create account
+                    </button>
+                  </div>
+                </div>
+              </div>
             </form>
           </div>
         </div>

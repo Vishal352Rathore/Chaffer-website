@@ -42,7 +42,7 @@ const Header = () => {
       toast.success("Logout successful!");
       navigate("/");
     } else {
-      navigate("./login");
+      navigate("/login");
     }
   };
 

@@ -16,6 +16,10 @@ const PaymentCard = ({ handleNextButon, handlePreviousButton }) => {
   //   'Content-Type': 'application/json',
   //   'token': token
   // };
+  const headers = {
+    // 'Content-Type': 'application/json', // Assuming JSON data
+    token: token, // Include your token here
+  };
 
   const URL =
     "https://chauffer-staging-tse4a.ondigitalocean.app/v1/ride/bookRide";
@@ -32,12 +36,12 @@ const PaymentCard = ({ handleNextButon, handlePreviousButton }) => {
     referenceNumberOrCostCenter: "",
     firstName: "",
     lastName: "",
-    email: "@gmail.com",
+    email: "",
     phoneNumber: null,
     status: 0,
     cardName: " ",
     cardNumber: null,
-    expiryDate: "02/26",
+    expiryDate: "",
     cvv: null,
     amount: null,
   });
@@ -94,7 +98,7 @@ const PaymentCard = ({ handleNextButon, handlePreviousButton }) => {
       time: timePart,
       userId: localStorage.getItem("user_id"),
       vehicleId: vehicleId,
-      bookingFor: "Myself",
+      bookingFor: userDetails.bookingFor || "Myself",
       flightNumber: userDetails.flight_no,
       notesForChauffer: userDetails.chauffer_notes,
       referenceNumberOrCostCenter: userDetails.cost_center,
@@ -124,7 +128,7 @@ const PaymentCard = ({ handleNextButon, handlePreviousButton }) => {
     try {
       await axios
         .post(URL, rideBookingData, {
-          method: "POST",
+          method: "GET", // or 'POST', 'PUT', 'DELETE', etc.
           headers: {
             token: token,
             "Content-Type": "application/json", // Adjust content type as needed
@@ -133,7 +137,6 @@ const PaymentCard = ({ handleNextButon, handlePreviousButton }) => {
         .then((res) => {
           console.log("Booking DOne", res);
           if (res.data.status === true) {
-            console.log("Book ride done Data:",res.data)
             handleNextButon();
           }
         })

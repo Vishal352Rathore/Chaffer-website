@@ -1,4 +1,5 @@
 const initialState = {
+   bookingFor : "",
     firstName: "",
     lastName: "",
     email: "",
