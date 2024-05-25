@@ -72,7 +72,7 @@ const Login = () => {
         <div className="row ">
           <div className="col-md-8 m-auto pb-5">
             <form className="login-form p-5 text-left" onSubmit={handleSubmit}>
-              <p className="formtitle">Welcome to GenAlphaPlas</p>
+              <p className="formtitle">Welcome to GenAlphaPlus</p>
               <p className="registered-email">
                 You'll be able to easily book and manage rides, and get ride
                 status updates on the day of travel.
