@@ -388,7 +388,7 @@ function Home() {
               <div>
                 <img src={ourservices2} alt="not found" />
               </div>
-              <h3>Limousin Events</h3>
+              <h3>Limousin</h3>
             </div>
             <div className="col-md-4">
               <div>
