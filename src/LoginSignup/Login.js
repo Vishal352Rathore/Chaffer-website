@@ -85,37 +85,92 @@ const Login = () => {
               </p>
 
               <div className="row">
-                <div className="col">
-                  <label htmlFor="email" className="form-label">
-                    Email
-                  </label>
-                  <input
-                    type="email"
-                    className="form-control"
-                    id="email"
-                    placeholder=""
-                    name="email"
-                    value={loginInfo.email}
-                    onChange={handleChange}
-                    required
-                  />
+                <div className="col-md-12">
+                <form className="login-form p-5 text-left" onSubmit={handleSubmit}>
+              <p className="formtitle">Welcome to GenAlphaPlas</p>
+              <p className="registered-email">
+                You'll be able to easily book and manage rides, and get ride
+                status updates on the day of travel.
+              </p>
+
+              <div className="container">
+                <div className="row">
+                  <div className="col-md-6">
+                    <label htmlFor="email" className="form-label">
+                      Email
+                    </label>
+                    <input
+                      type="email"
+                      className="form-control"
+                      id="email"
+                      placeholder=""
+                      name="email"
+                      value={loginInfo.email}
+                      onChange={handleChange}
+                      required
+                    />
+                  </div>
+                  <div className="col-md-6">
+                    <label htmlFor="password" className="form-label">
+                      Password
+                    </label>
+                    <input
+                      type="password"
+                      className="form-control"
+                      id="password"
+                      placeholder=""
+                      name="password"
+                      value={loginInfo.password}
+                      onChange={handleChange}
+                      required
+                      minLength={6}
+                      maxLength={10}
+                    />
+                  </div>
                 </div>
-                <div className="col">
-                  <label htmlFor="password" className="form-label">
-                    Password
-                  </label>
-                  <input
-                    type="password"
-                    className="form-control"
-                    id="password"
-                    placeholder=""
-                    name="password"
-                    value={loginInfo.password}
-                    onChange={handleChange}
-                    required
-                    minLength={6}
-                    maxLength={10}
-                  />
+              </div>
+              <div className="container">
+                <div className="row">
+                  <div className="col-md-12">
+                    <p
+                      className="forgot-password"
+                      onClick={() => navigate("/forgotpassword")}
+                    >
+                      Forgot Password?
+                    </p>
+                    <button
+                      type="submit"
+                      className="btn btn-dark col-md-12 btn-login"
+                    >
+                      Log in
+                    </button>
+                    <p className="navi-login">
+                      New to GenAlphaPlas?{" "}
+                      <span onClick={() => navigate("/signup")}>
+                        Create account
+                      </span>
+                    </p>
+                    <div className="or-container ">
+                      <div className="or-parent d-flex justify-content-center align-items-center">
+                        <p className="m-auto p-3 text-white w-10 h-10">OR</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div className="quickly">
+                You can log in quickly with your account.
+              </div>
+              <div className="btn-container-login">
+                <button>
+                  <img src={google} alt="not-found" /><span> Continue with Google</span>
+                </button>
+                <button>
+                  <img src={facebook} alt="not-found" /> <span>Continue with Facebook</span>
+                </button>
+              </div>
+            </form>
                 </div>
               </div>
               <div className="row">
