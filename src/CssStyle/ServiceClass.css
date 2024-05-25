@@ -121,3 +121,22 @@
     border: 1px solid #00980F !important; /* Add your desired styling for the selected state */
     box-shadow: 2px rgb(206, 206, 242) !important;
   }
+
+
+@media (max-width:767px){
+    .serviceclass-container .continue-btn {
+        width: 100%;
+    }
+    .business-class-container .car-container {
+        border: 1px solid #AFAFAF;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+    .business-class-container .car-container:hover{
+        box-shadow:4px 4px 4px #ccc;
+        border: 2px solid green;
+    }
+}
+

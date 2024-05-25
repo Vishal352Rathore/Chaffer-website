@@ -714,6 +714,10 @@ img.image-aboutus {
 .owl-nav {
     padding: 10px 0px;
 }
+.react-datepicker__month-container {
+    float: left;
+    width: 200px !important;
+}
 /* .owl-carousel .owl-item {
     float: unset  !important;
 } */

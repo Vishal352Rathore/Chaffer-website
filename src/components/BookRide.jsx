@@ -57,6 +57,7 @@ useEffect(() => {
             <div className="signup-logo-container">
               <img src={logo} alt="not-found" onClick={() => navigate("/")} />
             </div>
+           
           </div>
         </div>
       </section>
@@ -67,6 +68,7 @@ useEffect(() => {
             <div className="serviceclass">
               <MultiStepForm stepsConfig={CHECKOUT_STEPS} actionIndex ={1}/>
             </div>
+            
           </div>
         </section>
 

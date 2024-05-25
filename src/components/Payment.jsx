@@ -12,12 +12,8 @@ const PaymentCard = ({ handleNextButon, handlePreviousButton }) => {
   const userDetails = useSelector((state) => state.userDetailReducer);
   const token = localStorage.getItem("token");
   const navigate = useNavigate();
-  // const headers = {
-  //   'Content-Type': 'application/json',
-  //   'token': token
-  // };
+
   const headers = {
-    // 'Content-Type': 'application/json', // Assuming JSON data
     token: token, // Include your token here
   };
 
@@ -70,7 +66,7 @@ const PaymentCard = ({ handleNextButon, handlePreviousButton }) => {
         console.log("user is logined", paymentDetails);
         dispatch(updatePaymentData(paymentDetails));
         datafetchingForBookRide();
-        
+
         // toast.success("Payment has done Successfully ! ")
       } else {
         dispatch(updatePaymentData(paymentDetails));
@@ -149,47 +145,59 @@ const PaymentCard = ({ handleNextButon, handlePreviousButton }) => {
   return (
     <div className="payment-container ">
       <section className="container">
-        {/* Add credit card form */}
-
-        <section className="row mb-5 pb-5">
+        <div className="row">
           <div
             className="col-md-12"
             style={{ fontFamily: "'Inter', sans-serif" }}
           >
             <p className="add-credit-card-form-title">Add credit card</p>
+          </div>
+        </div>
+      </section>
+      <section className="container">
+        <div className="row">
+          <div className="col-md-12">
             <form className="add-credit-card-form">
-              <div className="mb-3 mt-3">
-                <label htmlFor="nameofcard" className="form-label">
-                  Name of card
-                </label>
-                <input
-                  type="text"
-                  className="form-control"
-                  id="nameofcard"
-                  name="nameofcard"
-                  value={paymentDetails.nameofcard}
-                  onChange={handleChange}
-                />
+              <div className="container">
+                <div className="row">
+                  <div className="col-md-6">
+                  <div className="mb-3">
+                    <label htmlFor="nameofcard" className="form-label">
+                      Name of card
+                    </label>
+                    <input
+                      type="text"
+                      className="form-control"
+                      id="nameofcard"
+                      name="nameofcard"
+                      value={paymentDetails.nameofcard}
+                      onChange={handleChange}
+                    />
+                  </div>
+                  </div>
+                  <div className="col-md-6">
+                  <div className="mb-3">
+                    <label htmlFor="cardnumber" className="form-label">
+                      Card Number
+                    </label>
+
+                    <input
+                      type="text"
+                      className="form-control"
+                      id="cardnumber"
+                      name="cardnumber"
+                      value={paymentDetails.cardnumber}
+                      onChange={handleChange}
+                    />
+                    <span>
+                      <img src={card} alt="not found" />
+                    </span>
+                  </div>
+                  </div>
+                </div>
               </div>
-              <div className="mb-3 mt-3">
-                <label htmlFor="cardnumber" className="form-label">
-                  Card Number
-                </label>
-
-                <input
-                  type="text"
-                  className="form-control"
-                  id="cardnumber"
-                  name="cardnumber"
-                  value={paymentDetails.cardnumber}
-                  onChange={handleChange}
-                />
-                <span>
-                  <img src={card} alt="not found" />
-                </span>
-
-                {/* <img src=" " alt="not found" /> */}
-
+              {/* <img src=" " alt="not found" /> */}
+              <div className="container">
                 <div className="row">
                   <div className="col-md-6 col-sm-6">
                     <label htmlFor="expdate" className="form-label">
@@ -218,6 +226,8 @@ const PaymentCard = ({ handleNextButon, handlePreviousButton }) => {
                     />
                   </div>
                 </div>
+              </div>
+              <div className="container">
                 <div className="row">
                   <div className="col-md-12">
                     <p className="savecardtolist">
@@ -226,6 +236,8 @@ const PaymentCard = ({ handleNextButon, handlePreviousButton }) => {
                     </p>
                   </div>
                 </div>
+              </div>
+              <div className="container">
                 <div className="row">
                   <div className="col-md-12 ">
                     <ul
@@ -247,67 +259,73 @@ const PaymentCard = ({ handleNextButon, handlePreviousButton }) => {
                   </div>
                 </div>
               </div>
-            </form>
-          </div>
-          <div className="row d-flex justify-content-between ">
-            <div className="col-md-3 col-sm-6">
-              <button
-                className="pay-skip-pickup-btn"
-                onClick={handlePreviousButton}
-              >
-                Skip pickup info
-              </button>
-            </div>
-            <div className="col-md-3 col-sm-6">
-              <button
-                className="pay-continue-btn"
-                data-bs-toggle="modal"
-                data-bs-target="#exampleModal"
-              >
-                Continue
-              </button>
 
-              <div
-                class="modal fade"
-                id="exampleModal"
-                tabindex="-1"
-                aria-labelledby="exampleModalLabel"
-                aria-hidden="true"
-              >
-                <div class="modal-dialog">
-                  <div class="modal-content">
-                    <div class="modal-header">
-                      <button
-                        type="button"
-                        class="btn-close"
-                        data-bs-dismiss="modal"
-                        aria-label="Close"
-                      ></button>
-                    </div>
-                    <div class="modal-body">Please confirm Your Payment !!</div>
-                    <div class="modal-footer">
-                      <button
-                        type="button"
-                        class="btn sign-in-btn"
-                        data-bs-dismiss="modal"
-                      >
-                        Close
-                      </button>
-                      <button
-                        type="button"
-                        class=" continue-btn"
-                        onClick={isUserLogin}
-                      >
-                        Confirm
-                      </button>
+              <div className="container mb-5 pb-5">
+                <div className="row d-flex justify-content-between ">
+                  <div className="col-md-3 col-sm-6">
+                    <button
+                      className="pay-skip-pickup-btn"
+                      onClick={handlePreviousButton}
+                    >
+                      Skip pickup info
+                    </button>
+                  </div>
+                  <div className="col-md-3 col-sm-6">
+                    <button
+                      className="pay-continue-btn"
+                      data-bs-toggle="modal"
+                      data-bs-target="#exampleModal"
+                    >
+                      Continue
+                    </button>
+
+                    <div
+                      class="modal fade"
+                      id="exampleModal"
+                      tabindex="-1"
+                      aria-labelledby="exampleModalLabel"
+                      aria-hidden="true"
+                    >
+                      <div class="modal-dialog">
+                        <div class="modal-content">
+                          <div class="modal-header">
+                            <button
+                              type="button"
+                              class="btn-close"
+                              data-bs-dismiss="modal"
+                              aria-label="Close"
+                            ></button>
+                          </div>
+                          <div class="modal-body">
+                            Please confirm Your Payment !!
+                          </div>
+                          <div class="modal-footer">
+                            <button
+                              type="button"
+                              class="btn sign-in-btn"
+                              data-bs-dismiss="modal"
+                            >
+                              Close
+                            </button>
+                            <button
+                              type="button"
+                              class=" continue-btn"
+                              onClick={isUserLogin}
+                            >
+                              Confirm
+                            </button>
+                          </div>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>
               </div>
-            </div>
+            </form>
           </div>
-        </section>
+        </div>
       </section>
+
       {/* <Footer /> */}
     </div>
   );

@@ -110,3 +110,38 @@
     text-align: center;
     border: none;
 }
+
+@media (max-width:767px){
+    .add-credit-card-form-title {
+        font-size: 24px;
+        padding: 20px 0px 0px 0px;
+    }
+    .add-credit-card-form .form-label {
+        
+        font-size: 17px;
+        padding-top: 7px;
+    }
+    .add-credit-card-form div .form-control {
+      padding: 10px 10px;
+      font-size: 17px;
+    }
+    .savecardtolist .fa-square-check {
+        font-size: 18px;
+    }
+    .savecardtolist {
+        padding: 20px 0px 40px 0px;
+        font-size: 16px;
+    }
+    .instruction {
+        padding: 25px 25px;
+        font-size: 12px;  
+    }
+    .pay-skip-pickup-btn {
+        padding: 10px 70px;
+        font-size: 20px;
+        width: 100%;
+    }
+    .pay-continue-btn {
+        width: 100%;
+    }
+}

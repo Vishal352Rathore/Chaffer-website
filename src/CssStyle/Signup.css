@@ -80,6 +80,11 @@ button.mb-3.btn.btn-dark.btn-create-acc {
     .signup-form {
         padding: 10px;
     }
+    .signup-container .container .signup-logo-container {
+        width: 160px;
+        height: auto;
+        padding: 30px 0px 30px 0px;
+    }
     .signup-form .formtitle {
         font-size: 24px;
     }
@@ -88,7 +93,7 @@ button.mb-3.btn.btn-dark.btn-create-acc {
     }
     .signup-form .form-label {
         line-height: 18px;
-        
+        padding-top: 10px;
     }
     .margin-field-container {
         padding: 10px 0px 0px 0px;

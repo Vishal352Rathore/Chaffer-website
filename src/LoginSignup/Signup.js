@@ -77,7 +77,7 @@ const Signup = () => {
 
 
               {/* mt-4 acc to figma but mt-2 looking good so replaced  it */}
-              <div className="container margin-field-container">
+              <div className="container ">
                 <div className="row">
                   <div className="col-md-6 ">
                     <label htmlFor="firstname" className="form-label">
@@ -111,7 +111,7 @@ const Signup = () => {
                   </div>
                 </div>
               </div>
-              <div className="container margin-field-container-2">
+              <div className="container ">
                 <div className="row">
                   <div className="col-md-6 ">
                     <label htmlFor="email" className="form-label">
@@ -147,7 +147,7 @@ const Signup = () => {
                   </div>
                 </div>
               </div>
-              <div className="container margin-field-container-3">
+              <div className="container ">
                 <div className="row">
                   <div className="col-md-12">
                     <div className="mb-3">
@@ -169,7 +169,7 @@ const Signup = () => {
                 </div>
               </div>
 
-              <div className="container margin-field-container-4">
+              <div className="container ">
                 <div className="row">
                   <div className="col-md-12">
                     <p className="termandcondition ">
