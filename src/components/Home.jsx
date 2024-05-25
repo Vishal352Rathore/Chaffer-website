@@ -263,7 +263,7 @@ function Home() {
           <div className=" row bg-white media-bg-white">
             <div className="col-md-12 ">
               <div className="gen-heading pb-4">
-                <h1>How GenAlphaPlas Works</h1>
+                <h1>How GenAlphaPlus Works</h1>
                 <p className="explore">
                   Explore our first className limousine & car rental services
                 </p>
