@@ -23,10 +23,10 @@ const categories = ["Ride", "Comfort", "City to city", "Airport Transfer"];
 function Home() {
   const navigate = useNavigate();
   const token = localStorage.getItem("token");
-  const [coordinates, setCoordinates] = useState({
+  const [coordinates ,setCoordinates ] = useState({
     pickUpLocation: "",
-    dropLocation: "",
-  });
+    dropLocation:"",
+  })
 
   const YOUR_GOOGLE_MAPS_API_KEY = "AIzaSyCZ0UycRv9Fy9PMDBY-uoU_SkXZGnmjP18";
   const [isLogin, setIsLogin] = useState(false);
@@ -41,6 +41,8 @@ function Home() {
     }
   }, []);
 
+  
+
   const [Info, setInfo] = useState({
     pickUpLocation: "",
     dropLocation: "",
@@ -53,15 +55,13 @@ function Home() {
 
   const handlePlaceSelect = (place ,name) => {
     const { lat, lng } = place.geometry.location;
-    setInfo((Info) => ({ ...Info, [name]: place.formatted_address }));
-    setCoordinates((prevCoordinates) => ({
-      ...prevCoordinates,
-      [name]: `${lat()},${lng()}`,
-    }));
+    setInfo(Info =>({ ...Info, [name] : place.formatted_address}));
+    setCoordinates(prevCoordinates =>({...prevCoordinates , [name] : `${lat()},${lng()}` }))
     console.log("Selected place:", place.formatted_address);
     console.log('Coordinates:name', `${name} ${lat()},${lng()}` );
     setIsSuggestionSelected({ ...isSuggestionSelected, [name]: true });
   };
+
 
   const handleChange = (e) => {
     setInfo({ ...Info, [e.target.name]: e.target.value });
@@ -92,14 +92,8 @@ function Home() {
 
       localStorage.setItem("pickUpLocation", userData.pickUpLocation);
       localStorage.setItem("dropLocation", userData.dropLocation);
-      localStorage.setItem(
-        "pickUpLocationCoordinates",
-        userData.pickUpLocationCoordinates
-      );
-      localStorage.setItem(
-        "dropLocationCoordinates",
-        userData.dropLocationCoordinates
-      );
+      localStorage.setItem("pickUpLocationCoordinates", userData.pickUpLocationCoordinates);
+      localStorage.setItem("dropLocationCoordinates", userData.dropLocationCoordinates);
       localStorage.setItem("dateTime", userData.dateTime);
       localStorage.setItem("category", userData.category);
 
@@ -116,7 +110,7 @@ function Home() {
     <div className="home-container">
       {/* <Header /> */}
       <div className="bg-image w-100%">
-        <Header />
+        <Header/>
         <div className="text-content customheader">
           <div className="text-div">
             <div className="text-heading-first">
@@ -142,7 +136,7 @@ function Home() {
               <div className="col-md-3 form-contain">
                 <label className="form-label ">From</label>
                 <LoadScript
-                  googleMapsApiKey={YOUR_GOOGLE_MAPS_API_KEY}
+                  googleMapsApiKey= {YOUR_GOOGLE_MAPS_API_KEY} 
                   libraries={["places"]}
                 >
                   <Autocomplete
@@ -178,7 +172,7 @@ function Home() {
                   To
                 </label>
                 <LoadScript
-                  googleMapsApiKey={YOUR_GOOGLE_MAPS_API_KEY}
+                  googleMapsApiKey={YOUR_GOOGLE_MAPS_API_KEY} 
                   libraries={["places"]}
                 >
                   <Autocomplete
@@ -229,6 +223,7 @@ function Home() {
                     className="datapicker"
                     required
                   />
+                 
                 </div>
               </div>
               <div className="col-md-3 form-contain">
@@ -274,30 +269,25 @@ function Home() {
                 </p>
               </div>
             </div>
-          </div>
-        </div>
-        <div className="container bg-white customheader">
-          <div className="row pb-5 bg-white">
-            <div className="col-md-3">
-              <div className="">
-                <div className="d-flex justify-content-center">
-                  <img
-                    src={img01}
-                    alt="not found"
-                    className="online-booking-img"
-                  />
+            <div className="container">
+              <div className="row pb-5">
+                <div className="d-flex justify-content-evenly">
+                <div className="">
+                  <div className="d-flex justify-content-center">
+                    <img
+                      src={img01}
+                      alt="not found"
+                      className="online-booking-img"
+                    />
+                  </div>
+                  <div className="explore-content p-3">
+                    <h3 className="text-title">Easy Online Booking</h3>
+                    <p className="paragraph font-dosis p-3">
+                      Lorem ipsum dolor sit amet consectaadipisicing elit.
+                      magnam dolor accusamus dolores .
+                    </p>
+                  </div>
                 </div>
-                <div className="explore-content p-3">
-                  <h3 className="text-title">Easy Online Booking</h3>
-                  <p className="paragraph font-dosis p-3">
-                    Lorem ipsum dolor sit amet consectaadipisicing elit. magnam
-                    dolor accusamus dolores .
-                  </p>
-                </div>
-              </div>
-              
-            </div>
-            <div className="col-md-3">
                 <div className="">
                   <div className="d-flex justify-content-center">
                     <img
@@ -314,9 +304,7 @@ function Home() {
                     </p>
                   </div>
                 </div>
-              </div>
-              <div className="col-md-3 ">
-                <div className="">
+                <div className=" ">
                   <div className="d-flex justify-content-center">
                     <img
                       src={img03}
@@ -332,8 +320,6 @@ function Home() {
                     </p>
                   </div>
                 </div>
-              </div>
-              <div className="col-md-3">
                 <div className="">
                   <div className="d-flex justify-content-center">
                     <img
@@ -350,7 +336,10 @@ function Home() {
                     </p>
                   </div>
                 </div>
+                </div>
+               
               </div>
+            </div>
           </div>
         </div>
       </section>
@@ -370,9 +359,9 @@ function Home() {
                   typesetting industry. Lorem Ipsum has been the industry's
                   standard dummy text ever since the 1500s, when an unknown
                   printer took a galley of type and scrambled it to make a type
-                  specimen book.Lorem Ipsum is simply dummy text of the printing
-                  and typesetting industry.Lorem Ipsum is simply dummy text of
-                  the printing and typesetting industry.
+                  specimen book.Lorem Ipsum is simply dummy text of the printing and
+                  typesetting industry.Lorem Ipsum is simply dummy text of the printing and
+                  typesetting industry.
                 </p>
 
                 <button className="aboutus-btn font-inria">Book a ride</button>
@@ -383,7 +372,7 @@ function Home() {
       </section>
 
       <section className="service-container">
-        <div className="container customheader mt-5 pt-5 ">
+        <div className="container customheader mt-5 pt-5">
           <div className="row ">
             <h3>Our Services</h3>
             <p>our aims is to fill a gap in niche market of Trade</p>
@@ -399,7 +388,7 @@ function Home() {
               <div>
                 <img src={ourservices2} alt="not found" />
               </div>
-              <h3>Limousin</h3>
+              <h3>Events</h3>
             </div>
             <div className="col-md-4">
               <div>
@@ -573,6 +562,7 @@ function Home() {
           </div>
         </div>
       </section>
+      
     </div>
   );
 }
