@@ -109,7 +109,7 @@ function Home() {
       {/* <Header /> */}
       <div className="bg-image w-100%">
         <Header/>
-        {/* <button onClick={()=>{ navigate("/services/bookride", { state: { from: "Continue Booking" } })}}>Continue Booking</button> */}
+        <button onClick={()=>{ navigate("/services/bookride", { state: { from: "Continue Booking" } })}}>Continue Booking</button>
         <div className="text-content customheader">
           <div className="text-div">
             <div className="text-heading-first">

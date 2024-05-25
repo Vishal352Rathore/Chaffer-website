@@ -3,19 +3,17 @@ import "../CssStyle/Payment.css";
 import card from "../cab_images/cards.png";
 import { useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
-import { updatePaymentData } from "../Actions/actions.js";
-import { toast } from "react-toastify";
-
+import { updatePaymentData1 ,updatePaymentData2 } from "../Actions/actions.js";
 import axios from "axios";
 
-const PaymentCard = ({ handleNextButon, handlePreviousButton }) => {
-  const userDetails = useSelector((state) => state.userDetailReducer);
+const PaymentCard = ({ handleNextButon, handlePreviousButton ,from}) => {
+  const userDetailForContinueBooking =  useSelector((state) => state.userDetailReducer.userDetail1);
+  const userDetailForNewBooking =  useSelector((state) => state.userDetailReducer.userDetail2);
+  const userDetails =  from ===  "Continue Booking" ?  userDetailForContinueBooking : userDetailForNewBooking ;
+
   const dispatch = useDispatch();
   const token = localStorage.getItem("token");
-  const headers = {
-    // 'Content-Type': 'application/json', // Assuming JSON data
-    token: token, // Include your token here
-  };
+
   const navigate = useNavigate();
 
   const URL = "https://chauffer-staging-tse4a.ondigitalocean.app/v1/ride/bookRide";
@@ -43,10 +41,11 @@ const PaymentCard = ({ handleNextButon, handlePreviousButton }) => {
     amount: null,
   });
 
-  const paymentDetailFromRedux = useSelector(
-    (state) => state.paymentDetailReducer
-  );
+  const paymentDetailForContinueBooking =  useSelector((state) => state.paymentDetailReducer.paymentDetail1);
+  const paymentDetailForNewBooking =  useSelector((state) => state.paymentDetailReducer.paymentDetail2);
+  const paymentDetailFromRedux =  from ===  "Continue Booking" ?  paymentDetailForContinueBooking : paymentDetailForNewBooking ;
 
+ 
   const [paymentDetails, setPaymentDetails] = useState({
     nameofcard: "",
     cardnumber: "",
@@ -64,12 +63,11 @@ const PaymentCard = ({ handleNextButon, handlePreviousButton }) => {
       const token = localStorage.getItem("token");
       if (token) {
         console.log("user is logined", paymentDetails);
-        dispatch(updatePaymentData(paymentDetails));
+        from ===  "Continue Booking" ?  dispatch(updatePaymentData1(paymentDetails)):  dispatch(updatePaymentData2(paymentDetails))
         datafetchingForBookRide();
-        
         // toast.success("Payment has done Successfully ! ")
       } else {
-        dispatch(updatePaymentData(paymentDetails));
+        from ===  "Continue Booking" ?  dispatch(updatePaymentData1(paymentDetails)):  dispatch(updatePaymentData2(paymentDetails))
         navigate("/login", { state: { from: "/services/bookride" } });
         console.log("user is not login");
       }
