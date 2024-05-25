@@ -47,7 +47,7 @@ const Footer = () => {
               <p className="our_service">Our Services</p>
               <p className="about fontcolor">Airport transfer</p>
               <p className="fontcolor">Events </p>
-              <p className="fontcolor">Chauffeur service</p>
+              <p className="fontcolor">Chauffeur services</p>
             </div>
             <div className="col-md-2 coloumn_ourServices col-sm-3">
               <p className="our_service">About Us</p>

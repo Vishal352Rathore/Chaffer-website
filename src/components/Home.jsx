@@ -382,7 +382,7 @@ function Home() {
               <div>
                 <img src={ourservices1} alt="not found" />
               </div>
-              <h3>Chauffer Service</h3>
+              <h3>Chauffer Services</h3>
             </div>
             <div className="col-md-4">
               <div>
@@ -423,7 +423,7 @@ function Home() {
       <section className="prodrive-container">
         <div className="container">
           <div className="row">
-            <p>GenAlphaPlas Pro Fleet</p>
+            <p>GenAlphaPlus Pro Fleet</p>
             <p>
               We also take custom orders and will help you acquire a specific
               yacht
