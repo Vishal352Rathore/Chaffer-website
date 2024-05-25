@@ -85,3 +85,14 @@
     font-family: 'Dosis';
     /* border-bottom: 1px solid #D7D2BD; */
 }
+@media (max-width:767px){
+    .help-container .accordion-button:not(.collapsed) {
+        color: #ead4af;
+        font-size: 12px !important;
+    }
+    .accordion-body {
+        color: gray;
+        text-align: left;
+        font-size: 12px !important;
+    }
+}

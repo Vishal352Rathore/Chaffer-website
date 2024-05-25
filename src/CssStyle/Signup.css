@@ -10,34 +10,30 @@
     padding: 30px 0px 60px 0px;
 }
 
-.signup-form{
+.signup-form {
     border: 1px solid #CACACA;
     font-family: "Inter", sans-serif;
-    text-align: left;  
+    text-align: left;
+    padding: 40px;
 }
 .signup-form .formtitle{
     font-family: "Inter", sans-serif;
     font-size: 32px;
     font-weight: 600;
     color: #000000;
-    /* line-height: 39px; */
-    /* padding:  30px 0 30px 0; */
 }
-.signup-form .form-label{
+.signup-form .form-label {
     font-family: "Inter", sans-serif;
-    font-size: 24px;
+    font-size: 17px;
     font-weight: 400;
     line-height: 29px;
     color: #000000;
-
 }
 
-.signup-form input{
+.signup-form input {
     border: 1px solid #D7D2BD !important;
-    padding: 16px;
+    padding: 11px;
     border-radius: 1px;
-    /* margin-bottom: 30px; */
-
 }
 .signup-form .termandcondition{
     font-family: "Inter", sans-serif;
@@ -58,6 +54,52 @@
     text-align: center;
     border-radius: 1px;
     background-color: #000000;
-    /* margin-bottom: 30px; */
     cursor: pointer;
+}
+.signup-form .termandcondition {
+    font-size: 14px;
+    line-height: 20px;
+    padding: 40px 0px 0px 0px;
+}
+button.mb-3.btn.btn-dark.btn-create-acc {
+    width: 100%;
+}
+.margin-field-container{
+    padding: 50px 0px 25px 0px;
+}
+.margin-field-container-2 {
+    padding: 0px 0px 25px 0px;
+}
+.margin-field-container-3{
+    padding: 0px 0px 25px 0px;
+}
+.margin-field-container-4{
+    padding: 0px 0px 25px 0px;
+}
+@media (max-width:767px){
+    .signup-form {
+        padding: 10px;
+    }
+    .signup-form .formtitle {
+        font-size: 24px;
+    }
+    .signup-form .formtitle span {
+        padding-left: 7px;
+    }
+    .signup-form .form-label {
+        line-height: 18px;
+        
+    }
+    .margin-field-container {
+        padding: 10px 0px 0px 0px;
+    }
+    .margin-field-container-2{
+        padding: 0px 0px 25px 0px;
+    }
+    .margin-field-container-3{
+        padding: 0px 0px 25px 0px;
+    }
+    .margin-field-container-4{
+        padding: 0px 0px 25px 0px;
+    }
 }
