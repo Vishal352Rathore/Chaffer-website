@@ -1,9 +1,10 @@
-import React, { useState, useEffect } from "react";
+import React, { useState ,useEffect} from "react";
 import "../CssStyle/Pickup.css";
 import { useSelector, useDispatch } from "react-redux";
 import { updateBookingData } from "../Actions/actions.js";
 
-const Pickup = ({ handleNextButon, handlePreviousButton }) => {
+
+const Pickup = ({handleNextButon ,handlePreviousButton}) => {
   const [selectedRadio, setSelectedRadio] = useState("Myself");
   const userDetailFromRedux = useSelector((state) => state.userDetailReducer);
   const dispatch = useDispatch();
@@ -14,9 +15,9 @@ const Pickup = ({ handleNextButon, handlePreviousButton }) => {
     lastName: "",
     email: "",
     mobileNumber: "",
-    flight_no: "",
-    chauffer_notes: "",
-    cost_center: "",
+    flight_no :"",
+    chauffer_notes :"",
+    cost_center:""
   });
 
   useEffect(() => {
@@ -27,11 +28,11 @@ const Pickup = ({ handleNextButon, handlePreviousButton }) => {
     setBookingDetails({ ...bookingDetails, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = () => {
+  const handleSubmit = () =>{
     handleNextButon();
     dispatch(updateBookingData(bookingDetails));
-    localStorage.setItem("booking details", JSON.stringify(bookingDetails));
-  };
+    localStorage.setItem("booking details" , JSON.stringify(bookingDetails));
+  }
 
   const handleRadioBUttonChange = (e) => {
     setSelectedRadio(e.target.value);
@@ -76,48 +77,45 @@ const Pickup = ({ handleNextButon, handlePreviousButton }) => {
                 </div>
               </div>
             </div>
-            {selectedRadio === "Someone Else" ? (
+            { selectedRadio === "Someone Else" ?
               <div className="row">
                 <div className="someone-else m-auto ">
-                  <form className="mt-3 ">
-                    <div className="container">
-                      <div className="row">
-                        <div className="col-md-6">
-                          <label htmlFor="firstname" className="form-label label-padding">
-                            First Name
-                          </label>
-                          <input
-                            type="text"
-                            className="form-control "
-                            id="firstname"
-                            placeholder=""
-                            name="firstName"
-                            value={bookingDetails.firstName}
-                            onChange={handleChange}
-                            required
-                          />
-                        </div>
-                        <div className="col-md-6">
-                          <label htmlFor="lastname" className="form-label label-padding">
-                            Last Name
-                          </label>
-                          <input
-                            type="text"
-                            className="form-control"
-                            id="lastname"
-                            placeholder=""
-                            name="lastName"
-                            value={bookingDetails.lastName}
-                            onChange={handleChange}
-                            required
-                          />
-                        </div>
+                  <form className="p-3 mt-3 ">
+                    <div className="row">
+                      <div className="col mt-2">
+                        <label htmlFor="firstname" className="form-label">
+                          First Name
+                        </label>
+                        <input
+                          type="text"
+                          className="form-control "
+                          id="firstname"
+                          placeholder=""
+                          name="firstName"
+                          value={bookingDetails.firstName}
+                          onChange={handleChange}
+                          required
+                        />
+                      </div>
+                      <div className="col mt-2">
+                        <label htmlFor="lastname" className="form-label">
+                          Last Name
+                        </label>
+                        <input
+                          type="text"
+                          className="form-control"
+                          id="lastname"
+                          placeholder=""
+                          name="lastName"
+                          value={bookingDetails.lastName}
+                          onChange={handleChange}
+                          required
+                        />
                       </div>
                     </div>
-                    <div className="container">
                     <div className="row">
-                      <div className="col-md-6">
-                        <label htmlFor="email" className="form-label label-padding">
+                      <div className="col mt-4">
+                        <label htmlFor="email" className="form-label">
                           Email
                         </label>
                         <input
@@ -131,8 +129,8 @@ const Pickup = ({ handleNextButon, handlePreviousButton }) => {
                           required
                         />
                       </div>
-                      <div className="col-md-6">
-                        <label htmlFor="number" className="form-label label-padding">
+                      <div className="col mt-4">
+                        <label htmlFor="number" className="form-label">
                           Phone Number
                         </label>
                         <input
@@ -149,13 +147,11 @@ const Pickup = ({ handleNextButon, handlePreviousButton }) => {
                         />
                       </div>
                     </div>
-                    </div>
                   </form>
                 </div>
-              </div>
-            ) : (
+              </div>:
               <></>
-            )}
+            }
             <div className="provide-additional-form-container p-3">
               <p className="booking-form">Provide additional information</p>
               <p className="flight-number">
@@ -180,15 +176,10 @@ const Pickup = ({ handleNextButon, handlePreviousButton }) => {
                 <label htmlFor="chauffer-notes" class="form-label">
                   Notes for the chauffeur
                 </label>
-                <textarea
-                  class="form-control"
-                  id="chauffer_notes"
-                  name="chauffer_notes"
-                  rows="5y"
-                  value={bookingDetails.chauffer_notes}
-                  onChange={handleChange}
-                ></textarea>
-
+                <textarea class="form-control" id="chauffer_notes"
+                  name="chauffer_notes" rows="5y"  value={bookingDetails.chauffer_notes}
+                  onChange={handleChange}></textarea>
+                
                 <p>
                   Add special requests, e.g. number of bags, child seats, etc.
                   Please do not include confidential information.
@@ -198,15 +189,11 @@ const Pickup = ({ handleNextButon, handlePreviousButton }) => {
                 <label htmlFor="cost-center" class="form-label">
                   Reference number or cost center
                 </label>
-                <textarea
-                  class="form-control"
-                  id="cost_center"
-                  rows="5y"
-                  name="cost_center"
+                <textarea class="form-control" id="cost_center"
+                  rows="5y"  name="cost_center"
                   value={bookingDetails.cost_center}
-                  onChange={handleChange}
-                ></textarea>
-
+                  onChange={handleChange}></textarea>
+                
                 <p>
                   Booking for business? What you enter above will appear on the
                   invoice.
@@ -216,21 +203,22 @@ const Pickup = ({ handleNextButon, handlePreviousButton }) => {
           </div>
         </section>
 
-        <section className="container">
-          <div className="row d-flex justify-content-between font-inter mt-5 mb-5 pb-5">
-            <div className="col-md-3">
-              <button
-                className="skip-pickup-btn"
-                onClick={handlePreviousButton}
-              >
-                Skip pickup info
-              </button>
-            </div>
-            <div className="col-md-3">
-              <button className="continue-btn" onClick={handleSubmit}>
-                Continue
-              </button>
-            </div>
+        <section className="row d-flex justify-content-between font-inter mt-5 mb-5 pb-5">
+          <div className="col-md-3">
+            <button
+              className="skip-pickup-btn"
+              onClick={handlePreviousButton}
+            >
+              Skip pickup info
+            </button>
+          </div>
+          <div className="col-md-3 ">
+            <button
+              className="continue-btn"
+              onClick={ handleSubmit}
+            >
+              Continue
+            </button>
           </div>
         </section>
       </section>

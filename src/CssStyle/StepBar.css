@@ -2,29 +2,26 @@ body {
   font-family: sans-serif;
 }
 
-.step-bar .mst {
-  background: #E9FFE3;
+.step-bar .mst{
+  background:#E9FFE3;
   text-align: center;
-  color: #000000;
+  color:#000000;
   font-family: 'Poppins', sans-serif;
-  padding: 20px 0px;
+  padding: 20px 0px; 
 }
-
-.step-bar .mst p:nth-child(1) {
+.step-bar .mst p:nth-child(1) 
+{
   font-size: 24px;
   font-weight: 600;
 }
-
-.step-bar .mst p:nth-child(2) {
+.step-bar .mst p:nth-child(2){
   font-size: 20px;
   font-weight: 400;
 }
-
 .step-bar .mst p span {
   font-size: 24px;
   font-weight: 700;
 }
-
 .step-bar .mst p:nth-child(3) {
   font-size: 16px;
   line-height: 10px;
@@ -87,7 +84,7 @@ body {
   transition: 0.2s ease;
 }
 
-.bookride-container {
+.bookride-container{
   margin: 0px 100px;
 }
 
@@ -96,66 +93,6 @@ body {
   text-align: left;
   padding-bottom: 80px;
 }
-
-.signup-logo-container img {
+.signup-logo-container img{
   width: 100%;
-}
-
-.back-arrow-container {
-  display: none;
-}
-
-@media (max-width:767px) {
-  .bookride-container {
-    margin: 0px 0px;
-    width: 100vw;
-  }
-
-  .bookride-container .signup-logo-container {
-    width: 160px;
-    text-align: left;
-    padding-bottom: 40px;
-  }
-
-  .stepper {
-    width: 90%;
-  }
-
-  .step-number {
-    justify-content: center;
-    margin-bottom: 8px;
-  }
-
-  .step-name {
-    font-size: 9px;
-  }
-
-  .step-bar .mst p:nth-child(1) {
-    font-size: 18px;
-    font-weight: 600;
-  }
-
-  .step-bar .mst p:nth-child(2) {
-    font-size: 18px;
-    font-weight: 400;
-  }
-
-  .step-bar .mst {
-    padding: 20px 20px;
-  }
-  .step-bar .mst p span {
-    font-size: 18px;
-}
-.business-class-icon-row {
-  width: 100%;
-  justify-content: center;
-}
-.business-class-icon-row div {
-  align-items: center;
-  display: flex;
-  flex-direction: row;
-  column-gap: 5px;
-  width: 20%;
-  justify-content: center;
-}
 }

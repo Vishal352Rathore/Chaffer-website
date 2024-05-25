@@ -93,13 +93,7 @@
 }
 @media (max-width:767px){
     .mobile_container:nth-child(2) {
-        margin-bottom: 50px;
-    }
-    .logo_container {
-        margin-top: 20px;
-    }
-    .our_service {
-        margin-top: 20px;
+        padding-bottom: 50px;
     }
 }
 

@@ -136,7 +136,7 @@
 .chauffer-notes-field .form-control,
 .cost-center-field .form-control {
     padding: 0px 0px 0px 10px;
-    min-height: 30vh;
+    height: 30vh;
 }
 .someone-else .form-label{
     font-family: "Inter", sans-serif;
@@ -186,66 +186,4 @@
     font-weight: 600;
     text-align: center;
     border: none;
-}
-.form-label.label-padding{
-    padding-top: 40px;
-}
-@media (max-width:767px){
-    .someone-else .form-label {
-        font-size: 17px;
-    }
-    .form-label.label-padding{
-        padding-top: 0px;
-    }
-    .booking-form-container .booking-form {
-        font-size: 20px;
-        padding: 34px 0px 20px 0px;
-    }
-    .booking-form-container .radio-btn-container .form-check-input {
-        top: 0px;
-    }
-    .booking-form-container .radio-btn-container .form-check-label {
-        font-size: 11px;
-        padding: 10px 0px 0px 4px;
-    }
-    .provide-additional-form-container .booking-form{
-        font-size: 20px;
-        padding: 20px 0px 0px 0px;
-    }
-    .booking-form-container .radio-btn-container {
-        padding: 10px 20px;
-    }
-    .provide-additional-form-container .flight-number {
-        font-size: 17px;  
-    }
-    .provide-additional-form-container .form-label {
-        font-size: 17px;
-        padding: 0px 0px 0px 0px;
-    }
-    .provide-additional-form-container .form-control, .chauffer-notes-field .form-control, .cost-center-field .form-control {
-        padding: 10px 10px;
-        font-size: 17px;
-    }
-    .chauffer-notes-field .form-control, .cost-center-field .form-control {
-        padding: 0px 0px 0px 10px;
-        min-height: 17vh;
-    }
-    .flight-field p, .chauffer-notes-field p, .cost-center-field p {
-        font-size: 12px;
-        padding: 5px 0px;
-    }
-    .skip-pickup-btn {
-        padding: 10px 70px;
-        width: 100%;
-    }
-    .continue-btn {
-        padding: 10px 110px;
-        width: 100%;
-        margin-top: 5%;
-    }
-    .someone-else .form-control {
-        padding: 10px 10px;
-        font-size: 17px;
-    }
-    
 }

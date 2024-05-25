@@ -148,7 +148,7 @@ function MultiStepForm({ stepsConfig, actionIndex }) {
                 Sun, {formattedDate} at {formattedTime} (MST)
               </p>
               <p>
-                <span>From:</span> {pickUpLocation} <span>To: </span>
+                <span>From :</span> {pickUpLocation} <span>To </span>:
                 {dropLocation}
               </p>
               <p>Estimated arrival at {formattedTime} (MST) 134.3 km</p>
