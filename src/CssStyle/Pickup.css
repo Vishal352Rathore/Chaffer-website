@@ -236,16 +236,14 @@
         padding: 10px 40px;      
         width: 100%;
     }
-    .continue-btn {
-      
+    .continue-btn {     
         padding: 10px 110px;
         width: 100%;
     }
     .someone-else .form-label {
         font-size: 17px;
     }
-    .someone-else .form-control {
-        
+    .someone-else .form-control {   
         padding: 10px 10px;
         font-size: 17px;
     }
