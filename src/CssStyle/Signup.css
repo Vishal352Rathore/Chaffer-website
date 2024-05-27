@@ -101,3 +101,24 @@ button.mb-3.btn.btn-dark.btn-create-acc {
         display: none;
     }
 }
+
+@media screen and (min-width:768px) and (max-width:991px) {
+    .signup-container .container .signup-logo-container {
+        width: 180px;
+        padding: 30px 0px 30px 0px;
+    }
+    .signup-form .formtitle {
+        font-size: 24px;
+    }
+    .signup-form {
+        padding: 20px;
+    }
+    .form-label.label-padding {
+        padding-top: 20px;
+    }
+    .signup-form .termandcondition {
+        font-size: 15px;
+        line-height: 22px;
+        padding: 40px 0px 0px 0px;
+    }
+}

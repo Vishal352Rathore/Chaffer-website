@@ -133,3 +133,40 @@ body {
   margin-bottom: 20px;
 }
 }
+
+@media screen and (min-width:768px)  and (max-width:991px){
+  .bookride-container .signup-logo-container {
+    width: 180px;
+    padding-bottom: 40px;
+  }
+  .stepper {
+    width: 100%;
+  }
+  .step-bar .mst {
+    padding: 20px 20px;
+    width: 100%;
+  }
+  .step-bar .mst p:nth-child(1) {
+    font-size: 22px;
+    font-weight: 600;
+  }
+  .step-bar .mst p span {
+    font-size: 22px;
+    font-weight: 600;
+  }
+  .step-bar .mst p:nth-child(2) {
+    font-size: 16px;
+    font-weight: 400;
+  }
+  .serviceclass-container p{
+      text-align: center;
+      padding: 20px 0px 0px 0px;
+      font-size:16px;
+  }
+  .all-class-include-container {
+    padding: 30px 0px;
+  }
+  .bookride-container .offset-md-9 {
+  margin-left: 45%;
+  }
+}

@@ -204,8 +204,8 @@ const Pickup = ({handleNextButon ,handlePreviousButton}) => {
           </div>
         </section>
 
-        <section className="row d-flex justify-content-between font-inter mt-5 mb-5 pb-5">
-          <div className="col-md-3">
+        <section className="row  font-inter mt-5 mb-5 pb-5">
+          <div className="col-md-6">
             <button
               className="skip-pickup-btn"
               onClick={handlePreviousButton}
@@ -213,13 +213,15 @@ const Pickup = ({handleNextButon ,handlePreviousButton}) => {
               Skip pickup info
             </button>
           </div>
-          <div className="col-md-3 ">
+          <div className="col-md-6 ">
+            <div className="continue-btn-container">
             <button
               className="continue-btn"
               onClick={ handleSubmit}
             >
               Continue
             </button>
+            </div>
           </div>
         </section>
       </section>

@@ -226,10 +226,22 @@ const PaymentCard = ({ handleNextButon, handlePreviousButton }) => {
               <div className="container">
                 <div className="row">
                   <div className="col-md-12">
-                    <p className="savecardtolist">
-                      <i className="fa-solid fa-square-check"></i> Save card to
-                      your list
-                    </p>
+                    <div class="savecardtolist">
+                      <input
+                        class="form-check-input"
+                        type="checkbox"
+                        value=""
+                        id="flexCheckIndeterminate"
+                      />
+                      <label
+                        class="form-check-label"
+                        for="flexCheckIndeterminate"
+                      >
+                        Save card to your list
+                      </label>
+                    </div>
+
+                   
                   </div>
                 </div>
               </div>
@@ -257,8 +269,8 @@ const PaymentCard = ({ handleNextButon, handlePreviousButton }) => {
               </div>
 
               <div className="container mb-5 pb-5">
-                <div className="row d-flex justify-content-between ">
-                  <div className="col-md-3 col-sm-6">
+                <div className="row  ">
+                  <div className="col-md-6 col-sm-6">
                     <button
                       className="pay-skip-pickup-btn"
                       onClick={handlePreviousButton}
@@ -266,15 +278,20 @@ const PaymentCard = ({ handleNextButon, handlePreviousButton }) => {
                       Skip pickup info
                     </button>
                   </div>
-                  <div className="col-md-3 col-sm-6">
-                    <button
-                      className="pay-continue-btn"
-                      data-bs-toggle="modal"
-                      data-bs-target="#exampleModal"
-                    >
-                      Continue
-                    </button>
+                  <div className="col-md-6 col-sm-6">
+                    <div className="continue-btn-container">
+                      <button
+                        className="pay-continue-btn"
+                        data-bs-toggle="modal"
+                        data-bs-target="#exampleModal"
+                        onClick={(e) => e.preventDefault()}
+                        data-bs-dismiss="modal"
+                      >
+                        Continue
+                      </button>
 
+                    </div>
+                    
                     <div
                       class="modal fade"
                       id="exampleModal"

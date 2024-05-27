@@ -213,7 +213,7 @@ function Home() {
                 <label htmlFor="datetime" className="form-label">
                   Date & Time
                 </label>
-                <div className="input-div">
+                <div className="input-div media-input-div">
                   <span>
                     <img src={calender} alt="not found" />
                   </span>
@@ -276,7 +276,7 @@ function Home() {
             </div>
           </div>
         </div>
-        <div className="container bg-white customheader">
+        <div className="container  customheader">
           <div className="row pb-5 bg-white">
             <div className="col-md-3">
               <div className="">
