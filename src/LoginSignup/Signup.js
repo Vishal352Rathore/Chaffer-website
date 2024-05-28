@@ -173,7 +173,7 @@ const Signup = () => {
                 <div className="row">
                   <div className="col-md-12">
                     <p className="termandcondition ">
-                      By selecting Create account, you agree with Blacklane's 
+                      By selecting Create account, you agree with GenAlphaPlus 
                       <span>Terms & Conditions </span>and<span> policies</span>.
                     </p>
 

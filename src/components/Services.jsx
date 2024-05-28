@@ -53,7 +53,7 @@ const Services = () => {
                     alt="not found"
                     className="img-size-services"
                   />
-                  <p className="img-name-service">Limousin Service</p>
+                  <p className="img-name-service">Events</p>
                 </div>
                 <div className="col-md-3 " onClick={()=>navigate('/services/chaufferservices')}>
                   <img
