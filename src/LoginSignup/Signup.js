@@ -71,7 +71,7 @@ const Signup = () => {
         <div className="row mb-5">
           <div className="col-md-9 m-auto ">
             <form className="signup-form  " onSubmit={handleSubmit}>
-              <p className="formtitle">
+              <p className="formtitle" onClick={()=>navigate(-1)}>
                 <i className="fa-solid fa-arrow-left"></i>{" "}
                 <span>Create your account</span>
               </p>
