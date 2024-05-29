@@ -1,13 +1,47 @@
 import { useEffect, useRef, useState} from "react";
 import "../CssStyle/StepBar.css";
 import { useSelector, useDispatch } from "react-redux";
-import { nextStage, previousStage ,intialStage } from "../Actions/actions.js";
+import { nextStage1, nextStage2, previousStage1 , previousStage2 ,intialStage1 ,intialStage2 ,updateStage1} from "../Actions/actions.js";
+import { useLocation } from "react-router-dom";
 
 function MultiStepForm({ stepsConfig, actionIndex }) {
-  const bookingStage = useSelector((state) => state.bookingStageReducer);
-  const dispatch = useDispatch();
+  const [isComplete, setIsComplete] = useState(false);
+  const [margins, setMargins] = useState({
+    marginLeft: 0,
+    marginRight: 0,
+  });
+  const stepRef = useRef([]);
 
-  console.log("bookingStage", bookingStage);
+  const dispatch = useDispatch();
+  const location = useLocation();
+  const { from } = location.state ;
+
+  const userDetailForContinueBooking =  useSelector((state) => state.userDetailReducer.userDetail1);
+  const stageDetailForNewBooking   = useSelector((state) => state.bookingStageReducer.bookingStage2);
+
+  useEffect(() => {
+
+    if(userDetailForContinueBooking.bookingFor === ""){
+      console.log("From if condition from step bar") ;  
+      dispatch(updateStage1(stageDetailForNewBooking));
+      dispatch(intialStage2())
+    }
+
+   }, [])
+   
+
+  const bookingStageFromRedux = useSelector((state) => state.bookingStageReducer.bookingStage2) 
+  console.log("bookingStageFromRedux" ,bookingStageFromRedux);
+
+  const bookingStageFromReduxForNewBooking = useSelector((state) => state.bookingStageReducer.bookingStage2) 
+
+
+  const bookingStage = from ===  "Continue Booking" ? bookingStageFromRedux : bookingStageFromReduxForNewBooking ;
+
+  console.log("bookingStage" ,bookingStage);
+
+  const [currentStep, setCurrentStep] = useState(bookingStage);
+
 
   const pickUpLocation = localStorage.getItem("pickUpLocation");
   const dropLocation = localStorage.getItem("dropLocation");
@@ -43,17 +77,13 @@ function MultiStepForm({ stepsConfig, actionIndex }) {
     formattedTime = `${hours12}:${minutes < 10 ? "0" : ""}${minutes} ${period}`; // Assign value to formattedTime
     console.log(formattedTime);
   } else {
-    console.log("Error: time is null");
+    // console.log("Error: time is null");
   }
 
-  const [currentStep, setCurrentStep] = useState(bookingStage);
-  const [isComplete, setIsComplete] = useState(false);
-  const [margins, setMargins] = useState({
-    marginLeft: 0,
-    marginRight: 0,
-  });
-  const stepRef = useRef([]);
-
+  useEffect(() => {
+    console.log("currentStep" ,currentStep);
+  }, [currentStep])
+  
 
   useEffect(() => {
     if (stepsConfig && stepsConfig.length > 0) {
@@ -74,8 +104,12 @@ function MultiStepForm({ stepsConfig, actionIndex }) {
         setIsComplete(true);
         return prevStep;
       } else {
-        if(bookingStage === 3) dispatch(intialStage())
-        dispatch(nextStage());
+        if(bookingStage === 3) {
+          from ===  "Continue Booking" ? dispatch(intialStage1()): dispatch(intialStage2())
+          return ;
+        }
+
+        from ===  "Continue Booking" ? dispatch(nextStage1()): dispatch(nextStage2())
         return prevStep + 1;
       }
     });
@@ -86,7 +120,7 @@ function MultiStepForm({ stepsConfig, actionIndex }) {
       if (prevStep === 1) {
         return prevStep;
       } else {
-        dispatch(previousStage());
+        from ===  "Continue Booking" ? dispatch(previousStage1()): dispatch(previousStage2())
         setIsComplete(false);
         return prevStep - 1;
       }
@@ -96,6 +130,7 @@ function MultiStepForm({ stepsConfig, actionIndex }) {
   const calculateProgressBarWidth = () => {
     return ((currentStep - 1) / (stepsConfig.length - 1)) * 100;
   };
+
 
   const ActiveComponent = stepsConfig[currentStep - 1]?.Component;
   return (
@@ -161,6 +196,7 @@ function MultiStepForm({ stepsConfig, actionIndex }) {
         <ActiveComponent
           handleNextButon={handleNext}
           handlePreviousButton={handlePrevious}
+          from={from}
         />
 
        

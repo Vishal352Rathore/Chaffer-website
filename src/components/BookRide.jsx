@@ -1,53 +1,53 @@
-
-import React from 'react'
+import React from "react";
 import logo from "../cab_images/logo.png";
-import { useEffect } from 'react';
+import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import MultiStepForm from "./StepBar";
-import ServiceClass from './ServiceClass';
-import Pickup from './Pickup';
-import Payment from './Payment'
-import BookingDonePage from "./BookingDonePage"
+import ServiceClass from "./ServiceClass";
+import Pickup from "./Pickup";
+import Payment from "./Payment";
+import BookingDonePage from "./BookingDonePage";
 import "../CssStyle/StepBar.css";
 
-
 const CHECKOUT_STEPS = [
-    {
-      name: "service Class",
-      Component: ServiceClass,
-    },
-    {
-      name: "Payment",
-      Component: Payment,
-    },
-    {
-      name: "Done",
-      Component: BookingDonePage
-    },
-  ];
-
-
-
+  {
+    name: "Service Class",
+    Component: ServiceClass,
+  },
+  {
+    name: "Payment",
+    Component: Payment,
+  },
+  {
+    name: "Done",
+    Component: BookingDonePage,
+  },
+];
 
 const BookRide = () => {
   const navigate = useNavigate();
 
+  useEffect(() => {
+    console.log(
+      "localStorage.getItem from book ride",
+      localStorage.getItem("category")
+    );
 
-useEffect(() => {
-  
-  console.log("localStorage.getItem from book ride",localStorage.getItem("category"))
-
-  if (localStorage.getItem("category") === "Airport Transfer" && CHECKOUT_STEPS.length < 4) {
-    // Add Pickup Info step if condition is true
-    CHECKOUT_STEPS.splice(1, 0, {
-      name: "Pickup Info",
-      Component: Pickup,
-    });
-  }
-
-}, [])
-
-
+    if (
+      localStorage.getItem("category") === "Airport Transfer" &&
+      CHECKOUT_STEPS.length < 4
+    ) {
+      // Add Pickup Info step if condition is true
+      console.log(
+        "localStorage.getItem(Category) from book ride",
+        localStorage.getItem("category")
+      );
+      CHECKOUT_STEPS.splice(1, 0, {
+        name: "Pickup Info",
+        Component: Pickup,
+      });
+    }
+  }, []);
 
   return (
     <div className="bookride-container">
@@ -61,19 +61,15 @@ useEffect(() => {
         </div>
       </section>
 
-
       <section className="row">
-          <div className="col-md-12 ">
-            <div className="serviceclass">
-              <MultiStepForm stepsConfig={CHECKOUT_STEPS} actionIndex ={1}/>
-            </div>
+        <div className="col-md-12 ">
+          <div className="serviceclass">
+            <MultiStepForm stepsConfig={CHECKOUT_STEPS} actionIndex={1} />
           </div>
-        </section>
-
-  
+        </div>
+      </section>
     </div>
   );
 };
 
 export default BookRide;
-

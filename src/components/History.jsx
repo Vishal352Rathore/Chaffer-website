@@ -9,6 +9,7 @@ import Cancel from "./HistoryStages/Cancel";
 import "../CssStyle/History.css";
 
 const History = () => {
+  const [loading, setLoading] = useState(true);
   const URL =
     "https://chauffer-staging-tse4a.ondigitalocean.app/v1/ride/allRide";
   const token = localStorage.getItem("token");
@@ -33,18 +34,21 @@ const History = () => {
 
             if (response.status) {
               setRideData(response.data.items);
+              setLoading(false);
             } else if (!response.status) {
               navigate('/login', { state: { from: "/history" } });
             }
             
           } catch (error) {
             console.error("response for ride", error);
+            setLoading(false);
           }
         } else {
           navigate("/login", { state: { from: "/" } });
         }
       } catch (error) {
         console.error("Error fetching data:", error);
+        setLoading(false);
       }
     };
 
@@ -100,7 +104,7 @@ const History = () => {
             </ul>
           </nav>  
         </header>
-        <main>{renderPage()}</main>
+        <main>   {loading ? <div><p>Loading...</p></div> : renderPage()}</main>
       </div>
       {/* <Footer /> */}
     </div>

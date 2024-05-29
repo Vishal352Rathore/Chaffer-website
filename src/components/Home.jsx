@@ -34,14 +34,13 @@ function Home() {
   useEffect(() => {
     if (token) {
       setIsLogin(true);
-      console.log("islogin", isLogin);
+      // console.log("islogin", isLogin);
     } else {
       setIsLogin(false);
-      console.log("islogin", isLogin);
+      // console.log("islogin", isLogin);
     }
   }, []);
 
-  
 
   const [Info, setInfo] = useState({
     pickUpLocation: "",
@@ -61,7 +60,6 @@ function Home() {
     console.log('Coordinates:name', `${name} ${lat()},${lng()}` );
     setIsSuggestionSelected({ ...isSuggestionSelected, [name]: true });
   };
-
 
   const handleChange = (e) => {
     setInfo({ ...Info, [e.target.name]: e.target.value });
@@ -100,7 +98,7 @@ function Home() {
       console.log("Bookride Data:", userData);
 
       e.target.reset();
-      navigate("/services/bookride");
+      navigate("/services/bookride", { state: { from: "Fresh Booking" } });
     } catch (error) {
       console.log("Error in booking ride:", error);
     }
@@ -111,6 +109,7 @@ function Home() {
       {/* <Header /> */}
       <div className="bg-image w-100%">
         <Header/>
+        <button onClick={()=>{ navigate("/services/bookride", { state: { from: "Continue Booking" } })}}>Continue Booking</button>
         <div className="text-content customheader">
           <div className="text-div">
             <div className="text-heading-first">
@@ -263,7 +262,7 @@ function Home() {
           <div className=" row bg-white media-bg-white">
             <div className="col-md-12 ">
               <div className="gen-heading pb-4">
-                <h1>How GenAlphaPlus Works</h1>
+                <h1>How GenAlphaPlas Works</h1>
                 <p className="explore">
                   Explore our first className limousine & car rental services
                 </p>
@@ -382,13 +381,13 @@ function Home() {
               <div>
                 <img src={ourservices1} alt="not found" />
               </div>
-              <h3>Chauffer Services</h3>
+              <h3>Chauffer Service</h3>
             </div>
             <div className="col-md-4">
               <div>
                 <img src={ourservices2} alt="not found" />
               </div>
-              <h3>Events</h3>
+              <h3>Limousin Events</h3>
             </div>
             <div className="col-md-4">
               <div>
@@ -423,7 +422,7 @@ function Home() {
       <section className="prodrive-container">
         <div className="container">
           <div className="row">
-            <p>GenAlphaPlus Pro Fleet</p>
+            <p>GenAlphaPlas Pro Fleet</p>
             <p>
               We also take custom orders and will help you acquire a specific
               yacht
@@ -563,6 +562,7 @@ function Home() {
         </div>
       </section>
       
+
     </div>
   );
 }

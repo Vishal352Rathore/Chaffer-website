@@ -4,14 +4,46 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import car1 from "../cab_images/blackcar1.png";
 import family from "../cab_images/familyicon.png";
 import bag from "../cab_images/bagicon.png";
-import { toast } from "react-toastify";
-
 import axios from "axios";
+import { useSelector, useDispatch } from "react-redux";
+import { updateStage1, intialStage2 } from "../Actions/actions.js";
 
-const ServiceClass = ({ handleNextButon }) => {
-  const URL =
-    "https://chauffer-staging-tse4a.ondigitalocean.app/v1/vehicle/getAllVehicle";
+import { updateBookingData1 ,intialBookingData2 } from "../Actions/actions.js";
+import { updatePaymentData1 ,intialPaymentData2 } from "../Actions/actions.js";
+
+
+
+const ServiceClass = ({ handleNextButon ,from }) => {
+  const URL =  "https://chauffer-staging-tse4a.ondigitalocean.app/v1/vehicle/getAllVehicle";
   const [vehicleData, setVehicleData] = useState(null);
+
+  const userDetailForContinueBooking =  useSelector((state) => state.userDetailReducer.userDetail1);
+
+  
+  // const paymentDetailForContinueBooking =  useSelector((state) => state.paymentDetailReducer.paymentDetail1);
+  const userDetailForNewBooking =  useSelector((state) => state.userDetailReducer.userDetail2);
+  const paymentDetailForNewBooking =  useSelector((state) => state.paymentDetailReducer.paymentDetail2);
+  const stageDetailForNewBooking   = useSelector((state) => state.bookingStageReducer.bookingStage2);
+
+
+  const dispatch = useDispatch();
+
+   useEffect(() => {
+
+    if(userDetailForContinueBooking.bookingFor === ""){
+      console.log("From if condition") ;  
+
+      dispatch(updateBookingData1(userDetailForNewBooking))
+      dispatch(updatePaymentData1(paymentDetailForNewBooking))
+      dispatch(updateStage1(stageDetailForNewBooking));
+      dispatch(intialBookingData2())
+      dispatch(intialPaymentData2())
+      dispatch(intialStage2())
+    }
+
+   }, [])
+   
+
 
   useEffect(() => {
     const fetchData = async () => {

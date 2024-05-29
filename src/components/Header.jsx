@@ -1,7 +1,7 @@
 import React from "react";
 import image1 from "../cab_images/logo.png";
 import { useState, useEffect } from "react";
-import { useNavigate, Link ,useLocation  } from "react-router-dom";
+import { useNavigate, Link, useLocation } from "react-router-dom";
 import "../CssStyle/Headers.css";
 import { toast } from "react-toastify";
 
@@ -22,8 +22,8 @@ const Header = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    console.log("Running useEffect");
-    console.log("token before condition:", token);
+    // console.log("Running useEffect");
+    // console.log("token before condition:", token);
     if (token) {
       setIsLogin(true);
       console.log("Setting isLogin to true");
@@ -31,7 +31,7 @@ const Header = () => {
       setIsLogin(false);
       console.log("islogin", isLogin);
     }
-    console.log("token after condition:", token);
+    // console.log("token after condition:", token);
   }, []);
 
   const handleLogin = (e) => {
@@ -42,7 +42,7 @@ const Header = () => {
       toast.success("Logout successful!");
       navigate("/");
     } else {
-      navigate("/login");
+      navigate("./login");
     }
   };
 
@@ -66,8 +66,7 @@ const Header = () => {
           </button>
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-4 mb-2 mb-lg-0">
-              <li className="nav-item" 
-              >
+              <li className="nav-item">
                 <Link
                   className={`nav-link ${isActive === "/" ? "active" : ""}`}
                   to="/"
@@ -76,9 +75,7 @@ const Header = () => {
                 </Link>
               </li>
 
-              <li
-                className="nav-item"
-              >
+              <li className="nav-item">
                 <Link
                   className={`nav-link ${
                     isActive === "/history" ? "active" : ""
@@ -89,18 +86,18 @@ const Header = () => {
                 </Link>
               </li>
 
-              <li class="nav-item" 
-              >
+              <li class="nav-item">
                 <Link
-                  className={`nav-link ${isActive === "/about" ? "active" : ""}`}
+                  className={`nav-link ${
+                    isActive === "/about" ? "active" : ""
+                  }`}
                   to="/about"
                 >
                   {" "}
                   About Us
                 </Link>
               </li>
-              <li class="nav-item" 
-              >
+              <li class="nav-item">
                 <Link
                   className={`nav-link ${isActive === "/help" ? "active" : ""}`}
                   to="/help"
@@ -109,8 +106,7 @@ const Header = () => {
                   Help us
                 </Link>
               </li>
-              <li class="nav-item"
-               >
+              <li class="nav-item">
                 <Link
                   className={`nav-link ${
                     isActive === "/services" ? "active" : ""
@@ -120,9 +116,7 @@ const Header = () => {
                   Services
                 </Link>
               </li>
-              <li class="nav-item" 
-             
-              >
+              <li class="nav-item">
                 <Link
                   className={`nav-link ${
                     isActive === "/cities" ? "active" : ""
@@ -146,6 +140,8 @@ const Header = () => {
           </div>
         </div>
       </nav>
+
+      
     </div>
   );
 };

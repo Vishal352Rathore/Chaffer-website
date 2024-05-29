@@ -35,10 +35,10 @@ const Services = () => {
       </section>
       
       <section className="container m-auto ">
-        <div className="row">
+        <div className="row p-5">
           <div className="col-md-12  ">
             <div className="container">
-              <div className="row">
+              <div className="row p-3">
                 <div className="col-md-3 " onClick={()=>navigate('/services/chaufferservices')}>
                   <img
                     src={img1}
@@ -53,7 +53,7 @@ const Services = () => {
                     alt="not found"
                     className="img-size-services"
                   />
-                  <p className="img-name-service">Events</p>
+                  <p className="img-name-service">Limousin Service</p>
                 </div>
                 <div className="col-md-3 " onClick={()=>navigate('/services/chaufferservices')}>
                   <img

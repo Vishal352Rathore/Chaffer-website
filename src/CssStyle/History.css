@@ -47,10 +47,3 @@
     height: 35vh;
 
 }
-
-@media (max-width: 767px) {
-  .history-container {
-    margin: 50px 10px;
-  }
-
-}
