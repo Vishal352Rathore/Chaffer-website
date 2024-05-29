@@ -29,7 +29,7 @@ const BookRide = () => {
 
   useEffect(() => {
     console.log(
-      "localStorage.getItem from book ride",
+      "Category from book ride",
       localStorage.getItem("category")
     );
 
