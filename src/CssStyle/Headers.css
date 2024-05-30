@@ -118,6 +118,10 @@ body {
     background-color: #fff;
     border: unset;
     padding-left: 10px;
+    
+}
+input.form-control.input-text.pac-target-input  , input.datapicker ,select.form-select.input-text{
+    color: #000 !important;
 }
 
 /* React datapicker Component START */

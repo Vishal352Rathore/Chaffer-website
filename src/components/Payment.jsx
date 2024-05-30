@@ -13,10 +13,6 @@ const PaymentCard = ({ handleNextButon, handlePreviousButton }) => {
   const token = localStorage.getItem("token");
   const navigate = useNavigate();
 
-  const headers = {
-    token: token, // Include your token here
-  };
-
   const URL =
     "https://chauffer-staging-tse4a.ondigitalocean.app/v1/ride/bookRide";
   const [rideBookingData, setRideBookingData] = useState({
@@ -61,7 +57,6 @@ const PaymentCard = ({ handleNextButon, handlePreviousButton }) => {
   const isUserLogin = async (e) => {
     e.preventDefault();
     try {
-      const token = localStorage.getItem("token");
       if (token) {
         console.log("user is logined", paymentDetails);
         dispatch(updatePaymentData(paymentDetails));
@@ -79,8 +74,23 @@ const PaymentCard = ({ handleNextButon, handlePreviousButton }) => {
   };
 
   const handleChange = (e) => {
-    setPaymentDetails({ ...paymentDetails, [e.target.name]: e.target.value });
+    const { name, value } = e.target;
+
+    if (name === "expirationdate") 
+      {
+        let formattedValue = value.replace(/\D/g, ''); // Remove non-digit characters
+        console.log("formattedValue :",formattedValue)
+        if (formattedValue.length > 2) {
+          formattedValue = formattedValue.slice(0, 2) + '/' + formattedValue.slice(2, 4);
+        }
+        setPaymentDetails({ ...paymentDetails, [name]: formattedValue });
+      } 
+    else {
+      setPaymentDetails({ ...paymentDetails, [name]: value });
+    }
   };
+
+  
 
   const datafetchingForBookRide = () => {
     const [datePart, timePart] = localStorage.getItem("dateTime").split("T");
@@ -157,7 +167,7 @@ const PaymentCard = ({ handleNextButon, handlePreviousButton }) => {
       <section className="container">
         <div className="row">
           <div className="col-md-12">
-            <form className="add-credit-card-form">
+            <form className="add-credit-card-form" onSubmit={bookingDone}>
               <div className="container">
                 <div className="row">
                   <div className="col-md-6">
@@ -171,6 +181,7 @@ const PaymentCard = ({ handleNextButon, handlePreviousButton }) => {
                       name="nameofcard"
                       value={paymentDetails.nameofcard}
                       onChange={handleChange}
+                      required
                     />
                   </div>
                   <div className="col-md-6">
@@ -185,6 +196,9 @@ const PaymentCard = ({ handleNextButon, handlePreviousButton }) => {
                       name="cardnumber"
                       value={paymentDetails.cardnumber}
                       onChange={handleChange}
+                      required
+                      minLength={14}
+                      maxLength={16}
                     />
                     <span>
                       <img src={card} alt="not found" />
@@ -206,6 +220,9 @@ const PaymentCard = ({ handleNextButon, handlePreviousButton }) => {
                       name="expirationdate"
                       value={paymentDetails.expirationdate}
                       onChange={handleChange}
+                      placeholder="MM/YY"
+                      maxLength={5}
+                      required
                     />
                   </div>
                   <div className="col-md-6 col-sm-6">
@@ -219,6 +236,8 @@ const PaymentCard = ({ handleNextButon, handlePreviousButton }) => {
                       name="cvv"
                       value={paymentDetails.cvv}
                       onChange={handleChange}
+                      maxLength={3}
+                      required
                     />
                   </div>
                 </div>
@@ -240,8 +259,6 @@ const PaymentCard = ({ handleNextButon, handlePreviousButton }) => {
                         Save card to your list
                       </label>
                     </div>
-
-                   
                   </div>
                 </div>
               </div>
@@ -286,12 +303,12 @@ const PaymentCard = ({ handleNextButon, handlePreviousButton }) => {
                         data-bs-target="#exampleModal"
                         onClick={(e) => e.preventDefault()}
                         data-bs-dismiss="modal"
+                       
                       >
                         Continue
                       </button>
-
                     </div>
-                    
+
                     <div
                       class="modal fade"
                       id="exampleModal"
@@ -321,7 +338,7 @@ const PaymentCard = ({ handleNextButon, handlePreviousButton }) => {
                               Close
                             </button>
                             <button
-                              type="button"
+                              type="sumbit"
                               class=" continue-btn"
                               onClick={isUserLogin}
                             >
