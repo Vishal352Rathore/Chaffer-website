@@ -11,7 +11,8 @@ import { toast } from "react-toastify";
 const Login = () => {
   const navigate = useNavigate();
   const location = useLocation();
-  const { from } = location.state || { from: "/" };
+  
+  const { from } = location && (location.state || { from: "/" });
   console.log("Redirected from:", location.state);
 
   const URL =

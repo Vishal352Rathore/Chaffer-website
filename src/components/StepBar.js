@@ -6,7 +6,7 @@ import { useLocation } from "react-router-dom";
 
 function MultiStepForm({ stepsConfig, actionIndex }) {
   const location = useLocation();
-  const { from } = location.state ;
+  const { from } = location && location.state ;
 
   const bookingStageFromRedux = useSelector((state) => state.bookingStageReducer.bookingStage1) 
   console.log("bookingStageFromRedux", bookingStageFromRedux);

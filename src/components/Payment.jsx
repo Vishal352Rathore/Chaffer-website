@@ -315,6 +315,8 @@ const PaymentCard = ({ handleNextButon, handlePreviousButton ,from}) => {
                 </div>
               </div>
             </form>
+
+
             <div
                       class="modal fade"
                       id="exampleModal"
@@ -347,30 +349,14 @@ const PaymentCard = ({ handleNextButon, handlePreviousButton ,from}) => {
                               type="sumbit"
                               class=" continue-btn"
                               onClick={isUserLogin}
+                              data-bs-dismiss="modal"
                             >
                               Confirm
                             </button>
                           </div>
                         </div>
                       </div>
-                    <div class="modal-body">Please confirm Your Payment !!</div>
-                    <div class="modal-footer">
-                      <button
-                        type="button"
-                        class="btn sign-in-btn"
-                        data-bs-dismiss="modal"
-                      >
-                        Close
-                      </button>
-                      <button
-                        type="button"
-                        class=" continue-btn"
-                        onClick={isUserLogin}
-                        data-bs-dismiss="modal"
-                      >
-                        Confirm
-                      </button>
-                    </div>
+                   
                   </div>
             </div>
           </div>
