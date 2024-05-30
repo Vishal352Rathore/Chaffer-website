@@ -68,8 +68,8 @@ const Header = () => {
             <ul class="navbar-nav me-4 mb-2 mb-lg-0">
               <li className="nav-item">
                 <Link
-                  className={`nav-link ${isActive === "/" ? "active" : ""}`}
-                  to="/"
+                  className={`nav-link ${isActive === "/home" ? "active" : ""}`}
+                  to="/home"
                 >
                   Home
                 </Link>

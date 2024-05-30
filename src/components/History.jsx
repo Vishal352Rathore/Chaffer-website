@@ -74,9 +74,9 @@ const History = () => {
   };
 
   return (
-    <div className="city-conatainer ">
+    <div className="history-whole-container ">
       <section className="bg-image-aboutus w-100%">
-        <Header />
+        {/* <Header /> */}
         <section className="container customheader">
           <div className="row">
             <div className="text-content-aboutus">

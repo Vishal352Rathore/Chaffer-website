@@ -1,3 +1,12 @@
+.nav-bar-position{
+background: white;
+margin: 20px;
+position: absolute;
+width: 98%;
+border-radius: 10px;
+}
+
+
 .App {
   text-align: center;
 }
