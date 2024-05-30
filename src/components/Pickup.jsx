@@ -1,11 +1,16 @@
 import React, { useState, useEffect } from "react";
 import "../CssStyle/Pickup.css";
 import { useSelector, useDispatch } from "react-redux";
-import { updateBookingData } from "../Actions/actions.js";
+import { updateBookingData1 ,updateBookingData2} from "../Actions/actions.js";
 
-const Pickup = ({ handleNextButon, handlePreviousButton }) => {
+
+const Pickup = ({handleNextButon ,handlePreviousButton ,from}) => {
   const [selectedRadio, setSelectedRadio] = useState("Myself");
-  const userDetailFromRedux = useSelector((state) => state.userDetailReducer);
+
+  const userDetailForContinueBooking =  useSelector((state) => state.userDetailReducer.userDetail1);
+  const userDetailForNewBooking =  useSelector((state) => state.userDetailReducer.userDetail2);
+  const userDetailFromRedux =  from ===  "Continue Booking" ?  userDetailForContinueBooking : userDetailForNewBooking ;
+
   const dispatch = useDispatch();
 
   const [bookingDetails, setBookingDetails] = useState({
@@ -47,12 +52,10 @@ const Pickup = ({ handleNextButon, handlePreviousButton }) => {
 
   const handleSubmit = () => {
     handleNextButon();
-    if(!bookingDetails){
-        alert('please filled form data')
-    }
-    dispatch(updateBookingData(bookingDetails));
-    localStorage.setItem("booking details", JSON.stringify(bookingDetails));
-  };
+    
+    from ===  "Continue Booking" ? dispatch(updateBookingData1(bookingDetails)): dispatch(updateBookingData2(bookingDetails))
+    localStorage.setItem("booking details" , JSON.stringify(bookingDetails));
+  }
 
   const handleRadioBUttonChange = (e) => {
     setSelectedRadio(e.target.value);

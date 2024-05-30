@@ -1,13 +1,22 @@
 import { useEffect, useRef, useState} from "react";
 import "../CssStyle/StepBar.css";
 import { useSelector, useDispatch } from "react-redux";
-import { nextStage, previousStage ,intialStage } from "../Actions/actions.js";
+import { nextStage1, previousStage1 ,intialStage1 } from "../Actions/actions.js";
+import { useLocation } from "react-router-dom";
 
 function MultiStepForm({ stepsConfig, actionIndex }) {
-  const bookingStage = useSelector((state) => state.bookingStageReducer);
+  const location = useLocation();
+  const { from } = location.state ;
+
+  const bookingStageFromRedux = useSelector((state) => state.bookingStageReducer.bookingStage1) 
+  console.log("bookingStageFromRedux", bookingStageFromRedux);
+
+  
+  const bookingStage = from ===  "Continue Booking" ? bookingStageFromRedux : actionIndex ;
   const dispatch = useDispatch();
 
   console.log("bookingStage", bookingStage);
+
 
   const pickUpLocation = localStorage.getItem("pickUpLocation");
   const dropLocation = localStorage.getItem("dropLocation");
@@ -74,8 +83,8 @@ function MultiStepForm({ stepsConfig, actionIndex }) {
         setIsComplete(true);
         return prevStep;
       } else {
-        if(bookingStage === 3) dispatch(intialStage())
-        dispatch(nextStage());
+        if(bookingStage === 3) dispatch(intialStage1())
+        dispatch(nextStage1());
         return prevStep + 1;
       }
     });
@@ -86,7 +95,7 @@ function MultiStepForm({ stepsConfig, actionIndex }) {
       if (prevStep === 1) {
         return prevStep;
       } else {
-        dispatch(previousStage());
+        dispatch(previousStage1());
         setIsComplete(false);
         return prevStep - 1;
       }
@@ -161,6 +170,7 @@ function MultiStepForm({ stepsConfig, actionIndex }) {
         <ActiveComponent
           handleNextButon={handleNext}
           handlePreviousButton={handlePrevious}
+          from={from}
         />
 
        

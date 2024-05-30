@@ -106,7 +106,7 @@ function Home() {
       console.log("Bookride Data:", userData);
 
       e.target.reset();
-      navigate("/services/bookride");
+      navigate("/services/bookride", { state: { from: "Fresh Booking" } });
     } catch (error) {
       console.log("Error in booking ride:", error);
     }
@@ -116,7 +116,7 @@ function Home() {
     <div className="home-container">
       {/* <Header /> */}
       <div className="bg-image w-100%">
-        <Header />
+        {/* <button onClick={()=>{ navigate("/services/bookride", { state: { from: "Continue Booking" } })}}>Continue Booking</button> */}
         <div className="text-content customheader">
           <div className="text-div">
             <div className="text-heading-first">
@@ -573,6 +573,8 @@ function Home() {
           </div>
         </div>
       </section>
+      
+
     </div>
   );
 }
