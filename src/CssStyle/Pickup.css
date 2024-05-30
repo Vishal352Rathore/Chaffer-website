@@ -196,7 +196,7 @@
     border: none;
 }
 
-@media (max-width:767px) {
+@media (min-width:767px) and (max-width:991px) {
 
     .booking-form-container .booking-form,
     .provide-additional-form-container .booking-form {
@@ -253,7 +253,32 @@
         font-size: 17px;
     }
 }
-@media screen and (min-width:768px) and (max-width:991px) {
+@media screen and (min-width:992px) and (max-width:1199px) {
+    .booking-form-container .booking-form, .provide-additional-form-container .booking-form {
+        font-size: 24px; 
+        padding: 20px 0px;
+    } 
+    .chauffer-notes-field .form-control, .cost-center-field .form-control {
+        padding: 0px 0px 0px 10px;
+        min-height: 10vh;
+    }
+    .booking-form-container section.row.d-flex.justify-content-between.font-inter.mt-5.mb-5.pb-5 {
+        justify-content: center !important;
+        width: 100%;
+        align-items: center;
+        flex-direction: column;
+    }
+    .skip-pickup-btn {
+        padding: 8px 30px;
+        
+    }
+    .continue-btn {
+       
+        padding: 8px 90px;
+        
+    }
+}
+/* @media screen and (min-width:768px) and (max-width:991px) {
     .booking-form-container .booking-form, .provide-additional-form-container .booking-form {
         font-size: 24px; 
         padding: 20px 0px;
@@ -277,4 +302,4 @@
         padding: 8px 90px;
         
     }
-}
+} */

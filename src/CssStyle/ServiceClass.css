@@ -121,7 +121,11 @@
     border: 1px solid #00980F !important; /* Add your desired styling for the selected state */
     box-shadow: 2px rgb(206, 206, 242) !important;
   }
-
+.continue-btn-container {
+    width: 100%;
+    display: flex;
+    justify-content: end;
+}
   @media (max-width:767px){
     .business-class-container {
         padding: 40px 0px 0px 0px;
