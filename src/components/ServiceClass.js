@@ -123,7 +123,7 @@ const ServiceClass = ({ handleNextButon }) => {
         </section>
 
         <section className="row  mb-5 pb-5">
-          <div className="col-md-3 offset-md-9">
+          <div className="col-md-3 continue-btn-container">
             <button className="continue-btn" onClick={handleSubmit}>
               Continue
             </button>
