@@ -1,3 +1,7 @@
+.ride-history-container{
+   overflow-y: scroll;
+}
+
 .ride-history-container p{
    margin: 0px;
    font-family: Inter;

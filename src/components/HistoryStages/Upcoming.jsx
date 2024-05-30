@@ -14,11 +14,11 @@ const Upcoming = ({ rideData }) => {
     <div className="ride-history-container">
       <div className="container-fluid">
         <div className="row">
-          {rideData && rideData.length >0 &&
+          {rideData && rideData.length > 0 &&
             rideData.map((ride, index) => {
               return (
                 ride.status === 0 &&
-                <div className="col-md-4">
+                <div className="col-md-4" key={ride._id}>
                   <div className="history-card">
                     <div className="card-row">
                       <img src={Pickup_green} alt="" />

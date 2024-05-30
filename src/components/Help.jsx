@@ -9,8 +9,8 @@ const Help = () => {
 
   return (
     <div className="help-container ">
-      <section className="bg-image-aboutus w-100%">
-        <Header />
+       <section className="bg-image-aboutus w-100%">
+       {/* <Header/> */}
         <section className="container customheader">
           <div className="row">
             <div className="text-content-aboutus">

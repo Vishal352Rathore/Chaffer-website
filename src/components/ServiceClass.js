@@ -4,13 +4,10 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import car1 from "../cab_images/blackcar1.png";
 import family from "../cab_images/familyicon.png";
 import bag from "../cab_images/bagicon.png";
-import { toast } from "react-toastify";
-
 import axios from "axios";
 
-const ServiceClass = ({ handleNextButon }) => {
-  const URL =
-    "https://chauffer-staging-tse4a.ondigitalocean.app/v1/vehicle/getAllVehicle";
+const ServiceClass = ({ handleNextButon ,from }) => {
+  const URL =  "https://chauffer-staging-tse4a.ondigitalocean.app/v1/vehicle/getAllVehicle";
   const [vehicleData, setVehicleData] = useState(null);
 
   useEffect(() => {

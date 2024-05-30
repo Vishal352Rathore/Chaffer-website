@@ -3,18 +3,21 @@ import "../CssStyle/Payment.css";
 import card from "../cab_images/cards.png";
 import { useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
-import { updatePaymentData } from "../Actions/actions.js";
-import { toast } from "react-toastify";
-
+import { updatePaymentData1 ,updatePaymentData2 } from "../Actions/actions.js";
 import axios from "axios";
 
-const PaymentCard = ({ handleNextButon, handlePreviousButton }) => {
-  const userDetails = useSelector((state) => state.userDetailReducer);
+const PaymentCard = ({ handleNextButon, handlePreviousButton ,from}) => {
+  const userDetailForContinueBooking =  useSelector((state) => state.userDetailReducer.userDetail1);
+  const userDetailForNewBooking =  useSelector((state) => state.userDetailReducer.userDetail2);
+  const userDetails =  from ===  "Continue Booking" ?  userDetailForContinueBooking : userDetailForNewBooking ;
+
+  const dispatch = useDispatch();
   const token = localStorage.getItem("token");
+
   const navigate = useNavigate();
 
-  const URL =
-    "https://chauffer-staging-tse4a.ondigitalocean.app/v1/ride/bookRide";
+  const URL = "https://chauffer-staging-tse4a.ondigitalocean.app/v1/ride/bookRide";
+
   const [rideBookingData, setRideBookingData] = useState({
     pickUpLocation: "",
     dropLocation: "",
@@ -38,11 +41,11 @@ const PaymentCard = ({ handleNextButon, handlePreviousButton }) => {
     amount: null,
   });
 
-  const paymentDetailFromRedux = useSelector(
-    (state) => state.paymentDetailReducer
-  );
-  const dispatch = useDispatch();
+  const paymentDetailForContinueBooking =  useSelector((state) => state.paymentDetailReducer.paymentDetail1);
+  const paymentDetailForNewBooking =  useSelector((state) => state.paymentDetailReducer.paymentDetail2);
+  const paymentDetailFromRedux =  from ===  "Continue Booking" ?  paymentDetailForContinueBooking : paymentDetailForNewBooking ;
 
+ 
   const [paymentDetails, setPaymentDetails] = useState({
     nameofcard: "",
     cardnumber: "",
@@ -59,12 +62,11 @@ const PaymentCard = ({ handleNextButon, handlePreviousButton }) => {
     try {
       if (token) {
         console.log("user is logined", paymentDetails);
-        dispatch(updatePaymentData(paymentDetails));
+        from ===  "Continue Booking" ?  dispatch(updatePaymentData1(paymentDetails)):  dispatch(updatePaymentData2(paymentDetails))
         datafetchingForBookRide();
-
         // toast.success("Payment has done Successfully ! ")
       } else {
-        dispatch(updatePaymentData(paymentDetails));
+        from ===  "Continue Booking" ?  dispatch(updatePaymentData1(paymentDetails)):  dispatch(updatePaymentData2(paymentDetails))
         navigate("/login", { state: { from: "/services/bookride" } });
         console.log("user is not login");
       }
@@ -111,8 +113,7 @@ const PaymentCard = ({ handleNextButon, handlePreviousButton }) => {
       firstName: userDetails.firstName || localStorage.getItem("firstName"),
       lastName: userDetails.lastName || localStorage.getItem("lastName"),
       email: userDetails.email || localStorage.getItem("email"),
-      phoneNumber:
-        userDetails.mobileNumber || localStorage.getItem("mobileNumber"),
+      phoneNumber: userDetails.mobileNumber || localStorage.getItem("mobileNumber"),
       status: 0, // Initial status
       cardName: paymentDetails.nameofcard,
       cardNumber: paymentDetails.cardnumber,
@@ -134,7 +135,7 @@ const PaymentCard = ({ handleNextButon, handlePreviousButton }) => {
     try {
       await axios
         .post(URL, rideBookingData, {
-          method: "GET", // or 'POST', 'PUT', 'DELETE', etc.
+          method: "POST",
           headers: {
             token: token,
             "Content-Type": "application/json", // Adjust content type as needed
@@ -143,6 +144,7 @@ const PaymentCard = ({ handleNextButon, handlePreviousButton }) => {
         .then((res) => {
           console.log("Booking DOne", res);
           if (res.data.status === true) {
+            console.log("Book ride done Data:",res.data)
             handleNextButon();
           }
         })
@@ -308,8 +310,12 @@ const PaymentCard = ({ handleNextButon, handlePreviousButton }) => {
                         Continue
                       </button>
                     </div>
+                    </div>
 
-                    <div
+                </div>
+              </div>
+            </form>
+            <div
                       class="modal fade"
                       id="exampleModal"
                       tabindex=""
@@ -347,13 +353,28 @@ const PaymentCard = ({ handleNextButon, handlePreviousButton }) => {
                           </div>
                         </div>
                       </div>
+                    <div class="modal-body">Please confirm Your Payment !!</div>
+                    <div class="modal-footer">
+                      <button
+                        type="button"
+                        class="btn sign-in-btn"
+                        data-bs-dismiss="modal"
+                      >
+                        Close
+                      </button>
+                      <button
+                        type="button"
+                        class=" continue-btn"
+                        onClick={isUserLogin}
+                        data-bs-dismiss="modal"
+                      >
+                        Confirm
+                      </button>
                     </div>
                   </div>
-                </div>
-              </div>
-            </form>
+            </div>
           </div>
-        </div>
+       
       </section>
 
       {/* <Footer /> */}

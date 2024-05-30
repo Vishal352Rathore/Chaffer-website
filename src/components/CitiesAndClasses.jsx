@@ -9,7 +9,7 @@ const CitiesAndClasses = () => {
   return (
     <div className="city-conatainer mb-5 pb-5">
       <section className="bg-image-aboutus w-100%">
-        <Header />
+        {/* <Header/> */}
         <section className="container customheader">
           <div className="row">
             <div className="text-content-aboutus">
