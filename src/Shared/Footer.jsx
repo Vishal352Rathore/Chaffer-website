@@ -3,6 +3,8 @@ import "../CssStyle/Footer.css";
 import logo from "../cab_images/logo.png";
 import android from "../cabimages-22/android.png";
 import google from "../cab_images/googleAppimg.png";
+import playStore from "../cab_images/Play_store.png"
+import appleStore from "../cab_images/Apple_store.png"
 import { useNavigate } from "react-router-dom";
 
 const Footer = () => {
@@ -18,10 +20,16 @@ const Footer = () => {
               <div className="logo_container">
                 <img src={logo} alt="logo not found" onClick={()=>navigate('/')}/>
               </div>
-              <span className="google-img-container">
-                <img src={google} alt="not found"/>
-
+              <div className="google-img-container">
+              <span className="google-img">
+              <a href="https://play.google.com/" target="_blank">  <img src={playStore} alt="not found"/> </a>  
               </span>
+              <span className="apple-img">
+              <a href="https://www.apple.com/in/app-store/" target="_blank">  <img src={appleStore} alt="not found"/> </a>  
+              </span>
+              </div>
+
+
               <span className="icon-container">
                 <span>
                   <i className="fa-brands fa-facebook-f "></i>
