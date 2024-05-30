@@ -16,6 +16,19 @@
     padding: 50px 0px;
     color: #000000;
 }
+.help-subtitle{
+    font-family: 'Dosis';
+    font-size: 24px;
+    font-weight: 500;
+    text-align: left;
+    color: #000000;
+}
+.help-subtitle-para{
+    color:#786f6f;
+    font-size: 14px;
+    font-family: 'Poppins';
+    text-align: left;
+}
 /* bootstrap5 classes */
 .help-container .accordion{
     --bs-accordion-active-color: var(--bs-primary-text-emphasis);
@@ -84,6 +97,29 @@
     font-weight:lighter;
     font-family: 'Dosis';
     /* border-bottom: 1px solid #D7D2BD; */
+}
+.contact-container{
+    padding: 40px 0px 0px 0px;
+   
+
+}
+.contact-container p:nth-child(1){
+    font-size: 20px;
+    color: #dbdacd;
+    text-align: left;
+    /* rgb(182, 180, 146) */
+}
+.contact-container ul li{
+    font-size: 16px;
+    color: #dbdacd;
+    text-align: left;
+    
+}
+.contact-container .thankyou-title{
+    padding: 20px 0px;
+    text-align: center;
+    font-size: 24px;
+    /* color: #4530cf; */
 }
 @media (max-width:767px){
     .help-container .accordion-button:not(.collapsed) {
