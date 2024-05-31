@@ -9,7 +9,9 @@ const DefaultLayout = () => {
       <div className="nav-bar-position">
         <Header />
       </div>{" "}
+      <div className="content"> 
       <Outlet/>
+      </div>
 
       <Footer />
 

@@ -1,9 +1,15 @@
 .nav-bar-position{
 background: white;
-margin: 20px;
-position: absolute;
-width: 98%;
-border-radius: 10px;
+top: 0;
+/* margin: 20px; */
+width: 100%;
+position: fixed;
+z-index: 1000;
+/* border-radius: 10px; */
+}
+
+.content{
+  margin-top: 95px;
 }
 
 

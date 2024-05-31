@@ -9,15 +9,8 @@ const Header = () => {
   const [isLogin, setIsLogin] = useState(false);
   const token = localStorage.getItem("token");
 
-  const location = useLocation();
-  const [isActive, setIsActive] = useState(location.pathname);
+  const [isActive, setIsActive] = useState("home");
 
-  useEffect(() => {
-    setIsActive(location.pathname);
-  }, [location.pathname]);
-  useEffect(() => {
-    console.log("isActive:", isActive);
-  }, [isActive]);
 
   const navigate = useNavigate();
 
@@ -68,8 +61,9 @@ const Header = () => {
             <ul class="navbar-nav me-4 mb-2 mb-lg-0">
               <li className="nav-item">
                 <Link
-                  className={`nav-link ${isActive === "/home" ? "active" : ""}`}
+                  className={`nav-link ${isActive === "home" ? "active" : ""}`}
                   to="/home"
+                  onClick={()=>{setIsActive("home")}}
                 >
                   Home
                 </Link>
@@ -78,9 +72,10 @@ const Header = () => {
               <li className="nav-item">
                 <Link
                   className={`nav-link ${
-                    isActive === "/history" ? "active" : ""
+                    isActive === "history" ? "active" : ""
                   }`}
                   to="/history"
+                  onClick={()=>{setIsActive("history")}}
                 >
                   History
                 </Link>
@@ -89,9 +84,10 @@ const Header = () => {
               <li class="nav-item">
                 <Link
                   className={`nav-link ${
-                    isActive === "/about" ? "active" : ""
+                    isActive === "about" ? "active" : ""
                   }`}
                   to="/about"
+                  onClick={()=>{setIsActive("about")}}
                 >
                   {" "}
                   About Us
@@ -99,8 +95,9 @@ const Header = () => {
               </li>
               <li class="nav-item">
                 <Link
-                  className={`nav-link ${isActive === "/help" ? "active" : ""}`}
+                  className={`nav-link ${isActive === "help" ? "active" : ""}`}
                   to="/help"
+                  onClick={()=>{setIsActive("help")}}
                 >
                   {" "}
                   Help us
@@ -109,9 +106,10 @@ const Header = () => {
               <li class="nav-item">
                 <Link
                   className={`nav-link ${
-                    isActive === "/services" ? "active" : ""
+                    isActive === "services" ? "active" : ""
                   }`}
                   to="/services"
+                  onClick={()=>{setIsActive("services")}}
                 >
                   Services
                 </Link>
@@ -119,9 +117,10 @@ const Header = () => {
               <li class="nav-item">
                 <Link
                   className={`nav-link ${
-                    isActive === "/cities" ? "active" : ""
+                    isActive === "cities" ? "active" : ""
                   }`}
                   to="/cities"
+                  onClick={()=>{setIsActive("cities")}}
                 >
                   Cities
                 </Link>
@@ -140,8 +139,7 @@ const Header = () => {
           </div>
         </div>
       </nav>
-
-      
+   
     </div>
   );
 };
