@@ -4,10 +4,12 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import car1 from "../cab_images/blackcar1.png";
 import family from "../cab_images/familyicon.png";
 import bag from "../cab_images/bagicon.png";
+import selectedIcon from "../cab_images/selected.png";
 import axios from "axios";
 
-const ServiceClass = ({ handleNextButon ,from }) => {
-  const URL =  "https://chauffer-staging-tse4a.ondigitalocean.app/v1/vehicle/getAllVehicle";
+const ServiceClass = ({ handleNextButon, from }) => {
+  const URL =
+    "https://chauffer-staging-tse4a.ondigitalocean.app/v1/vehicle/getAllVehicle";
   const [vehicleData, setVehicleData] = useState(null);
 
   useEffect(() => {
@@ -25,9 +27,11 @@ const ServiceClass = ({ handleNextButon ,from }) => {
   }, []);
 
   const [selectedVehicle, setSelectedVehicle] = useState(null);
+  const [isIcon, setIsIcon] = useState(null);
 
   const handleVehicleClick = (vehicle) => {
     setSelectedVehicle(selectedVehicle === vehicle ? null : vehicle);
+    setIsIcon(isIcon === vehicle ? null : vehicle);
   };
 
   const handleSubmit = () => {
@@ -52,6 +56,14 @@ const ServiceClass = ({ handleNextButon ,from }) => {
                       }`}
                       onClick={() => handleVehicleClick(vehicle)}
                     >
+                      <div
+                        className={`displayIcon ${
+                          selectedVehicle === vehicle ? "displayIconShow" : ""
+                        }`}
+                      >
+                        <img src={selectedIcon} alt="not found" />
+                      </div>
+
                       <div>
                         <img src={car1} alt="not found" />
                       </div>
@@ -60,14 +72,14 @@ const ServiceClass = ({ handleNextButon ,from }) => {
                       <div className="business-class-icon-row">
                         <div>
                           <img src={family} alt="not found" />
-                          <span>{vehicle.seatingCapacity}</span>
+                          <span>{vehicle.capacity}</span>
                         </div>
                         <div>
                           <img src={bag} alt="not found" />
                           <span>{vehicle.maxLaggauge}</span>
                         </div>
                       </div>
-                      <p>{vehicle.vehicleFare} USD</p>
+                      <p>{vehicle.vehicleCharges} USD</p>
                     </div>
                   </div>
                 </div>
@@ -127,7 +139,6 @@ const ServiceClass = ({ handleNextButon ,from }) => {
           </div>
         </section>
       </section>
-   
     </div>
   );
 };
