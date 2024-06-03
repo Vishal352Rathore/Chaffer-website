@@ -47,7 +47,7 @@ const Login = () => {
         console.log("login successfully", response.data);
         toast.success("Login successful!");
         e.target.reset();
-        navigate(from);
+        navigate(from, { state: { from: "Fresh Booking" } });
       } else {
         console.error("Login failed:", response.data);
         toast.error("Login failed. Please check your credentials.");

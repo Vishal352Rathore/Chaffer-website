@@ -41,9 +41,10 @@ const PaymentCard = ({ handleNextButon, handlePreviousButton ,from}) => {
     amount: null,
   });
 
-  const paymentDetailForContinueBooking =  useSelector((state) => state.paymentDetailReducer.paymentDetail1);
-  const paymentDetailForNewBooking =  useSelector((state) => state.paymentDetailReducer.paymentDetail2);
-  const paymentDetailFromRedux =  from ===  "Continue Booking" ?  paymentDetailForContinueBooking : paymentDetailForNewBooking ;
+  // const paymentDetailForContinueBooking =  useSelector((state) => state.paymentDetailReducer.paymentDetail1);
+  // const paymentDetailForNewBooking =  useSelector((state) => state.paymentDetailReducer.paymentDetail2);
+  // from ===  "Continue Booking" ?  paymentDetailForContinueBooking : paymentDetailForNewBooking ;
+  const paymentDetailFromRedux =  useSelector((state) => state.paymentDetailReducer.paymentDetail1);
 
  
   const [paymentDetails, setPaymentDetails] = useState({
@@ -62,11 +63,11 @@ const PaymentCard = ({ handleNextButon, handlePreviousButton ,from}) => {
     try {
       if (token) {
         console.log("user is logined", paymentDetails);
-        from ===  "Continue Booking" ?  dispatch(updatePaymentData1(paymentDetails)):  dispatch(updatePaymentData2(paymentDetails))
+        dispatch(updatePaymentData1(paymentDetails))
         datafetchingForBookRide();
         // toast.success("Payment has done Successfully ! ")
       } else {
-        from ===  "Continue Booking" ?  dispatch(updatePaymentData1(paymentDetails)):  dispatch(updatePaymentData2(paymentDetails))
+        dispatch(updatePaymentData1(paymentDetails))
         navigate("/login", { state: { from: "/services/bookride" } });
         console.log("user is not login");
       }
@@ -93,7 +94,6 @@ const PaymentCard = ({ handleNextButon, handlePreviousButton ,from}) => {
   };
 
   
-
   const datafetchingForBookRide = () => {
     const [datePart, timePart] = localStorage.getItem("dateTime").split("T");
     const vehicleId = JSON.parse(localStorage.getItem("selected vehicle"))._id;

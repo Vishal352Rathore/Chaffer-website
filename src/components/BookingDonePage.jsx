@@ -1,10 +1,25 @@
 import React from 'react'
+import { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
+
+import {intialStage1 , intialBookingData1 , intialPaymentData1} from '../Actions/actions.js'
 // import Confetti from 'react-confetti';
 
 const BookingDonePage = () => {
   // const [isConfettiVisible, setIsConfettiVisible] = useState(false);
     const navigate = useNavigate();
+    const dispatch = useDispatch();
+
+    useEffect(() => {
+    setTimeout(() => {
+      dispatch(intialStage1());
+      dispatch(intialBookingData1());
+      dispatch(intialPaymentData1());
+      navigate("/home")
+    }, 2000);
+    }, [])
+    
     
 
   // const handleSuccess = () => {

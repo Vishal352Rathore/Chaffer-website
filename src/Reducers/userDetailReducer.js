@@ -31,6 +31,14 @@ const userDetailReducer = (state = initialState, action) => {
       return {
         ...state, userDetail2 : action.payload
       };
+      case "INTIAL_USER_DATA_1":
+        return {
+          ...state, userDetail1 : initialState.userDetail1
+        };
+        case "INTIAL_USER_DATA_2":
+          return {
+            ...state, userDetail2 : initialState.userDetail2
+          };
     default:
       return state;
   }

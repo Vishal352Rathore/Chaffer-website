@@ -56,6 +56,19 @@ export const updateBookingData2 = (data) => {
   };
 };
 
+export const intialBookingData1 = () => {
+  return { 
+    type: "INTIAL_USER_DATA_1"  
+  };
+};
+
+export const intialBookingData2 = () => {
+  return { 
+    type: "INTIAL_USER_DATA_2"
+    };
+};
+
+
 
 export const updatePaymentData1 = (data) => {
   return {
@@ -68,5 +81,17 @@ export const updatePaymentData2 = (data) => {
   return {
      type: "UPDATE_PAYMENT_DATA_2",
      payload: data 
+    };
+};
+
+export const intialPaymentData1 = () => {
+  return {
+     type: "INTIAL_PAYMENT_DATA_1",
+    };
+};
+
+export const intialPaymentData2 = () => {
+  return {
+     type: "INTIAL_PAYMENT_DATA_2",
     };
 };
