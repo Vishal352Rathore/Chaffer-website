@@ -56,6 +56,14 @@ const ServiceClass = ({ handleNextButon, from }) => {
                       }`}
                       onClick={() => handleVehicleClick(vehicle)}
                     >
+
+
+
+
+
+
+
+                      
                       <div
                         className={`displayIcon ${
                           selectedVehicle === vehicle ? "displayIconShow" : ""
