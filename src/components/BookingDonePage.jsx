@@ -1,8 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Confetti from 'react-confetti';
-import bookdone_gif from "../cab_images/bookdone-gif.gif";
-import axios from "axios";
 import "../CssStyle/BookingDonePage.css";
 
 const BookingDonePage = () => {
