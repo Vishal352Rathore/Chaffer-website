@@ -123,7 +123,7 @@ function Home() {
       <div className="bg-image w-100%">
         {/* <button onClick={()=>{ navigate("/services/bookride", { state: { from: "Continue Booking" } })}}>Continue Booking</button> */}
         <video autoPlay muted loop id="myVideo" src={homeBackground}/>
-        <div className="text-content customheader">
+        {/* <div className="text-content customheader">
           <div className="text-div">
             <div className="text-heading-first">
               When you book a chauffeur,
@@ -138,7 +138,7 @@ function Home() {
               Book a ride
             </button>
           </div>
-        </div>
+        </div> */}
       </div>
 
       <section className="container customheader">

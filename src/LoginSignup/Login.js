@@ -35,7 +35,7 @@ const Login = () => {
         password: loginInfo.password,
       };
       const response = await axios.post(URL, userData);
-
+      console.log("response Data in Login :",response.data)
       localStorage.setItem("token", response.data.items.token);
       localStorage.setItem("email", response.data.items.email);
       localStorage.setItem("user_id", response.data.items.userId);
@@ -59,7 +59,7 @@ const Login = () => {
   };
 
   return (
-    <div className="login-form-contaner mb-auto">
+    <div className="login-form-contaner mb-5">
       <section className="container">
         <div className="row">
           <div className="col-md-10 offset-md-1">
@@ -115,7 +115,7 @@ const Login = () => {
                       onChange={handleChange}
                       required
                       minLength={6}
-                      maxLength={10}
+                      maxLength={15}
                     />
                   </div>
                 </div>
