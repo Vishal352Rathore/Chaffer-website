@@ -6,12 +6,10 @@ import family from "../cab_images/familyicon.png";
 import bag from "../cab_images/bagicon.png";
 import selectedIcon from "../cab_images/selected.png";
 import axios from "axios";
-
 const ServiceClass = ({ handleNextButon, from }) => {
   const URL =
     "https://chauffer-staging-tse4a.ondigitalocean.app/v1/vehicle/getAllVehicle";
   const [vehicleData, setVehicleData] = useState(null);
-
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -22,28 +20,22 @@ const ServiceClass = ({ handleNextButon, from }) => {
         console.error("Error fetching data:", error);
       }
     };
-
     fetchData();
   }, []);
-
   const [selectedVehicle, setSelectedVehicle] = useState(null);
   const [isIcon, setIsIcon] = useState(null);
-
   const handleVehicleClick = (vehicle) => {
     setSelectedVehicle(selectedVehicle === vehicle ? null : vehicle);
     setIsIcon(isIcon === vehicle ? null : vehicle);
   };
-
   const handleSubmit = () => {
     handleNextButon();
     localStorage.setItem("selected vehicle", JSON.stringify(selectedVehicle));
   };
-
   return (
     <div className="serviceclass-container">
       <section className="container">
         {/*above code is common in pickup component  */}
-
         <section className="row">
           {vehicleData && vehicleData.length > 0 ? (
             vehicleData.map((vehicle) => {
@@ -63,7 +55,6 @@ const ServiceClass = ({ handleNextButon, from }) => {
                       >
                         <img src={selectedIcon} alt="not found" />
                       </div>
-
                       <div>
                         <img src={car1} alt="not found" />
                       </div>
@@ -91,7 +82,6 @@ const ServiceClass = ({ handleNextButon, from }) => {
             </div>
           )}
         </section>
-
         <section className="row">
           <div className="col-md-12">
             <div className="all-class-include-container">
@@ -108,7 +98,6 @@ const ServiceClass = ({ handleNextButon, from }) => {
             </div>
           </div>
         </section>
-
         <section className="row">
           <div className="col-md-12">
             <div className="please-note-container">
@@ -130,7 +119,6 @@ const ServiceClass = ({ handleNextButon, from }) => {
             </div>
           </div>
         </section>
-
         <section className="row  mb-5 pb-5">
           <div className="col-md-3 continue-btn-container">
             <button className="continue-btn" onClick={handleSubmit}>
@@ -142,5 +130,4 @@ const ServiceClass = ({ handleNextButon, from }) => {
     </div>
   );
 };
-
 export default ServiceClass;
