@@ -23,6 +23,14 @@ const paymentDetailReducer = (state = initialState, action) => {
       return {
         ...state, paymentDetail2 : action.payload
       };
+      case "INTIAL_PAYMENT_DATA_1":
+      return {
+        ...state, paymentDetail1 : initialState.paymentDetail1
+      };
+      case "INTIAL_PAYMENT_DATA_2":
+      return {
+        ...state, paymentDetail2 : initialState.paymentDetail2
+      };
     default:
       return state;
   }

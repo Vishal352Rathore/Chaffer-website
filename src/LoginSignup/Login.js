@@ -35,7 +35,7 @@ const Login = () => {
         password: loginInfo.password,
       };
       const response = await axios.post(URL, userData);
-      console.log("response Data in Login :",response.data)
+
       localStorage.setItem("token", response.data.items.token);
       localStorage.setItem("email", response.data.items.email);
       localStorage.setItem("user_id", response.data.items.userId);
@@ -47,7 +47,7 @@ const Login = () => {
         console.log("login successfully", response.data);
         toast.success("Login successful!");
         e.target.reset();
-        navigate(from);
+        navigate(from, { state: { from: "Fresh Booking" } });
       } else {
         console.error("Login failed:", response.data);
         toast.error("Login failed. Please check your credentials.");
@@ -59,7 +59,7 @@ const Login = () => {
   };
 
   return (
-    <div className="login-form-contaner mb-5">
+    <div className="login-form-contaner mb-auto">
       <section className="container">
         <div className="row">
           <div className="col-md-10 offset-md-1">
@@ -115,7 +115,7 @@ const Login = () => {
                       onChange={handleChange}
                       required
                       minLength={6}
-                      maxLength={15}
+                      maxLength={10}
                     />
                   </div>
                 </div>

@@ -44,7 +44,7 @@ const OtpVerify = () => {
   };
 
   return (
-    <div className="reset-password-container mb-5">
+    <div className="reset-password-container">
       <div className="container">
         <div className="row">
           <div className="col-md-10 offset-md-1">
@@ -53,7 +53,7 @@ const OtpVerify = () => {
             </div>
           </div>
         </div>
-        <div className="row  ">
+        <div className="row">
           <div className="col-md-8 offset-md-2">
             <div className="reset-form-container">
               <form onSubmit={handleSubmit}>

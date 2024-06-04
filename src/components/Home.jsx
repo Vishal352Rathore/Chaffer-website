@@ -14,10 +14,9 @@ import { useNavigate } from "react-router-dom";
 import "../CssStyle/Headers.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import google from "../cab_images/googleAppimg.png";
-import Header from "./Header";
 import { LoadScript, Autocomplete } from "@react-google-maps/api";
 import DatePicker from "react-datepicker";
-import "react-datepicker/dist/react-datepicker.css";
+import 'react-datepicker/dist/react-datepicker.css';
 import homeBackground from "../videos/home-page-video.webm"
 
 const categories = ["Ride", "Comfort", "City to city", "Airport Transfer"];
@@ -42,6 +41,8 @@ function Home() {
       console.log("islogin", isLogin);
     }
   }, []);
+
+
 
   const [Info, setInfo] = useState({
     pickUpLocation: "",
@@ -122,7 +123,7 @@ function Home() {
       <div className="bg-image w-100%">
         {/* <button onClick={()=>{ navigate("/services/bookride", { state: { from: "Continue Booking" } })}}>Continue Booking</button> */}
         <video autoPlay muted loop id="myVideo" src={homeBackground}/>
-        {/* <div className="text-content customheader">
+        <div className="text-content customheader">
           <div className="text-div">
             <div className="text-heading-first">
               When you book a chauffeur,
@@ -137,7 +138,7 @@ function Home() {
               Book a ride
             </button>
           </div>
-        </div> */}
+        </div>
       </div>
 
       <section className="container customheader">

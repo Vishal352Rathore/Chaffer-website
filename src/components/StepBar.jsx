@@ -4,19 +4,19 @@ import { useSelector, useDispatch } from "react-redux";
 import { nextStage1, previousStage1 ,intialStage1 } from "../Actions/actions.js";
 import { useLocation } from "react-router-dom";
 
-function MultiStepForm({ stepsConfig, actionIndex }) {
+function MultiStepForm({ stepsConfig, actionIndex ,topRef }) {
   const location = useLocation();
+  console.log("location",location);
   const { from } = location && location.state ;
 
   const bookingStageFromRedux = useSelector((state) => state.bookingStageReducer.bookingStage1) 
   console.log("bookingStageFromRedux", bookingStageFromRedux);
 
   
-  const bookingStage = from ===  "Continue Booking" ? bookingStageFromRedux : actionIndex ;
+  const bookingStage = from ===  "Fresh Booking" ? actionIndex : bookingStageFromRedux ;
   const dispatch = useDispatch();
 
   console.log("bookingStage", bookingStage);
-
 
   const pickUpLocation = localStorage.getItem("pickUpLocation");
   const dropLocation = localStorage.getItem("dropLocation");
@@ -63,6 +63,12 @@ function MultiStepForm({ stepsConfig, actionIndex }) {
   });
   const stepRef = useRef([]);
 
+  useEffect(() => {
+    if (topRef.current) {
+      topRef.current.scrollIntoView({ behavior: 'smooth' });
+    }
+  }, [currentStep]);
+
 
   useEffect(() => {
     if (stepsConfig && stepsConfig.length > 0) {
@@ -107,9 +113,10 @@ function MultiStepForm({ stepsConfig, actionIndex }) {
   };
 
   const ActiveComponent = stepsConfig[currentStep - 1]?.Component;
+
   return (
     <div className="step-bar">
-      <div className="">
+      <div  className="">
         <div className="stepper">
           {stepsConfig.map((step, index) => {
             return (
