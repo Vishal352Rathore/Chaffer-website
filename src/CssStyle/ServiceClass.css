@@ -37,7 +37,6 @@
 
 .business-class-container{
     padding:50px 0px 0px 0px;
-    
 }
 .business-class-container .car-container{
     border: 1px solid #AFAFAF;
@@ -45,7 +44,6 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
-   
 }
 .business-class-icon-row{
     display: flex;
@@ -120,25 +118,9 @@
 }
 
 .selected {
-    border: 2px solid #00980F !important; /* Add your desired styling for the selected state */
+    border: 1px solid #00980F !important; /* Add your desired styling for the selected state */
     box-shadow: 2px rgb(206, 206, 242) !important;
   }
-.displayIcon{
-    visibility: hidden;
-}
-  .car-container.selected  .displayIconShow{
-    display: flex;
-    justify-content:end ;
-    width: 100%;
-    visibility: visible;
-    
-}
-.displayIcon img{
-    padding: 14px 14px 0px 0px;
-    width:40px;
-    height: auto;
-}
-
 .continue-btn-container {
     width: 100%;
     display: flex;

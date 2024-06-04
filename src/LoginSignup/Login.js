@@ -35,7 +35,7 @@ const Login = () => {
         password: loginInfo.password,
       };
       const response = await axios.post(URL, userData);
-      console.log("response Data in Login :",response.data)
+
       localStorage.setItem("token", response.data.items.token);
       localStorage.setItem("email", response.data.items.email);
       localStorage.setItem("user_id", response.data.items.userId);
@@ -115,7 +115,7 @@ const Login = () => {
                       onChange={handleChange}
                       required
                       minLength={6}
-                      maxLength={15}
+                      maxLength={10}
                     />
                   </div>
                 </div>

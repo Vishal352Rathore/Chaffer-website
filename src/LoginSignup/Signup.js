@@ -162,8 +162,6 @@ const Signup = () => {
                       value={signupInfo.password}
                       onChange={handleChange}
                       required
-                      minLength={6}
-                      maxLength={15}
                     />
                   </div>
                 </div>
