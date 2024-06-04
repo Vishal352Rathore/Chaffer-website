@@ -36,7 +36,7 @@ const NewPassword = () => {
     try {
         const newpass = {
             email: localStorage.getItem("email"),
-            NewPassword:reset.newPassword
+            newPassword:reset.newPassword
         }
         console.log("newpass",newpass)
         

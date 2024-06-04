@@ -53,7 +53,7 @@ const Pickup = ({handleNextButon ,handlePreviousButton ,from}) => {
   const handleSubmit = () => {
     handleNextButon();
     
-    from ===  "Continue Booking" ? dispatch(updateBookingData1(bookingDetails)): dispatch(updateBookingData2(bookingDetails))
+    from ===  "Fresh Booking" ? dispatch(updateBookingData1(bookingDetails)): dispatch(updateBookingData2(bookingDetails))
     localStorage.setItem("booking details" , JSON.stringify(bookingDetails));
   }
 

@@ -1,9 +1,35 @@
+// import React from 'react'
+// import { useEffect } from 'react';
+// import { useDispatch } from 'react-redux';
+// import { useNavigate } from 'react-router-dom';
+
+// import {intialStage1 , intialBookingData1 , intialPaymentData1} from '../Actions/actions.js'
+// // import Confetti from 'react-confetti';
+
+// const BookingDonePage = () => {
+//   // const [isConfettiVisible, setIsConfettiVisible] = useState(false);
+//     const navigate = useNavigate();
+//     const dispatch = useDispatch();
+
+//     useEffect(() => {
+//     setTimeout(() => {
+//       dispatch(intialStage1());
+//       dispatch(intialBookingData1());
+//       dispatch(intialPaymentData1());
+//       navigate("/home")
+//     }, 2000);
+//     }, [])
+    
+    
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
 import Confetti from 'react-confetti';
 import bookdone_gif from "../cab_images/bookdone-gif.gif";
 import axios from "axios";
 import "../CssStyle/BookingDonePage.css";
+import {intialStage1 , intialBookingData1 , intialPaymentData1} from '../Actions/actions.js'
+
 
 const BookingDonePage = () => {
   const [isConfettiVisible, setIsConfettiVisible] = useState(false);
@@ -12,11 +38,15 @@ const BookingDonePage = () => {
     height: window.innerHeight - 20 // Adjust height to prevent overflow
   });
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   const handleSuccess = () => {
     setIsConfettiVisible(true);
     setTimeout(() => {
       setIsConfettiVisible(false);
+      dispatch(intialStage1());
+      dispatch(intialBookingData1());
+      dispatch(intialPaymentData1());
       navigate('/');
     }, 5000);
   };
@@ -64,17 +94,3 @@ export default BookingDonePage;
 
 
 
-  // useEffect(() => {
-    //   const fetchData = async () => {
-    //     try {
-    //       const response = await axios.post(URL , rideBookingData);
-    //       setrideBookingData(response.data.items);
-    //       console.log("Book ride response :",response);
-    //       navigate('/');
-    //     } catch (error) {
-    //       console.error("Error fetching data:", error);
-    //     }
-    //   };
-  
-    //   fetchData();
-    // }, []);

@@ -1,6 +1,6 @@
 import React from "react";
 import logo from "../cab_images/logo.png";
-import { useEffect } from "react";
+import { useEffect, useRef} from "react";
 import { useNavigate } from "react-router-dom";
 import MultiStepForm from "./StepBar";
 import ServiceClass from "./ServiceClass";
@@ -28,29 +28,38 @@ const BookRide = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    console.log(
-      "Category from book ride",
-      localStorage.getItem("category")
-    );
-
+   
     if (
       localStorage.getItem("category") === "Airport Transfer" &&
       CHECKOUT_STEPS.length < 4
     ) {
       // Add Pickup Info step if condition is true
       console.log(
-        "localStorage.getItem(Category) from book ride",
+        "Category from If airport transfer",
         localStorage.getItem("category")
       );
       CHECKOUT_STEPS.splice(1, 0, {
         name: "Pickup Info",
         Component: Pickup,
       });
+    }else{
+      console.log(
+        "Category from else pick up info",
+        localStorage.getItem("category")
+      );
+  
+      const pickupInfoIndex = CHECKOUT_STEPS.findIndex(step => step.name === "Pickup Info");
+      if (localStorage.getItem("category") !== "Airport Transfer" && pickupInfoIndex !== -1) {
+        CHECKOUT_STEPS.splice(pickupInfoIndex, 1);
+      }
     }
   }, []);
 
+  const topRef = useRef(null);
+
+
   return (
-    <div className="bookride-container">
+    <div ref={topRef} className="bookride-container">
       <section className="container">
         <div className="row">
           <div className="col-md-12">
@@ -64,7 +73,7 @@ const BookRide = () => {
       <section className="row">
         <div className="col-md-12 ">
           <div className="serviceclass">
-            <MultiStepForm stepsConfig={CHECKOUT_STEPS} actionIndex={1} />
+            <MultiStepForm topRef={topRef} stepsConfig={CHECKOUT_STEPS} actionIndex={1} />
           </div>
         </div>
       </section>
