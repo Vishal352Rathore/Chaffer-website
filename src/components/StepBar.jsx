@@ -5,6 +5,9 @@ import { nextStage1, previousStage1 ,intialStage1 } from "../Actions/actions.js"
 import { useLocation } from "react-router-dom";
 
 function MultiStepForm({ stepsConfig, actionIndex ,topRef }) {
+
+  const [distance, setDistance] = useState(0);
+
   const location = useLocation();
   console.log("location",location);
   const { from } = location && location.state ;
@@ -12,8 +15,7 @@ function MultiStepForm({ stepsConfig, actionIndex ,topRef }) {
   const bookingStageFromRedux = useSelector((state) => state.bookingStageReducer.bookingStage1) 
   console.log("bookingStageFromRedux", bookingStageFromRedux);
 
-  
-  const bookingStage = from ===  "Fresh Booking" ? actionIndex : bookingStageFromRedux ;
+  const bookingStage = bookingStageFromRedux ;
   const dispatch = useDispatch();
 
   console.log("bookingStage", bookingStage);
@@ -69,6 +71,10 @@ function MultiStepForm({ stepsConfig, actionIndex ,topRef }) {
     }
   }, [currentStep]);
 
+  useEffect(() => {
+    calculateDistance();
+   }, [])
+
 
   useEffect(() => {
     if (stepsConfig && stepsConfig.length > 0) {
@@ -111,6 +117,40 @@ function MultiStepForm({ stepsConfig, actionIndex ,topRef }) {
   const calculateProgressBarWidth = () => {
     return ((currentStep - 1) / (stepsConfig.length - 1)) * 100;
   };
+
+  const calculateDistance = async () => {
+
+    const apiKey  = "AIzaSyCZ0UycRv9Fy9PMDBY-uoU_SkXZGnmjP18";
+
+    const [pickUpLat, pickUpLon] =   localStorage.getItem("pickUpLocationCoordinates").split(',');
+    const [dropLat, dropLon] =   localStorage.getItem("dropLocationCoordinates").split(',');
+
+    console.log("pickUpLat",pickUpLat);
+    console.log("pickUpLon",pickUpLon);
+    console.log("dropLat",dropLat);
+    console.log("dropLon",dropLon);
+
+
+    const url = `https://maps.googleapis.com/maps/api/distancematrix/json?units=metric&origins=${pickUpLat},${pickUpLon}&destinations=${dropLat},${dropLon}&key=${apiKey}`;
+       
+    try {
+      const response = await fetch(url);
+      const data = await response.json();
+
+      if (data.status === 'OK') {
+        const distanceText = data.rows[0].elements[0].distance.text;
+        setDistance(distanceText);
+      } else {
+        console.error('Failed to fetch distance:', data.error_message);
+      }
+    } catch (error) {
+      console.error('Error fetching distance:', error);
+    }
+  };
+
+
+ 
+   
 
   const ActiveComponent = stepsConfig[currentStep - 1]?.Component;
 
@@ -167,7 +207,7 @@ function MultiStepForm({ stepsConfig, actionIndex ,topRef }) {
                 <span>From:</span> {pickUpLocation} <span>To: </span>
                 {dropLocation}
               </p>
-              <p>Estimated arrival at {formattedTime} (MST) 134.3 km</p>
+              <p>Estimated arrival at {formattedTime} (MST) {distance} </p>
             </div>
           </div>
         </div>

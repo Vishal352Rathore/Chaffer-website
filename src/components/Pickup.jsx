@@ -9,7 +9,7 @@ const Pickup = ({handleNextButon ,handlePreviousButton ,from}) => {
 
   const userDetailForContinueBooking =  useSelector((state) => state.userDetailReducer.userDetail1);
   const userDetailForNewBooking =  useSelector((state) => state.userDetailReducer.userDetail2);
-  const userDetailFromRedux =  from ===  "Continue Booking" ?  userDetailForContinueBooking : userDetailForNewBooking ;
+  const userDetailFromRedux =  from ===  "Fresh Booking" ?  userDetailForContinueBooking : userDetailForNewBooking ;
 
   const dispatch = useDispatch();
 
