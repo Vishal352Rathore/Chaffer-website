@@ -3,16 +3,20 @@ import "../CssStyle/Payment.css";
 import card from "../cab_images/cards.png";
 import { useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
-import { updatePaymentData1 ,updatePaymentData2 } from "../Actions/actions.js";
+import { updatePaymentData1 , intialStage1 } from "../Actions/actions.js";
 import axios from "axios";
 
 const PaymentCard = ({ handleNextButon, handlePreviousButton ,from}) => {
   const userDetailForContinueBooking =  useSelector((state) => state.userDetailReducer.userDetail1);
   const userDetailForNewBooking =  useSelector((state) => state.userDetailReducer.userDetail2);
-  const userDetails =  from ===  "Continue Booking" ?  userDetailForContinueBooking : userDetailForNewBooking ;
+  const userDetails =  from ===  "Fresh Booking" ?  userDetailForContinueBooking : userDetailForNewBooking ;
 
   const dispatch = useDispatch();
   const token = localStorage.getItem("token");
+
+  const bookingStageFromRedux = useSelector((state) => state.bookingStageReducer.bookingStage1) 
+  console.log("bookingStageFromRedux", bookingStageFromRedux);
+
 
   const navigate = useNavigate();
 
