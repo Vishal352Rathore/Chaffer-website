@@ -47,11 +47,11 @@ const Help = () => {
               <div class="accordion-item">
                 <h2 class="accordion-header" id="panelsStayOpen-headingOne">
                   <button
-                    class="accordion-button"
+                    class="accordion-button collapsed"
                     type="button"
                     data-bs-toggle="collapse"
                     data-bs-target="#panelsStayOpen-collapseOne"
-                    aria-expanded="true"
+                    aria-expanded="false"
                     aria-controls="panelsStayOpen-collapseOne"
                   >
                     How do I book a ride?
@@ -59,7 +59,7 @@ const Help = () => {
                 </h2>
                 <div
                   id="panelsStayOpen-collapseOne"
-                  class="accordion-collapse collapse show"
+                  class="accordion-collapse collapse"
                   aria-labelledby="panelsStayOpen-headingOne"
                 >
                   <div class="accordion-body">
@@ -92,11 +92,11 @@ const Help = () => {
               <div class="accordion-item">
                 <h2 class="accordion-header" id="panelsStayOpen-headingTwelve">
                   <button
-                    class="accordion-button"
+                    class="accordion-button collapsed"
                     type="button"
                     data-bs-toggle="collapse"
                     data-bs-target="#panelsStayOpen-collapseTwelve"
-                    aria-expanded="true"
+                    aria-expanded="false"
                     aria-controls="panelsStayOpen-collapseTwelve"
                   >
                     Can I book a ride for someone else?
@@ -104,7 +104,7 @@ const Help = () => {
                 </h2>
                 <div
                   id="panelsStayOpen-collapseTwelve"
-                  class="accordion-collapse collapse show"
+                  class="accordion-collapse collapse"
                   aria-labelledby="panelsStayOpen-headingTwelve"
                 >
                   <div class="accordion-body">
@@ -117,11 +117,11 @@ const Help = () => {
               <div class="accordion-item">
                 <h2 class="accordion-header" id="panelsStayOpen-headingThirteen">
                   <button
-                    class="accordion-button"
+                    class="accordion-button collapsed"
                     type="button"
                     data-bs-toggle="collapse"
                     data-bs-target="#panelsStayOpen-collapseThirteen"
-                    aria-expanded="true"
+                    aria-expanded="false"
                     aria-controls="panelsStayOpen-collapseThirteen"
                   >
                     How far in advance should I book my ride?
@@ -129,7 +129,7 @@ const Help = () => {
                 </h2>
                 <div
                   id="panelsStayOpen-collapseThirteen"
-                  class="accordion-collapse collapse show"
+                  class="accordion-collapse collapse"
                   aria-labelledby="panelsStayOpen-headingThirteen"
                 >
                   <div class="accordion-body">

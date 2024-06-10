@@ -62,6 +62,20 @@ const Pickup = ({handleNextButon ,handlePreviousButton ,from}) => {
     setBookingDetails({ ...bookingDetails, [e.target.name]: e.target.value });
   };
 
+  const handleKeyDown = (e) => {
+    const { key } = e;
+    if (
+      key !== "Backspace" &&
+      key !== "Delete" &&
+      key !== "ArrowLeft" &&
+      key !== "ArrowRight" &&
+      key !== "Tab" && // Allow Tab key for navigation
+      !/^[0-9]$/.test(key)
+    ) {
+      e.preventDefault();
+    }
+  };
+
   return (
     <div className="pickup-container ">
       <form onSubmit={handleSubmit}>
@@ -163,6 +177,11 @@ const Pickup = ({handleNextButon ,handlePreviousButton ,from}) => {
                             value={bookingDetails.email}
                             onChange={handleChange}
                             required
+                            pattern="[a-zA-Z0-9._%+-]+@[a-z]+\.[a-z]{2,}$"
+                            onInvalid={(e) =>
+                              e.target.setCustomValidity("Please enter a valid email")
+                            }
+                            onInput={(e) => e.target.setCustomValidity("")}
                           />
                         </div>
                         <div className="col-md-6">
@@ -180,9 +199,9 @@ const Pickup = ({handleNextButon ,handlePreviousButton ,from}) => {
                             name="mobileNumber"
                             value={bookingDetails.mobileNumber}
                             onChange={handleChange}
+                            maxLength={10}
+                            onKeyDown={handleKeyDown}
                             required
-                            maxLength="16"
-                            minLength="15"
                           />
                         </div>
                       </div>

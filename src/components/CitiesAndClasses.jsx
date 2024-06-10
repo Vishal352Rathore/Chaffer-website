@@ -50,11 +50,11 @@ const CitiesAndClasses = () => {
               <div class="accordion-item">
                 <h2 class="accordion-header" id="panelsStayOpen-headingOne">
                   <button
-                    class="accordion-button"
+                    class="accordion-button collapsed"
                     type="button"
                     data-bs-toggle="collapse"
                     data-bs-target="#panelsStayOpen-collapseOne"
-                    aria-expanded="true"
+                    aria-expanded="false"
                     aria-controls="panelsStayOpen-collapseOne"
                   >
                     Lagos
@@ -62,7 +62,7 @@ const CitiesAndClasses = () => {
                 </h2>
                 <div
                   id="panelsStayOpen-collapseOne"
-                  class="accordion-collapse collapse show"
+                  class="accordion-collapse collapse "
                   aria-labelledby="panelsStayOpen-headingOne"
                 >
                   <div class="accordion-body">

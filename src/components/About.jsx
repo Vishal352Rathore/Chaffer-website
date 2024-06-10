@@ -18,9 +18,9 @@ const About = () => {
           <div className="row">
             <div className="text-content-aboutus">
               <p className="text-heading-first">About Us</p>
-              <p className="text-heading-two">
+              {/* <p className="text-heading-two">
                 We are the most popular limousine service in New York.
-              </p>
+              </p> */}
             </div>
           </div>
         </section>
