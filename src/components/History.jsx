@@ -10,8 +10,9 @@ import "../CssStyle/History.css";
 
 const History = () => {
   const [loading, setLoading] = useState(true);
-  const URL =
-    "https://chauffer-staging-tse4a.ondigitalocean.app/v1/ride/allRide";
+  const user_id = localStorage.getItem("user_id");
+
+  const URL = `https://chauffer-staging-tse4a.ondigitalocean.app/v1/ride/getridebyuserId/${user_id}`;
   const token = localStorage.getItem("token");
   const [rideData, setRideData] = useState(null);
   const navigate = useNavigate();
@@ -19,7 +20,7 @@ const History = () => {
 
   const headers = {
     "Content-Type": "application/json",
-    token: token,
+     token: token,
   };
 
   useEffect(() => {
