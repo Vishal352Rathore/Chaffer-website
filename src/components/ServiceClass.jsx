@@ -49,11 +49,9 @@ const ServiceClass = ({ handleNextButon, from }) => {
                       onClick={() => handleVehicleClick(vehicle)}
                     >
                       <div
-                        className={`displayIcon ${
-                          selectedVehicle === vehicle ? "displayIconShow" : ""
-                        }`}
+                        className="displayIcon"
                       >
-                        <img src={selectedIcon} alt="not found" />
+                        {selectedVehicle === vehicle && <img src={selectedIcon} alt="not found" />}
                       </div>
                       <div>
                         <img src={car1} alt="not found" />

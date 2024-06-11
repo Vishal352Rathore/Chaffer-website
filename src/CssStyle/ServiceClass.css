@@ -1,3 +1,14 @@
+.displayIcon{
+    position: absolute;
+    top: 62px;
+    right: 20px;
+    width: 35px;
+}
+
+.displayIcon img{
+    width: 100%;
+}
+
 .serviceclass-container{
     text-align: left;
 }
@@ -36,6 +47,7 @@
 }
 
 .business-class-container{
+    position: relative;
     padding:50px 0px 0px 0px;
 }
 .business-class-container .car-container{
