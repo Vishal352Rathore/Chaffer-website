@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 // import {useNavigate } from "react-router-dom";
 import "../CssStyle/Help.css";
-import Header from "./Header";
+
 
 const Help = () => {
   // const [question, setQuestion] = useState(false);

@@ -10,7 +10,7 @@ function MultiStepForm({ stepsConfig, actionIndex ,topRef }) {
 
   const location = useLocation();
   console.log("location",location);
-  const { from } = location && location.state ;
+  const { from } = location.state === null ? null : location.state  ;
 
   const bookingStageFromRedux = useSelector((state) => state.bookingStageReducer.bookingStage1) 
   console.log("bookingStageFromRedux", bookingStageFromRedux);

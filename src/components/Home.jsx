@@ -31,6 +31,7 @@ function Home() {
 
   const YOUR_GOOGLE_MAPS_API_KEY = "AIzaSyCZ0UycRv9Fy9PMDBY-uoU_SkXZGnmjP18";
   const [isLogin, setIsLogin] = useState(false);
+  const libraries = ["places"];
 
   useEffect(() => {
     if (token) {
@@ -149,7 +150,8 @@ function Home() {
                 <label className="form-label ">From</label>
                 <LoadScript
                   googleMapsApiKey={YOUR_GOOGLE_MAPS_API_KEY}
-                  libraries={["places"]}
+                  libraries={libraries} 
+                  
                 >
                   <Autocomplete
                     onLoad={(autocomplete) => {
@@ -185,7 +187,7 @@ function Home() {
                 </label>
                 <LoadScript
                   googleMapsApiKey={YOUR_GOOGLE_MAPS_API_KEY}
-                  libraries={["places"]}
+                  libraries={libraries} 
                 >
                   <Autocomplete
                     onLoad={(autocomplete) => {

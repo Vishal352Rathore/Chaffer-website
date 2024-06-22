@@ -35,8 +35,7 @@ const Upcoming = ({ rideData }) => {
                       <div className="card-row">
                         <img src={Pickup_date} alt="" />
                         <p>
-                          {ride.date + " "}
-                          {ride.time}
+                          {ride.date}
                         </p>
                       </div>
 
