@@ -148,10 +148,6 @@ function MultiStepForm({ stepsConfig, actionIndex ,topRef }) {
     }
   };
 
-
- 
-   
-
   const ActiveComponent = stepsConfig[currentStep - 1]?.Component;
 
   return (

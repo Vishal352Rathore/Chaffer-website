@@ -8,9 +8,7 @@ import { toast } from "react-toastify";
 const Header = () => {
   const [isLogin, setIsLogin] = useState(false);
   const token = localStorage.getItem("token");
-
   const [isActive, setIsActive] = useState("home");
-
 
   const navigate = useNavigate();
 
@@ -39,6 +37,7 @@ const Header = () => {
     }
   };
 
+
   return (
     <div>
       <nav className="navbar navbar-expand-lg navbar-light">
@@ -63,7 +62,9 @@ const Header = () => {
                 <Link
                   className={`nav-link ${isActive === "home" ? "active" : ""}`}
                   to="/home"
-                  onClick={()=>{setIsActive("home")}}
+                  onClick={() => {
+                    setIsActive("home");
+                  }}
                 >
                   Home
                 </Link>
@@ -75,7 +76,9 @@ const Header = () => {
                     isActive === "history" ? "active" : ""
                   }`}
                   to="/history"
-                  onClick={()=>{setIsActive("history")}}
+                  onClick={() => {
+                    setIsActive("history");
+                  }}
                 >
                   History
                 </Link>
@@ -83,11 +86,11 @@ const Header = () => {
 
               <li class="nav-item">
                 <Link
-                  className={`nav-link ${
-                    isActive === "about" ? "active" : ""
-                  }`}
+                  className={`nav-link ${isActive === "about" ? "active" : ""}`}
                   to="/about"
-                  onClick={()=>{setIsActive("about")}}
+                  onClick={() => {
+                    setIsActive("about");
+                  }}
                 >
                   {" "}
                   About Us
@@ -97,7 +100,9 @@ const Header = () => {
                 <Link
                   className={`nav-link ${isActive === "help" ? "active" : ""}`}
                   to="/help"
-                  onClick={()=>{setIsActive("help")}}
+                  onClick={() => {
+                    setIsActive("help");
+                  }}
                 >
                   {" "}
                   Help us
@@ -109,7 +114,9 @@ const Header = () => {
                     isActive === "services" ? "active" : ""
                   }`}
                   to="/services"
-                  onClick={()=>{setIsActive("services")}}
+                  onClick={() => {
+                    setIsActive("services");
+                  }}
                 >
                   Services
                 </Link>
@@ -120,7 +127,9 @@ const Header = () => {
                     isActive === "cities" ? "active" : ""
                   }`}
                   to="/cities"
-                  onClick={()=>{setIsActive("cities")}}
+                  onClick={() => {
+                    setIsActive("cities");
+                  }}
                 >
                   Cities
                 </Link>
@@ -139,7 +148,6 @@ const Header = () => {
           </div>
         </div>
       </nav>
-   
     </div>
   );
 };
