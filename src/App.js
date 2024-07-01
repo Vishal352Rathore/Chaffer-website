@@ -39,6 +39,12 @@ function App() {
         <Routes>
         <Route path="/signup" element={<Signup />} />
         <Route path="/login" element={<Login />} />
+        <Route path="forgotpassword" element={<ForgotPassword />} />
+        <Route path="forgotpassword/otpverify" element={<OtpVerify />} />
+        <Route
+          path="forgotpassword/otpverify/newpassword"
+          element={<NewPassword />}
+        />
         <Route
           path="services/chaufferservices"
           element={<ChaufferServices />}
@@ -51,12 +57,7 @@ function App() {
         <Route path="/" element={<DefaultLayout />} >
         <Route index element={<Home />} />
         <Route path="home" element={<Home/>} />
-        <Route path="forgotpassword" element={<ForgotPassword />} />
-        <Route path="forgotpassword/otpverify" element={<OtpVerify />} />
-        <Route
-          path="forgotpassword/otpverify/newpassword"
-          element={<NewPassword />}
-        />
+      
         <Route path="about" element={<About />} />
         <Route path="help" element={<Help />} />
         <Route path="services" element={<Services />} />
