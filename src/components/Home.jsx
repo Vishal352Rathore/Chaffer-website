@@ -26,6 +26,7 @@ function Home() {
   const token = localStorage.getItem("token");
   const [coordinates, setCoordinates] = useState({
     pickUpLocation: "",
+
     dropLocation: "",
   });
 
@@ -56,12 +57,13 @@ function Home() {
 
 
   const handlePlaceSelect = (place ,name) => {
-    const { lat, lng } = place.geometry.location;
+    const { lat, lng } = place.geometry.location === null ? null :place.geometry.location;
     setInfo((Info) => ({ ...Info, [name]: place.formatted_address }));
     setCoordinates((prevCoordinates) => ({
       ...prevCoordinates,
       [name]: `${lat()},${lng()}`,
     }));
+    // TODO: Set lat long
     console.log("Selected place:", place.formatted_address);
     console.log('Coordinates:name', `${name} ${lat()},${lng()}` );
     setIsSuggestionSelected({ ...isSuggestionSelected, [name]: true });
@@ -175,7 +177,7 @@ function Home() {
                         value={Info.pickUpLocation}
                         onChange={handleChange}
                         onBlur={() => handleBlur("pickUpLocation")}
-                        required
+                        // required
                       />
                     </div>
                   </Autocomplete>
@@ -211,7 +213,7 @@ function Home() {
                         value={Info.dropLocation}
                         onChange={handleChange}
                         onBlur={() => handleBlur("dropLocation")}
-                        required
+                        // required
                       />
                     </div>
                   </Autocomplete>
@@ -271,7 +273,6 @@ function Home() {
       </section>
 
       <section className="chooseUs">
-        {/* r customheader */}
         <div className="container customheader">
           <div className=" row bg-white media-bg-white">
             <div className="col-md-12 ">

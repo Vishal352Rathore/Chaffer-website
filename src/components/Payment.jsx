@@ -101,6 +101,8 @@ const PaymentCard = ({ handleNextButon, handlePreviousButton ,from}) => {
   const datafetchingForBookRide = () => {
     const [datePart, timePart] = localStorage.getItem("dateTime").split("T");
     const vehicleId = JSON.parse(localStorage.getItem("selected vehicle"))._id;
+    const driverId = JSON.parse(localStorage.getItem("selected vehicle")).driverId;
+
     console.log("vehicleId", vehicleId);
 
     setRideBookingData({
@@ -110,6 +112,7 @@ const PaymentCard = ({ handleNextButon, handlePreviousButton ,from}) => {
       time: timePart,
       userId: localStorage.getItem("user_id"),
       vehicleId: vehicleId,
+      driverId: driverId,
       bookingFor: userDetails.bookingFor || "Myself",
       flightNumber: userDetails.flight_no,
       notesForChauffer: userDetails.chauffer_notes,
@@ -142,7 +145,7 @@ const PaymentCard = ({ handleNextButon, handlePreviousButton ,from}) => {
           method: "POST",
           headers: {
             token: token,
-            "Content-Type": "application/json", // Adjust content type as needed
+            
           },
         })
         .then((res) => {

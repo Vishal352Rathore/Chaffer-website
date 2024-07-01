@@ -51,6 +51,7 @@ function MultiStepForm({ stepsConfig, actionIndex ,topRef }) {
     const [hours, minutes] = time.split(":").map(Number);
     const period = hours >= 12 ? "PM" : "AM";
     const hours12 = hours % 12 || 12;
+    
     formattedTime = `${hours12}:${minutes < 10 ? "0" : ""}${minutes} ${period}`; // Assign value to formattedTime
     console.log(formattedTime);
   } else {
