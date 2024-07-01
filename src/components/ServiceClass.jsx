@@ -45,7 +45,7 @@ const ServiceClass = ({ handleNextButon, from }) => {
       }
     };
     fetchData();
-  }, []);
+  }, [fromLatitude, fromLongitude, toLatitude, toLongitude ]);
   const [selectedVehicle, setSelectedVehicle] = useState({});
   const [isIcon, setIsIcon] = useState(null);
   const handleVehicleClick = (vehicle) => {
