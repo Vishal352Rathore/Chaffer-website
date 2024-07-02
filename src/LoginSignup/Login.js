@@ -11,7 +11,7 @@ import { toast } from "react-toastify";
 const Login = () => {
   const navigate = useNavigate();
   const location = useLocation();
-  
+
   const { from } = location && (location.state || { from: "/" });
   console.log("Redirected from:", location.state);
 
@@ -50,7 +50,7 @@ const Login = () => {
         navigate(from, { state: { from: "Fresh Booking" } });
       } else {
         console.error("Login failed:", response.data);
-        toast.error("Login failed. Please check your credentials.");
+        toast.error("Login failed. Please check your credentials."); 
       }
       setLoginInfo({ email: "", password: "" });
     } catch (error) {
@@ -151,10 +151,12 @@ const Login = () => {
                     </div>
                     <div className="btn-container-login">
                       <button>
-                        <img src={google} alt="not-found" /><span>Continue with google</span>
+                        <img src={google} alt="not-found" />
+                        <span>Continue with google</span>
                       </button>
                       <button>
-                        <img src={facebook} alt="not-found" /><span>Continue with facebook</span>
+                        <img src={facebook} alt="not-found" />
+                        <span>Continue with facebook</span>
                       </button>
                     </div>
                   </div>

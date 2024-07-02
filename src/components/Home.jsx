@@ -26,7 +26,6 @@ function Home() {
   const token = localStorage.getItem("token");
   const [coordinates, setCoordinates] = useState({
     pickUpLocation: "",
-
     dropLocation: "",
   });
 

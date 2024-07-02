@@ -7,37 +7,36 @@ import bag from "../cab_images/bagicon.png";
 import selectedIcon from "../cab_images/selected.png";
 import axios from "axios";
 const ServiceClass = ({ handleNextButon, from }) => {
-  
   // const { from } = location.state === null ? null : location.state  ;
   const URL =
     // "https://chauffer-staging-tse4a.ondigitalocean.app/v1/vehicle/getAllVehicle";
-    "https://chauffer-staging-tse4a.ondigitalocean.app/v1/vehicle/getVehiclesWithinRadius"
+    "https://chauffer-staging-tse4a.ondigitalocean.app/v1/vehicle/getVehiclesWithinRadius";
 
+  const pickUpLocationCoordinates = localStorage.getItem(
+    "pickUpLocationCoordinates"
+  );
+  const [fromLatitude, fromLongitude] = pickUpLocationCoordinates.split(",");
+  const dropLocationCoordinates = localStorage.getItem(
+    "dropLocationCoordinates"
+  );
+  const [toLatitude, toLongitude] = dropLocationCoordinates.split(",");
 
-  const pickUpLocationCoordinates = localStorage.getItem("pickUpLocationCoordinates");
-  const [fromLatitude,fromLongitude] = pickUpLocationCoordinates.split(',');
-  const dropLocationCoordinates = localStorage.getItem("dropLocationCoordinates");
-  const [toLatitude ,toLongitude] = dropLocationCoordinates.split(',');
+  console.log("fromLatitude", fromLatitude);
+  console.log("fromLongitude", fromLongitude);
 
-  console.log("fromLatitude",fromLatitude)
-  console.log("fromLongitude",fromLongitude);
-
-  console.log("toLatitude",toLatitude)
-  console.log("toLongitude",toLongitude)
-
-
-
+  console.log("toLatitude", toLatitude);
+  console.log("toLongitude", toLongitude);
 
   const [vehicleData, setVehicleData] = useState(null);
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.post(URL,{
-    "fromLongitude": fromLongitude,
-    "fromLatitude": fromLatitude,
-    "toLongitude": toLongitude,
-    "toLatitude": toLatitude
-});
+        const response = await axios.post(URL, {
+          fromLongitude: fromLongitude,
+          fromLatitude: fromLatitude,
+          toLongitude: toLongitude,
+          toLatitude: toLatitude,
+        });
         console.log("responseFromServieClass", response);
         setVehicleData(response.data.items[0].vehicles);
       } catch (error) {
