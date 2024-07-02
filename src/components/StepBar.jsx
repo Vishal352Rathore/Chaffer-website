@@ -13,9 +13,9 @@ function MultiStepForm({ stepsConfig, actionIndex ,topRef }) {
   const { from } = location.state === null ? null : location.state  ;
 
   const bookingStageFromRedux = useSelector((state) => state.bookingStageReducer.bookingStage1) 
-  console.log("bookingStageFromRedux", bookingStageFromRedux);
+  console.log("bookingStageFromRedux", bookingStageFromRedux);  
 
-  const bookingStage = bookingStageFromRedux ;
+  const bookingStage = from === null ? actionIndex : bookingStageFromRedux ;
   const dispatch = useDispatch();
 
   console.log("bookingStage", bookingStage);
@@ -96,8 +96,13 @@ function MultiStepForm({ stepsConfig, actionIndex ,topRef }) {
         setIsComplete(true);
         return prevStep;
       } else {
-        if(bookingStage === 3) dispatch(intialStage1())
-        dispatch(nextStage1());
+        if(bookingStageFromRedux === 3){ 
+          dispatch(intialStage1())
+          console.log("FromStage3")
+        }else{
+          dispatch(nextStage1());
+          console.log("FromNextStage")
+        }
         return prevStep + 1;
       }
     });

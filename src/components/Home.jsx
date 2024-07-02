@@ -111,7 +111,7 @@ function Home() {
       console.log("Bookride Data:", userData);
 
       e.target.reset();
-      navigate("/services/bookride", { state: { from: "Fresh Booking" } });
+      navigate("/services/bookride", { state: { from: null } });
     } catch (error) {
       console.log("Error in booking ride:", error);
     }

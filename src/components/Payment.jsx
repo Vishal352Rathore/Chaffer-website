@@ -3,24 +3,32 @@ import "../CssStyle/Payment.css";
 import card from "../cab_images/cards.png";
 import { useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
-import { updatePaymentData1 , intialStage1 } from "../Actions/actions.js";
+import { updatePaymentData1, intialStage1 } from "../Actions/actions.js";
 import axios from "axios";
 
-const PaymentCard = ({ handleNextButon, handlePreviousButton ,from}) => {
-  const userDetailForContinueBooking =  useSelector((state) => state.userDetailReducer.userDetail1);
-  const userDetailForNewBooking =  useSelector((state) => state.userDetailReducer.userDetail2);
-  const userDetails =  from ===  "Fresh Booking" ?  userDetailForContinueBooking : userDetailForNewBooking ;
+const PaymentCard = ({ handleNextButon, handlePreviousButton, from }) => {
+  const userDetailForContinueBooking = useSelector(
+    (state) => state.userDetailReducer.userDetail1
+  );
+  const userDetailForNewBooking = useSelector(
+    (state) => state.userDetailReducer.userDetail2
+  );
+  const userDetails = from === "Fresh Booking"
+      ? userDetailForContinueBooking
+      : userDetailForNewBooking;
 
   const dispatch = useDispatch();
   const token = localStorage.getItem("token");
 
-  const bookingStageFromRedux = useSelector((state) => state.bookingStageReducer.bookingStage1) 
+  const bookingStageFromRedux = useSelector(
+    (state) => state.bookingStageReducer.bookingStage1
+  );
   console.log("bookingStageFromRedux", bookingStageFromRedux);
-
 
   const navigate = useNavigate();
 
-  const URL = "https://chauffer-staging-tse4a.ondigitalocean.app/v1/ride/bookRide";
+  const URL =
+    "https://chauffer-staging-tse4a.ondigitalocean.app/v1/ride/bookRide";
 
   const [rideBookingData, setRideBookingData] = useState({
     pickUpLocation: "",
@@ -48,9 +56,10 @@ const PaymentCard = ({ handleNextButon, handlePreviousButton ,from}) => {
   // const paymentDetailForContinueBooking =  useSelector((state) => state.paymentDetailReducer.paymentDetail1);
   // const paymentDetailForNewBooking =  useSelector((state) => state.paymentDetailReducer.paymentDetail2);
   // from ===  "Continue Booking" ?  paymentDetailForContinueBooking : paymentDetailForNewBooking ;
-  const paymentDetailFromRedux =  useSelector((state) => state.paymentDetailReducer.paymentDetail1);
+  const paymentDetailFromRedux = useSelector(
+    (state) => state.paymentDetailReducer.paymentDetail1
+  );
 
- 
   const [paymentDetails, setPaymentDetails] = useState({
     nameofcard: "",
     cardnumber: "",
@@ -67,11 +76,11 @@ const PaymentCard = ({ handleNextButon, handlePreviousButton ,from}) => {
     try {
       if (token) {
         console.log("user is logined", paymentDetails);
-        dispatch(updatePaymentData1(paymentDetails))
+        dispatch(updatePaymentData1(paymentDetails));
         datafetchingForBookRide();
         // toast.success("Payment has done Successfully ! ")
       } else {
-        dispatch(updatePaymentData1(paymentDetails))
+        dispatch(updatePaymentData1(paymentDetails));
         navigate("/login", { state: { from: "/services/bookride" } });
         console.log("user is not login");
       }
@@ -83,25 +92,25 @@ const PaymentCard = ({ handleNextButon, handlePreviousButton ,from}) => {
   const handleChange = (e) => {
     const { name, value } = e.target;
 
-    if (name === "expirationdate") 
-      {
-        let formattedValue = value.replace(/\D/g, ''); // Remove non-digit characters
-        console.log("formattedValue :",formattedValue)
-        if (formattedValue.length > 2) {
-          formattedValue = formattedValue.slice(0, 2) + '/' + formattedValue.slice(2, 4);
-        }
-        setPaymentDetails({ ...paymentDetails, [name]: formattedValue });
-      } 
-    else {
+    if (name === "expirationdate") {
+      let formattedValue = value.replace(/\D/g, ""); // Remove non-digit characters
+      console.log("formattedValue :", formattedValue);
+      if (formattedValue.length > 2) {
+        formattedValue =
+          formattedValue.slice(0, 2) + "/" + formattedValue.slice(2, 4);
+      }
+      setPaymentDetails({ ...paymentDetails, [name]: formattedValue });
+    } else {
       setPaymentDetails({ ...paymentDetails, [name]: value });
     }
   };
 
-  
   const datafetchingForBookRide = () => {
     const [datePart, timePart] = localStorage.getItem("dateTime").split("T");
     const vehicleId = JSON.parse(localStorage.getItem("selected vehicle"))._id;
-    const driverId = JSON.parse(localStorage.getItem("selected vehicle")).driverId;
+    const driverId = JSON.parse(
+      localStorage.getItem("selected vehicle")
+    ).driverId;
 
     console.log("vehicleId", vehicleId);
 
@@ -120,7 +129,8 @@ const PaymentCard = ({ handleNextButon, handlePreviousButton ,from}) => {
       firstName: userDetails.firstName || localStorage.getItem("firstName"),
       lastName: userDetails.lastName || localStorage.getItem("lastName"),
       email: userDetails.email || localStorage.getItem("email"),
-      phoneNumber: userDetails.mobileNumber || localStorage.getItem("mobileNumber"),
+      phoneNumber:
+        userDetails.mobileNumber || localStorage.getItem("mobileNumber"),
       status: 0, // Initial status
       cardName: paymentDetails.nameofcard,
       cardNumber: paymentDetails.cardnumber,
@@ -145,13 +155,12 @@ const PaymentCard = ({ handleNextButon, handlePreviousButton ,from}) => {
           method: "POST",
           headers: {
             token: token,
-            
           },
         })
         .then((res) => {
           console.log("Booking DOne", res);
           if (res.data.status === true) {
-            console.log("Book ride done Data:",res.data)
+            console.log("Book ride done Data:", res.data);
             handleNextButon();
           }
         })
@@ -312,62 +321,55 @@ const PaymentCard = ({ handleNextButon, handlePreviousButton ,from}) => {
                         data-bs-target="#exampleModal"
                         onClick={(e) => e.preventDefault()}
                         data-bs-dismiss="modal"
-                       
                       >
                         Continue
                       </button>
                     </div>
-                    </div>
-
+                  </div>
                 </div>
               </div>
             </form>
 
-
             <div
-                      class="modal fade"
-                      id="exampleModal"
-                      tabindex=""
-                      aria-labelledby="exampleModalLabel"
-                      aria-hidden="true"
-                    >
-                      <div class="modal-dialog">
-                        <div class="modal-content">
-                          <div class="modal-header">
-                            <button
-                              type="button"
-                              class="btn-close"
-                              data-bs-dismiss="modal"
-                              aria-label="Close"
-                            ></button>
-                          </div>
-                          <div class="modal-body">
-                            Please confirm Your Payment !!
-                          </div>
-                          <div class="modal-footer">
-                            <button
-                              type="button"
-                              class="btn sign-in-btn"
-                              data-bs-dismiss="modal"
-                            >
-                              Close
-                            </button>
-                            <button
-                              type="sumbit"
-                              class=" continue-btn"
-                              onClick={isUserLogin}
-                              data-bs-dismiss="modal"
-                            >
-                              Confirm
-                            </button>
-                          </div>
-                        </div>
-                      </div>
-                   
+              class="modal fade"
+              id="exampleModal"
+              tabindex=""
+              aria-labelledby="exampleModalLabel"
+              aria-hidden="true"
+            >
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <button
+                      type="button"
+                      class="btn-close"
+                      data-bs-dismiss="modal"
+                      aria-label="Close"
+                    ></button>
                   </div>
+                  <div class="modal-body">Please confirm Your Payment !!</div>
+                  <div class="modal-footer">
+                    <button
+                      type="button"
+                      class="btn sign-in-btn"
+                      data-bs-dismiss="modal"
+                    >
+                      Close
+                    </button>
+                    <button
+                      type="sumbit"
+                      class=" continue-btn"
+                      onClick={isUserLogin}
+                      data-bs-dismiss="modal"
+                    >
+                      Confirm
+                    </button>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
-       
+        </div>
       </section>
 
       {/* <Footer /> */}
