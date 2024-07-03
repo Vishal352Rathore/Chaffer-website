@@ -23,7 +23,7 @@ const categories = ["Ride", "Comfort", "City to city", "Airport Transfer"];
 
 function Home() {
   const navigate = useNavigate();
-  const token = localStorage.getItem("token");
+  const token = localStorage.getItem("userToken");
   const [coordinates, setCoordinates] = useState({
     pickUpLocation: "",
     dropLocation: "",

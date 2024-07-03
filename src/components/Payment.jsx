@@ -18,7 +18,7 @@ const PaymentCard = ({ handleNextButon, handlePreviousButton, from }) => {
       : userDetailForNewBooking;
 
   const dispatch = useDispatch();
-  const token = localStorage.getItem("token");
+  const token = localStorage.getItem("userToken");
 
   const bookingStageFromRedux = useSelector(
     (state) => state.bookingStageReducer.bookingStage1

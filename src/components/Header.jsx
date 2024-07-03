@@ -7,7 +7,7 @@ import { toast } from "react-toastify";
 
 const Header = () => {
   const [isLogin, setIsLogin] = useState(false);
-  const token = localStorage.getItem("token");
+  const token = localStorage.getItem("userToken");
   const [isActive, setIsActive] = useState("home");
 
   const navigate = useNavigate();

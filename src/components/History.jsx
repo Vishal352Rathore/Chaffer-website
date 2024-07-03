@@ -12,7 +12,7 @@ const History = () => {
   const user_id = localStorage.getItem("user_id");
 
   const URL = `https://chauffer-staging-tse4a.ondigitalocean.app/v1/ride/getridebyuserId/${user_id}`;
-  const token = localStorage.getItem("token");
+  const token = localStorage.getItem("userToken");
   const [rideData, setRideData] = useState(null);
   const navigate = useNavigate();
   const [currentPage, setCurrentPage] = useState("upcoming");
