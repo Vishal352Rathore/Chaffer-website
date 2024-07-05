@@ -271,7 +271,7 @@ function Home() {
           <div className=" row bg-white media-bg-white">
             <div className="col-md-12 ">
               <div className="gen-heading pb-4">
-                <h1>How GenAlphaPlus Works</h1>
+                <h1>How GenAlphaPlas Works</h1>
                 <p className="explore">
                   Explore our first className limousine & car rental services
                 </p>
@@ -290,6 +290,17 @@ function Home() {
                     className="online-booking-img"
                   />
                 </div>
+                <div className="explore-content p-3">
+                  <h3 className="text-title">Easy Online Booking</h3>
+                  <p className="paragraph font-dosis p-3">
+                    Lorem ipsum dolor sit amet consectaadipisicing elit. magnam
+                    dolor accusamus dolores .
+                  </p>
+                </div>
+              </div>
+              
+            </div>
+            <div className="col-md-3">
                 <div className="">
                   <div className="d-flex justify-content-center">
                     <img
@@ -306,7 +317,9 @@ function Home() {
                     </p>
                   </div>
                 </div>
-                <div className=" ">
+              </div>
+              <div className="col-md-3 ">
+                <div className="">
                   <div className="d-flex justify-content-center">
                     <img
                       src={img03}
@@ -322,6 +335,8 @@ function Home() {
                     </p>
                   </div>
                 </div>
+              </div>
+              <div className="col-md-3">
                 <div className="">
                   <div className="d-flex justify-content-center">
                     <img
@@ -338,11 +353,9 @@ function Home() {
                     </p>
                   </div>
                 </div>
-                </div>
-               
               </div>
-            </div>
           </div>
+        </div>
       </section>
 
       <section className="aboutus ">
