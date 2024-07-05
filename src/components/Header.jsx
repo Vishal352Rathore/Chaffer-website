@@ -39,7 +39,6 @@ const Header = () => {
 
 
   return (
-    <div>
       <nav className="navbar navbar-expand-lg navbar-light">
         <div className="container customheader">
           <Link className="navbar-brand" to="/">
@@ -148,7 +147,6 @@ const Header = () => {
           </div>
         </div>
       </nav>
-    </div>
   );
 };
 

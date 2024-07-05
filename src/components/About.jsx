@@ -33,7 +33,10 @@ const About = () => {
       <section className="container">
         <div className="row">
           <div className="col-md-5">
-          <img src={aboutus} alt="not found" className="aboutus-img" />
+            <div className="aboutus-img" >
+           <img src={aboutus} alt="not found" />
+
+            </div>
           </div>
       
           <div className="col-md-7">
