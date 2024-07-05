@@ -1,23 +1,14 @@
 import React from "react";
 import image1 from "../cab_images/logo.png";
 import { useState, useEffect } from "react";
-import { useNavigate, Link ,useLocation  } from "react-router-dom";
+import { useNavigate, Link, useLocation } from "react-router-dom";
 import "../CssStyle/Headers.css";
 import { toast } from "react-toastify";
 
 const Header = () => {
   const [isLogin, setIsLogin] = useState(false);
-  const token = localStorage.getItem("token");
-
-  const location = useLocation();
-  const [isActive, setIsActive] = useState(location.pathname);
-
-  useEffect(() => {
-    setIsActive(location.pathname);
-  }, [location.pathname]);
-  useEffect(() => {
-    console.log("isActive:", isActive);
-  }, [isActive]);
+  const token = localStorage.getItem("userToken");
+  const [isActive, setIsActive] = useState("home");
 
   const navigate = useNavigate();
 
@@ -46,6 +37,7 @@ const Header = () => {
     }
   };
 
+
   return (
     <div>
       <nav className="navbar navbar-expand-lg navbar-light">
@@ -66,68 +58,78 @@ const Header = () => {
           </button>
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-4 mb-2 mb-lg-0">
-              <li className="nav-item" 
-              >
+              <li className="nav-item">
                 <Link
-                  className={`nav-link ${isActive === "/" ? "active" : ""}`}
-                  to="/"
+                  className={`nav-link ${isActive === "home" ? "active" : ""}`}
+                  to="/home"
+                  onClick={() => {
+                    setIsActive("home");
+                  }}
                 >
                   Home
                 </Link>
               </li>
 
-              <li
-                className="nav-item"
-              >
+              <li className="nav-item">
                 <Link
                   className={`nav-link ${
-                    isActive === "/history" ? "active" : ""
+                    isActive === "history" ? "active" : ""
                   }`}
                   to="/history"
+                  onClick={() => {
+                    setIsActive("history");
+                  }}
                 >
                   History
                 </Link>
               </li>
 
-              <li class="nav-item" 
-              >
+              <li class="nav-item">
                 <Link
-                  className={`nav-link ${isActive === "/about" ? "active" : ""}`}
+                  className={`nav-link ${isActive === "about" ? "active" : ""}`}
                   to="/about"
+                  onClick={() => {
+                    setIsActive("about");
+                  }}
                 >
                   {" "}
                   About Us
                 </Link>
               </li>
-              <li class="nav-item" 
-              >
+              <li class="nav-item">
                 <Link
-                  className={`nav-link ${isActive === "/help" ? "active" : ""}`}
+                  className={`nav-link ${isActive === "help" ? "active" : ""}`}
                   to="/help"
+                  onClick={() => {
+                    setIsActive("help");
+                  }}
                 >
                   {" "}
                   Help us
                 </Link>
               </li>
-              <li class="nav-item"
-               >
+              <li class="nav-item">
                 <Link
                   className={`nav-link ${
-                    isActive === "/services" ? "active" : ""
+                    isActive === "services" ? "active" : ""
                   }`}
                   to="/services"
+                  onClick={() => {
+                    setIsActive("services");
+                  }}
                 >
                   Services
                 </Link>
               </li>
-              <li class="nav-item" 
-             
-              >
+              <li class="nav-item">
                 <Link
                   className={`nav-link ${
-                    isActive === "/cities" ? "active" : ""
+                    isActive === "cities" ? "active" : ""
                   }`}
                   to="/cities"
+                  onClick={() => {
+                    setIsActive("cities");
+                  }}
                 >
                   Cities
                 </Link>

@@ -72,29 +72,29 @@
     font-size: 30px;
     font-family: 'Inter', sans-serif;
     appearance: none;
-	width: 20px;
-	height: 20px;
-	border: 1px solid #CC4452;
-	border-radius: 50%;
-	margin-right: 10px;
-	background-color: transparent;
-	position: relative;
-	top: 6px;
+    width: 20px;
+    height: 20px;
+    border: 1px solid #CC4452;
+    border-radius: 50%;
+    margin-right: 10px;
+    background-color: transparent;
+    position: relative;
+    top: 6px;
 
 }
 
-.form-check-input:checked::before {
-	content: "";
-	display: block;
-	width: 12px;
-	height: 12px;
-	background-color: #CC4452;
-	border-radius: 50%;
-	position: absolute;
-	top: 50%;
-	left: 50%;
-	transform: translate(-50%, -50%);
-	animation: appear 0.8s;
+.booking-form-container .form-check-input:checked::before {
+    content: "";
+    display: block;
+    width: 12px;
+    height: 12px;
+    background-color: #CC4452;
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    animation: appear 0.8s;
 }
 
 .provide-additional-form-container .booking-form {
@@ -123,36 +123,38 @@
     padding: 20px 0px 0px 0px;
 }
 
-.provide-additional-form-container .form-control ,
+.provide-additional-form-container .form-control,
 .chauffer-notes-field .form-control,
-.cost-center-field .form-control
-{
+.cost-center-field .form-control {
     border-radius: 0 !important;
     border: 1px solid #D7D2BD !important;
-    padding: 20px 10px;
+    padding: 10px 10px;
     font-family: 'Inter', sans-serif;
     font-size: 20px;
 }
+
 .chauffer-notes-field .form-control,
 .cost-center-field .form-control {
-    padding: 0px 0px 0px 10px;
     height: 30vh;
 }
-.someone-else .form-label{
+
+.someone-else .form-label {
     font-family: "Inter", sans-serif;
     font-size: 24px;
     font-weight: 400;
     line-height: 29px;
     color: #000000;
 }
+
 .someone-else .form-control {
     border-radius: 0 !important;
     border: 1px solid #D7D2BD !important;
     padding: 20px 10px;
     font-family: 'Inter', sans-serif;
-  
+
     font-size: 20px;
-} 
+}
+
 .flight-field p,
 .chauffer-notes-field p,
 .cost-center-field p {
@@ -169,6 +171,12 @@
 } */
 
 /* buttons  */
+.continue-btn-container{
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    /* border: 1px solid #000000; */
+}
 .skip-pickup-btn {
     padding: 8px 70px;
     font-size: 20px;
@@ -187,3 +195,111 @@
     text-align: center;
     border: none;
 }
+
+@media (min-width:767px) and (max-width:991px) {
+
+    .booking-form-container .booking-form,
+    .provide-additional-form-container .booking-form {
+        font-size: 20px;
+        padding: 40px 0px 10px 0px;
+    }
+
+    .booking-form-container .radio-btn-container {
+        padding: 10px 10px;
+        column-gap: 10px;
+    }
+
+    .booking-form-container .radio-btn-container .form-check-label {
+        font-size: 12px;
+        padding: 15px 0px 15px 0px;
+    }
+    .booking-form-container .booking-form, .provide-additional-form-container .booking-form {
+        font-size: 20px;
+        padding: 10px 0px 0px 0px;
+    }
+    .provide-additional-form-container .flight-number {
+        font-size: 14px;
+    }
+    .provide-additional-form-container .form-label {
+      
+        font-size: 17px;
+        padding: 0px 0px 0px 0px;
+    }
+    .provide-additional-form-container .form-control, .chauffer-notes-field .form-control, .cost-center-field .form-control {
+        padding: 10px 10px;
+        font-size: 17px;
+    }
+    .flight-field p, .chauffer-notes-field p, .cost-center-field p {
+        font-size: 14px;
+        padding: 5px 0px;
+    }
+    .chauffer-notes-field .form-control, .cost-center-field .form-control {
+        padding: 0px 0px 0px 10px;
+        min-height: 10vh;
+    }
+    .skip-pickup-btn {
+        padding: 10px 40px;      
+        width: 100%;
+    }
+    .continue-btn {     
+        padding: 10px 110px;
+        width: 100%;
+    }
+    .someone-else .form-label {
+        font-size: 17px;
+    }
+    .someone-else .form-control {   
+        padding: 10px 10px;
+        font-size: 17px;
+    }
+}
+@media screen and (min-width:992px) and (max-width:1199px) {
+    .booking-form-container .booking-form, .provide-additional-form-container .booking-form {
+        font-size: 24px; 
+        padding: 20px 0px;
+    } 
+    .chauffer-notes-field .form-control, .cost-center-field .form-control {
+        padding: 0px 0px 0px 10px;
+        min-height: 10vh;
+    }
+    .booking-form-container section.row.d-flex.justify-content-between.font-inter.mt-5.mb-5.pb-5 {
+        justify-content: center !important;
+        width: 100%;
+        align-items: center;
+        flex-direction: column;
+    }
+    .skip-pickup-btn {
+        padding: 8px 30px;
+        
+    }
+    .continue-btn {
+       
+        padding: 8px 90px;
+        
+    }
+}
+/* @media screen and (min-width:768px) and (max-width:991px) {
+    .booking-form-container .booking-form, .provide-additional-form-container .booking-form {
+        font-size: 24px; 
+        padding: 20px 0px;
+    }   
+    .chauffer-notes-field .form-control, .cost-center-field .form-control {
+        padding: 0px 0px 0px 10px;
+        min-height: 12vh;
+    }
+    .booking-form-container section.row.d-flex.justify-content-between.font-inter.mt-5.mb-5.pb-5 {
+        justify-content: center !important;
+        width: 100%;
+        align-items: center;
+        flex-direction: column;
+    }
+    .skip-pickup-btn {
+        padding: 8px 30px;
+        
+    }
+    .continue-btn {
+       
+        padding: 8px 90px;
+        
+    }
+} */

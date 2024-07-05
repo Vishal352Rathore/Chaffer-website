@@ -14,22 +14,24 @@ import { useNavigate } from "react-router-dom";
 import "../CssStyle/Headers.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import google from "../cab_images/googleAppimg.png";
-import Header from "./Header";
 import { LoadScript, Autocomplete } from "@react-google-maps/api";
 import DatePicker from "react-datepicker";
-import "react-datepicker/dist/react-datepicker.css";
+import 'react-datepicker/dist/react-datepicker.css';
+import homeBackground from "../videos/home-page-video.webm"
+
 const categories = ["Ride", "Comfort", "City to city", "Airport Transfer"];
 
 function Home() {
   const navigate = useNavigate();
-  const token = localStorage.getItem("token");
-  const [coordinates ,setCoordinates ] = useState({
+  const token = localStorage.getItem("userToken");
+  const [coordinates, setCoordinates] = useState({
     pickUpLocation: "",
     dropLocation:"",
   })
 
   const YOUR_GOOGLE_MAPS_API_KEY = "AIzaSyCZ0UycRv9Fy9PMDBY-uoU_SkXZGnmjP18";
   const [isLogin, setIsLogin] = useState(false);
+  const libraries = ["places"];
 
   useEffect(() => {
     if (token) {
@@ -41,7 +43,6 @@ function Home() {
     }
   }, []);
 
-  
 
   const [Info, setInfo] = useState({
     pickUpLocation: "",
@@ -54,9 +55,13 @@ function Home() {
 
 
   const handlePlaceSelect = (place ,name) => {
-    const { lat, lng } = place.geometry.location;
-    setInfo(Info =>({ ...Info, [name] : place.formatted_address}));
-    setCoordinates(prevCoordinates =>({...prevCoordinates , [name] : `${lat()},${lng()}` }))
+    const { lat, lng } = place.geometry.location === null ? null :place.geometry.location;
+    setInfo((Info) => ({ ...Info, [name]: place.formatted_address }));
+    setCoordinates((prevCoordinates) => ({
+      ...prevCoordinates,
+      [name]: `${lat()},${lng()}`,
+    }));
+    // TODO: Set lat long
     console.log("Selected place:", place.formatted_address);
     console.log('Coordinates:name', `${name} ${lat()},${lng()}` );
     setIsSuggestionSelected({ ...isSuggestionSelected, [name]: true });
@@ -100,7 +105,7 @@ function Home() {
       console.log("Bookride Data:", userData);
 
       e.target.reset();
-      navigate("/services/bookride");
+      navigate("/services/bookride", { state: { from: null } });
     } catch (error) {
       console.log("Error in booking ride:", error);
     }
@@ -109,8 +114,11 @@ function Home() {
   return (
     <div className="home-container">
       {/* <Header /> */}
+     
+   
       <div className="bg-image w-100%">
-        <Header/>
+        {/* <button onClick={()=>{ navigate("/services/bookride", { state: { from: "Continue Booking" } })}}>Continue Booking</button> */}
+        {/* <video autoPlay muted loop id="myVideo" src={homeBackground}/> */}
         <div className="text-content customheader">
           <div className="text-div">
             <div className="text-heading-first">
@@ -136,8 +144,9 @@ function Home() {
               <div className="col-md-3 form-contain">
                 <label className="form-label ">From</label>
                 <LoadScript
-                  googleMapsApiKey= {YOUR_GOOGLE_MAPS_API_KEY} 
-                  libraries={["places"]}
+                  googleMapsApiKey={YOUR_GOOGLE_MAPS_API_KEY}
+                  libraries={libraries} 
+                  
                 >
                   <Autocomplete
                     onLoad={(autocomplete) => {
@@ -161,7 +170,7 @@ function Home() {
                         value={Info.pickUpLocation}
                         onChange={handleChange}
                         onBlur={() => handleBlur("pickUpLocation")}
-                        required
+                        // required
                       />
                     </div>
                   </Autocomplete>
@@ -172,8 +181,8 @@ function Home() {
                   To
                 </label>
                 <LoadScript
-                  googleMapsApiKey={YOUR_GOOGLE_MAPS_API_KEY} 
-                  libraries={["places"]}
+                  googleMapsApiKey={YOUR_GOOGLE_MAPS_API_KEY}
+                  libraries={libraries} 
                 >
                   <Autocomplete
                     onLoad={(autocomplete) => {
@@ -197,7 +206,7 @@ function Home() {
                         value={Info.dropLocation}
                         onChange={handleChange}
                         onBlur={() => handleBlur("dropLocation")}
-                        required
+                        // required
                       />
                     </div>
                   </Autocomplete>
@@ -207,7 +216,7 @@ function Home() {
                 <label htmlFor="datetime" className="form-label">
                   Date & Time
                 </label>
-                <div className="input-div">
+                <div className="input-div media-input-div">
                   <span>
                     <img src={calender} alt="not found" />
                   </span>
@@ -258,7 +267,6 @@ function Home() {
       </section>
 
       <section className="chooseUs">
-        {/* r customheader */}
         <div className="container customheader">
           <div className=" row bg-white media-bg-white">
             <div className="col-md-12 ">
@@ -269,24 +277,18 @@ function Home() {
                 </p>
               </div>
             </div>
-            <div className="container">
-              <div className="row pb-5">
-                <div className="d-flex justify-content-evenly">
-                <div className="">
-                  <div className="d-flex justify-content-center">
-                    <img
-                      src={img01}
-                      alt="not found"
-                      className="online-booking-img"
-                    />
-                  </div>
-                  <div className="explore-content p-3">
-                    <h3 className="text-title">Easy Online Booking</h3>
-                    <p className="paragraph font-dosis p-3">
-                      Lorem ipsum dolor sit amet consectaadipisicing elit.
-                      magnam dolor accusamus dolores .
-                    </p>
-                  </div>
+          </div>
+        </div>
+        <div className="container  customheader">
+          <div className="row pb-5 bg-white">
+            <div className="col-md-3">
+              <div className="">
+                <div className="d-flex justify-content-center">
+                  <img
+                    src={img01}
+                    alt="not found"
+                    className="online-booking-img"
+                  />
                 </div>
                 <div className="">
                   <div className="d-flex justify-content-center">
@@ -341,7 +343,6 @@ function Home() {
               </div>
             </div>
           </div>
-        </div>
       </section>
 
       <section className="aboutus ">

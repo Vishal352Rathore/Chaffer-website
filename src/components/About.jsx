@@ -6,21 +6,20 @@ import thirdimg from "../cab_images/wqdD.png";
 import forma1 from "../cab_images/forma1.png";
 import forma2 from "../cab_images/forma2.png";
 import forma3 from "../cab_images/forma3.png";
-import Header from "./Header";
 
 const About = () => {
 
   return (
     <div>
       <section className="bg-image-aboutus w-100%">
-        <Header/>
+        {/* <Header/> */}
         <section className="container customheader ">
           <div className="row">
             <div className="text-content-aboutus">
               <p className="text-heading-first">About Us</p>
-              <p className="text-heading-two">
+              {/* <p className="text-heading-two">
                 We are the most popular limousine service in New York.
-              </p>
+              </p> */}
             </div>
           </div>
         </section>
@@ -33,7 +32,10 @@ const About = () => {
       </section>
       <section className="container">
         <div className="row">
-          <img src={aboutus} alt="not found" className="col-md-5" />
+          <div className="col-md-5">
+          <img src={aboutus} alt="not found" className="aboutus-img" />
+          </div>
+      
           <div className="col-md-7">
             <div className="aboutus-para">
               <p className="font-dosis">

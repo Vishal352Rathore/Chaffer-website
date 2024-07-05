@@ -11,7 +11,8 @@ import { toast } from "react-toastify";
 const Login = () => {
   const navigate = useNavigate();
   const location = useLocation();
-  const { from } = location.state || { from: "/" };
+
+  const { from } = location && (location.state || { from: "/" });
   console.log("Redirected from:", location.state);
 
   const URL =
@@ -35,7 +36,7 @@ const Login = () => {
       };
       const response = await axios.post(URL, userData);
 
-      localStorage.setItem("token", response.data.items.token);
+      localStorage.setItem("userToken", response.data.items.token);
       localStorage.setItem("email", response.data.items.email);
       localStorage.setItem("user_id", response.data.items.userId);
       localStorage.setItem("firstName", response.data.items.firstName);
@@ -46,10 +47,10 @@ const Login = () => {
         console.log("login successfully", response.data);
         toast.success("Login successful!");
         e.target.reset();
-        navigate(from);
+        navigate(from, { state: { from: "Fresh Booking" } });
       } else {
         console.error("Login failed:", response.data);
-        toast.error("Login failed. Please check your credentials.");
+        toast.error("Login failed. Please check your credentials."); 
       }
       setLoginInfo({ email: "", password: "" });
     } catch (error) {
@@ -140,20 +141,21 @@ const Login = () => {
                         <p className="m-auto p-3 text-white w-10 h-10">OR</p>
                       </div>
                     </div>
+                    <div className="quickly">
+                      You can log in quickly with your account.
+                    </div>
+                    <div className="btn-container-login">
+                      <button>
+                        <img src={google} alt="not-found" />
+                        <span>Continue with google</span>
+                      </button>
+                      <button>
+                        <img src={facebook} alt="not-found" />
+                        <span>Continue with facebook</span>
+                      </button>
+                    </div>
                   </div>
                 </div>
-              </div>
-
-              <div className="quickly">
-                You can log in quickly with your account.
-              </div>
-              <div className="btn-container-login">
-                <button>
-                  <img src={google} alt="not-found" /><span> Continue with Google</span>
-                </button>
-                <button>
-                  <img src={facebook} alt="not-found" /> <span>Continue with Facebook</span>
-                </button>
               </div>
             </form>
           </div>

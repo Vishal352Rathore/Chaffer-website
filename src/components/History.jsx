@@ -1,6 +1,5 @@
 import React from "react";
 import { useState, useEffect } from "react";
-import Header from "./Header";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import Upcoming from "./HistoryStages/Upcoming";
@@ -9,16 +8,18 @@ import Cancel from "./HistoryStages/Cancel";
 import "../CssStyle/History.css";
 
 const History = () => {
-  const URL =
-    "https://chauffer-staging-tse4a.ondigitalocean.app/v1/ride/allRide";
-  const token = localStorage.getItem("token");
+  const [loading, setLoading] = useState(true);
+  const user_id = localStorage.getItem("user_id");
+
+  const URL = `https://chauffer-staging-tse4a.ondigitalocean.app/v1/ride/getridebyuserId/${user_id}`;
+  const token = localStorage.getItem("userToken");
   const [rideData, setRideData] = useState(null);
   const navigate = useNavigate();
   const [currentPage, setCurrentPage] = useState("upcoming");
 
   const headers = {
     "Content-Type": "application/json",
-    token: token,
+     token: token,
   };
 
   useEffect(() => {
@@ -33,18 +34,21 @@ const History = () => {
 
             if (response.status) {
               setRideData(response.data.items);
+              setLoading(false);
             } else if (!response.status) {
               navigate('/login', { state: { from: "/history" } });
             }
             
           } catch (error) {
             console.error("response for ride", error);
+            setLoading(false);
           }
         } else {
           navigate("/login", { state: { from: "/" } });
         }
       } catch (error) {
         console.error("Error fetching data:", error);
+        setLoading(false);
       }
     };
 
@@ -70,9 +74,9 @@ const History = () => {
   };
 
   return (
-    <div className="city-conatainer ">
+    <div className="history-whole-container ">
       <section className="bg-image-aboutus w-100%">
-        <Header />
+        {/* <Header /> */}
         <section className="container customheader">
           <div className="row">
             <div className="text-content-aboutus">
@@ -100,7 +104,7 @@ const History = () => {
             </ul>
           </nav>  
         </header>
-        <main>{renderPage()}</main>
+        <main>   {loading ? <div><p>Loading...</p></div> : renderPage()}</main>
       </div>
       {/* <Footer /> */}
     </div>

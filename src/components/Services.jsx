@@ -12,7 +12,7 @@ const Services = () => {
   return (
     <div className="services ">
       <section className="bg-image-aboutus w-100%">
-      <Header/>
+      
         <section className="container customheader">
           <div className="row">
             <div className="text-content-aboutus">
@@ -112,7 +112,7 @@ const Services = () => {
         </div>
       </section>
 
-      {/* <Footer/> */}
+      
     </div>
   );
 };

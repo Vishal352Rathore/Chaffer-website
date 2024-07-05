@@ -1,10 +1,21 @@
 import { useEffect, useRef, useState} from "react";
 import "../CssStyle/StepBar.css";
 import { useSelector, useDispatch } from "react-redux";
-import { nextStage, previousStage ,intialStage } from "../Actions/actions.js";
+import { nextStage1, previousStage1 ,intialStage1 } from "../Actions/actions.js";
+import { useLocation } from "react-router-dom";
 
-function MultiStepForm({ stepsConfig, actionIndex }) {
-  const bookingStage = useSelector((state) => state.bookingStageReducer);
+function MultiStepForm({ stepsConfig, actionIndex ,topRef }) {
+
+  const [distance, setDistance] = useState(0);
+
+  const location = useLocation();
+  console.log("location",location);
+  const { from } = location.state === null ? null : location.state  ;
+
+  const bookingStageFromRedux = useSelector((state) => state.bookingStageReducer.bookingStage1) 
+  console.log("bookingStageFromRedux", bookingStageFromRedux);  
+
+  const bookingStage = from === null ? actionIndex : bookingStageFromRedux ;
   const dispatch = useDispatch();
 
   console.log("bookingStage", bookingStage);
@@ -40,6 +51,7 @@ function MultiStepForm({ stepsConfig, actionIndex }) {
     const [hours, minutes] = time.split(":").map(Number);
     const period = hours >= 12 ? "PM" : "AM";
     const hours12 = hours % 12 || 12;
+    
     formattedTime = `${hours12}:${minutes < 10 ? "0" : ""}${minutes} ${period}`; // Assign value to formattedTime
     console.log(formattedTime);
   } else {
@@ -53,6 +65,16 @@ function MultiStepForm({ stepsConfig, actionIndex }) {
     marginRight: 0,
   });
   const stepRef = useRef([]);
+
+  useEffect(() => {
+    if (topRef.current) {
+      topRef.current.scrollIntoView({ behavior: 'smooth' });
+    }
+  }, [currentStep]);
+
+  useEffect(() => {
+    calculateDistance();
+   }, [])
 
 
   useEffect(() => {
@@ -74,8 +96,13 @@ function MultiStepForm({ stepsConfig, actionIndex }) {
         setIsComplete(true);
         return prevStep;
       } else {
-        if(bookingStage === 3) dispatch(intialStage())
-        dispatch(nextStage());
+        if(bookingStageFromRedux === 3){ 
+          dispatch(intialStage1())
+          console.log("FromStage3")
+        }else{
+          dispatch(nextStage1());
+          console.log("FromNextStage")
+        }
         return prevStep + 1;
       }
     });
@@ -86,7 +113,7 @@ function MultiStepForm({ stepsConfig, actionIndex }) {
       if (prevStep === 1) {
         return prevStep;
       } else {
-        dispatch(previousStage());
+        dispatch(previousStage1());
         setIsComplete(false);
         return prevStep - 1;
       }
@@ -97,10 +124,41 @@ function MultiStepForm({ stepsConfig, actionIndex }) {
     return ((currentStep - 1) / (stepsConfig.length - 1)) * 100;
   };
 
+  const calculateDistance = async () => {
+
+    const apiKey  = "AIzaSyCZ0UycRv9Fy9PMDBY-uoU_SkXZGnmjP18";
+
+    const [pickUpLat, pickUpLon] =   localStorage.getItem("pickUpLocationCoordinates").split(',');
+    const [dropLat, dropLon] =   localStorage.getItem("dropLocationCoordinates").split(',');
+
+    console.log("pickUpLat",pickUpLat);
+    console.log("pickUpLon",pickUpLon);
+    console.log("dropLat",dropLat);
+    console.log("dropLon",dropLon);
+
+
+    const url = `https://maps.googleapis.com/maps/api/distancematrix/json?units=metric&origins=${pickUpLat},${pickUpLon}&destinations=${dropLat},${dropLon}&key=${apiKey}`;
+       
+    try {
+      const response = await fetch(url);
+      const data = await response.json();
+
+      if (data.status === 'OK') {
+        const distanceText = data.rows[0].elements[0].distance.text;
+        setDistance(distanceText);
+      } else {
+        console.error('Failed to fetch distance:', data.error_message);
+      }
+    } catch (error) {
+      console.error('Error fetching distance:', error);
+    }
+  };
+
   const ActiveComponent = stepsConfig[currentStep - 1]?.Component;
+
   return (
     <div className="step-bar">
-      <div className="">
+      <div  className="">
         <div className="stepper">
           {stepsConfig.map((step, index) => {
             return (
@@ -148,10 +206,10 @@ function MultiStepForm({ stepsConfig, actionIndex }) {
                 Sun, {formattedDate} at {formattedTime} (MST)
               </p>
               <p>
-                <span>From :</span> {pickUpLocation} <span>To </span>:
+                <span>From:</span> {pickUpLocation} <span>To: </span>
                 {dropLocation}
               </p>
-              <p>Estimated arrival at {formattedTime} (MST) 134.3 km</p>
+              <p>Estimated arrival at {formattedTime} (MST) {distance} </p>
             </div>
           </div>
         </div>
@@ -161,6 +219,7 @@ function MultiStepForm({ stepsConfig, actionIndex }) {
         <ActiveComponent
           handleNextButon={handleNext}
           handlePreviousButton={handlePrevious}
+          from={from}
         />
 
        

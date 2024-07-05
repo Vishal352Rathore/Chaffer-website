@@ -1,0 +1,53 @@
+/* BookingDonePage.css */
+
+
+
+.bookingdone-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.bookingdone-message {
+    font-size: 5em;
+    background: linear-gradient(to right, #ff7f50, #bb277b);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    padding: 50px 40px;
+    border-radius: 8px;
+    font-weight: 400;
+    animation: bounceIn 5s infinite ease-in-out, gradientMove 5s infinite linear;
+}
+
+@keyframes bounceIn {
+    0% {
+        opacity: 0;
+        transform: scale(0.5) rotate(0deg);
+    }
+    50% {
+        opacity: 1;
+        transform: scale(1.1) rotate(15deg);
+    }
+    70% {
+        transform: scale(0.9) rotate(-15deg);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1) rotate(0deg);
+    }
+}
+
+@keyframes gradientMove {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}

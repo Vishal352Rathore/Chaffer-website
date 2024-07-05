@@ -1,3 +1,14 @@
+.displayIcon{
+    position: absolute;
+    top: 62px;
+    right: 20px;
+    width: 35px;
+}
+
+.displayIcon img{
+    width: 100%;
+}
+
 .serviceclass-container{
     text-align: left;
 }
@@ -36,6 +47,7 @@
 }
 
 .business-class-container{
+    position: relative;
     padding:50px 0px 0px 0px;
 }
 .business-class-container .car-container{
@@ -120,4 +132,32 @@
 .selected {
     border: 1px solid #00980F !important; /* Add your desired styling for the selected state */
     box-shadow: 2px rgb(206, 206, 242) !important;
+  }
+.continue-btn-container {
+    width: 100%;
+    display: flex;
+    justify-content: end;
+}
+  @media (max-width:767px){
+    .business-class-container {
+        padding: 40px 0px 0px 0px;
+    }
+    .business-class-icon-row {
+       
+        column-gap: 10px;
+        width: 100%;
+        justify-content: center;
+        align-items: center;
+    }
+    .all-class-include-container .all-class-include, .please-note-container .please-note-include {
+        padding: 20px 20px;
+    }
+    .all-class-include-container .all-class-include ul li, .please-note-container .please-note-include ul li {  
+        font-size: 14px;
+    }
+    .serviceclass-container .continue-btn {
+        margin-top: 30px;
+        padding: 10px 110px;
+        width: 100%;
+    }
   }

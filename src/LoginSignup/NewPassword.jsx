@@ -36,13 +36,20 @@ const NewPassword = () => {
     try {
         const newpass = {
             email: localStorage.getItem("email"),
-            NewPassword:reset.newPassword
+            newPassword:reset.newPassword
         }
         console.log("newpass",newpass)
         
       const response = await axios.post(URL,newpass);
       const data = response.data;
-      console.log("Reset data", data); 
+      console.log("Reset data", data);
+      if (response.data.status) {
+        toast.success(response.data.message);
+        navigate("/login");
+      }
+      else {
+        toast.error(response.data.message);
+      } 
     } 
     catch (error) {
       console.error("Error resetting password:", error);

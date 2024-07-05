@@ -10,12 +10,49 @@ body {
     background-image: url('../cab_images/Component7.png');
     background-repeat: no-repeat;
     background-size: cover;
-    height: 85vh;
+    height: 75vh;
+}
+
+/* Override the default border styles */
+.react-datepicker__input-container input:focus {
+    border: none;
+    box-shadow: none;
+  }
+  
+  /* Customize the appearance of the time select dropdown */
+  .react-datepicker__time-container .react-datepicker__time .react-datepicker__time-box ul.react-datepicker__time-list li.react-datepicker__time-list-item--selected {
+    background-color: transparent;
+    color: inherit;
+  }
+  
+  /* Customize the appearance of the time select dropdown items on focus */
+  .react-datepicker__time-container .react-datepicker__time .react-datepicker__time-box ul.react-datepicker__time-list li.react-datepicker__time-list-item:hover {
+    background-color: #e6e6e6;
+    color: inherit;
+  }
+  
+  /* General customization for the datepicker */
+  .datapicker {
+    border: 1px solid #ccc;
+    padding: 5px;
+    border-radius: 4px;
+  }
+  
+  /* Remove default focus outline */
+  .react-datepicker__input-container input:focus {
+    outline: none;
+  }
+  
+
+video{
+    width: 100%;
+    height: 100%;
+    object-fit:cover;
 }
 
 /* RESponsive Header Start */
 .container .logo {
-    width: 200px;
+    width: 150px;
 }
 
 .container.customheader {
@@ -30,8 +67,8 @@ body {
     font-weight: 400;
     line-height: 21px;
     text-align: left;
-    color: #fff;
-    /* color:#000; */
+    /* color: #fff; */
+    color:#000;
     text-transform: capitalize;
 }
 
@@ -46,6 +83,7 @@ body {
     width: 135px;
     height: 36px;
     border: unset;
+    border-radius: 5px;
 
 }
 
@@ -118,6 +156,10 @@ body {
     background-color: #fff;
     border: unset;
     padding-left: 10px;
+    
+}
+input.form-control.input-text.pac-target-input  , input.datapicker ,select.form-select.input-text{
+    color: #000 !important;
 }
 
 /* React datapicker Component START */
@@ -155,6 +197,7 @@ body {
     font-weight: 700;
     border: none;
     font-family:sans-serif ;
+    border-radius: 5px;
 }
 
 .custom-form {
@@ -164,6 +207,8 @@ body {
 }
 
 .custom-form.searchform {
+    position: sticky;
+    z-index: 1;
     padding: 29px 34px 12px 34px;
 }
 
@@ -218,6 +263,7 @@ body {
     font-size: 14px;
     font-family: "Inter", sans-serif;
     font-weight: 400;
+    border-radius: 5px;
 }
 
 .chooseUs {
@@ -335,6 +381,7 @@ body {
     border: none;
     color: #ffffff;
     padding: 8px 40px;
+    border-radius: 5px;
 }
 
 div#navbarNavDropdown {
@@ -553,7 +600,7 @@ div#navbarNavDropdown {
 }
 .download-container .google-img-container {
     display: flex;
-    justify-content: unset;
+    justify-content: center;
     align-items: center;
     width: 100%;
 }
@@ -592,9 +639,9 @@ div#navbarNavDropdown {
     }
     .container .navbar-collapse .navbar-nav .nav-item a.nav-link {
         font-family: Poppins;
-        font-size: 20px;
-        /* color: #000; */
-        color: #fff;
+        font-size: 18px;
+        color: #000;
+        /* color:#fff; */
         text-transform: capitalize;
         text-align: center;
         line-height: 0px;
@@ -720,7 +767,104 @@ img.image-aboutus {
 }
 
 /* Media query for responsive styles */
+@media only screen and (min-width:768px) and (max-width:991px){
+    .navbar-collapse {
+        background-color: rgb(41, 39, 39);
+        padding: 10px;
+        border-radius: 5px;
+        position: absolute;
+        top: 100px;
+        left: 0px;
+        /* opacity: .9; */
+        width: 100%;
+        z-index: 999;
+        box-shadow: 0px 3px 3px 2px #ccc;
+    }
+    /* div#navbarSupportedContent {
+        background-color: #2a2828 !important;
+        padding: 20px 30px;
+        width: 100%;
+        font-size: 24px;
+    }
+    .navbar-collapse {
+        flex-basis: 100%;
+        background-color: #474242 !important;
+        padding: 10px 30px !important;
+        flex-grow: 1;
+        align-items: center;
+    } */
+    .nav-item {
+        padding: 10px 0px;
+        border-bottom: 1px solid #474242;
+    }
+    .sign-in-btn {
+        background-color: #CC4452;
+        padding: 10px 20px;
+        font-size: 18px;
+        font-weight: 400;
+        color: #fff;
+        font-family: poppins;
+        box-shadow: 0px 4px 4px 0px #00000040;
+        width: 135px;
+        height: unset;
+        border: unset;
+        margin-top: 20px;
+    }
+    .datapicker {
+        padding: 20px 0 0 10px;
+        border: unset;
+    }
+    .container.bg-white.customheader {
+        width: 91%;
+    }
+    .explore-content h3.text-title {
+        font-size: 17px;
+        text-align: center;
+    }
+    img.image-aboutus {
+        width: 400px;
+        height: 400px;
+    }
+    .chooseUs {
+        margin-top: 155px;
+    }
+    .aboutus {
+        margin-top: 260px;
+    }
+     .aboutus-text-container {
+        background-color: #282725;
+        text-align: left;
+        color: #fff;
+        padding: 20px 20px;
+        margin-left: 0px;
+        /* height: 350px; */
+    }
 
+    .aboutus-text-container h3 {
+        font-size: 24px;
+        font-weight: 700;
+        color: #e4e4e4;
+        padding: 0 0 10px 0;
+    }
+    .input-div.media-input-div {
+        display: flex;
+        align-items: center;
+        background-color: #fff;
+        border: unset;
+        padding-left: 10px;
+        font-size: 13px;
+    }
+    .text-title {
+        font-size: 16px;
+        font-weight: 400;
+        color: #1e1e1e;
+        font-family: Dosis, 'sans-serif';
+        text-align: center;
+    }
+    .about-img {
+        background-size: contain;
+    }
+} 
 
 
 /* ********************************************** */
@@ -779,8 +923,8 @@ img.image-aboutus {
     font-weight: 400;
     line-height: 21px;
     text-align: left;
-    color:#fff;
-    /* color: #000; */
+    /* color:#fff; */
+    color: #000;
     text-transform: capitalize;
 }
 
@@ -824,7 +968,7 @@ img.image-aboutus {
     .sign-in-btn{
         font-size: 16px;
     }
-
+  
 }
 /* @media (max-width: 1280px) {
     .navbar-collapse {
