@@ -3,7 +3,6 @@ import "../CssStyle/StepBar.css";
 import { useSelector, useDispatch } from "react-redux";
 import { nextStage1, previousStage1 ,intialStage1 } from "../Actions/actions.js";
 import { useLocation } from "react-router-dom";
-
 function MultiStepForm({ stepsConfig, actionIndex ,topRef }) {
 
   const [distance, setDistance] = useState(0);
@@ -203,7 +202,7 @@ function MultiStepForm({ stepsConfig, actionIndex ,topRef }) {
           <div className="col-md-12">
             <div className="mst">
               <p>
-                Sun, {formattedDate} at {formattedTime} (MST)
+               Sun, {formattedDate} at {formattedTime} (MST)
               </p>
               <p>
                 <span>From:</span> {pickUpLocation} <span>To: </span>

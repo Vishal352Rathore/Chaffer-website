@@ -1,8 +1,8 @@
 import React from "react";
 import "../CssStyle/Footer.css";
 import logo from "../cab_images/logo.png";
-import android from "../cabimages-22/android.png";
-import google from "../cab_images/googleAppimg.png";
+// import android from "../cabimages-22/android.png";
+// import google from "../cab_images/googleAppimg.png";
 import playStore from "../cab_images/Play_store.png"
 import appleStore from "../cab_images/Apple_store.png"
 import { useNavigate } from "react-router-dom";
@@ -27,10 +27,10 @@ const Footer = () => {
               <span className="apple-img">
               <a href="https://www.apple.com/in/app-store/" target="_blank">  <img src={appleStore} alt="not found"/> </a>  
               </span>
-              </div>
+              </div> 
 
 
-              <span className="icon-container">
+             <span className="icon-container">
                 <span>
                   <i className="fa-brands fa-facebook-f "></i>
                 </span>
@@ -76,7 +76,8 @@ const Footer = () => {
               <p className="fontcolor">Range Rover</p>
               <p className="fontcolor">Luxury Minibus</p>
             </div>
-            <div className="col-md-3 col-sm-3">
+
+            {/* <div className="col-md-3 col-sm-3">
               <div className="row">
                 <div className="mobile_container">
                   <div className="mobile_icon" >
@@ -97,7 +98,7 @@ const Footer = () => {
                   </div>
                 </div>
               </div>
-            </div>
+            </div> */}
           </div>
         </div>
       </section>

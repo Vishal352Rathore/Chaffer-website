@@ -3,7 +3,6 @@ import { useNavigate } from "react-router-dom";
 import "../CssStyle/Services.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import img1 from "../cabimages-22/3.jpg";
-import Header from "./Header";
 
 const Services = () => {
   const navigate = useNavigate();
@@ -39,7 +38,7 @@ const Services = () => {
           <div className="col-md-12  ">
             <div className="container">
               <div className="row">
-                <div className="col-md-3 " onClick={()=>navigate('/services/chaufferservices')}>
+                <div className="col-md-4" onClick={()=>navigate('/services/chaufferservices')}>
                   <img
                     src={img1}
                     alt="not found"
@@ -47,7 +46,7 @@ const Services = () => {
                   />
                   <p className="img-name-service">chauffer service</p>
                 </div>
-                <div className="col-md-3 " onClick={()=>navigate('/services/chaufferservices')}>
+                <div className="col-md-4 " onClick={()=>navigate('/services/chaufferservices')}>
                   <img
                     src={img1}
                     alt="not found"
@@ -55,7 +54,7 @@ const Services = () => {
                   />
                   <p className="img-name-service">Events</p>
                 </div>
-                <div className="col-md-3 " onClick={()=>navigate('/services/chaufferservices')}>
+                <div className="col-md-4 " onClick={()=>navigate('/services/chaufferservices')}>
                   <img
                     src={img1}
                     alt="not found"
@@ -63,20 +62,20 @@ const Services = () => {
                   />
                   <p className="img-name-service">Airport Transfer</p>
                 </div>
-                <div className="col-md-3 " onClick={()=>navigate('/services/chaufferservices')}>
+                {/* <div className="col-md-3 " onClick={()=>navigate('/services/chaufferservices')}>
                   <img
                     src={img1}
                     alt="not found"
                     className="img-size-services"
                   />
                   <p className="img-name-service">Airport Transfer</p>
-                </div>
+                </div> */}
               </div>
             </div>
           </div>
         </div>
       </section>
-      <section className="container container d-flex justify-content-center mb-5 pb-5">
+      {/* <section className="container container d-flex justify-content-center mb-5 pb-5">
         <div className="row">
           <div className="col-md-12  m-auto ">
             <nav aria-label="Page navigation example">
@@ -110,7 +109,7 @@ const Services = () => {
             </nav>
           </div>
         </div>
-      </section>
+      </section> */}
 
       
     </div>

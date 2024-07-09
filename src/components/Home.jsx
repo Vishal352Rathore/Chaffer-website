@@ -17,7 +17,9 @@ import google from "../cab_images/googleAppimg.png";
 import { LoadScript, Autocomplete } from "@react-google-maps/api";
 import DatePicker from "react-datepicker";
 import 'react-datepicker/dist/react-datepicker.css';
-import homeBackground from "../videos/home-page-video.webm"
+import homeBackground from "../videos/home-page-video.webm";
+import Homeslide from "./Homeslide";
+
 
 const categories = ["Ride", "Comfort", "City to city", "Airport Transfer"];
 
@@ -114,12 +116,12 @@ function Home() {
   return (
     <div className="home-container">
       {/* <Header /> */}
-     
+     <Homeslide />
    
-      <div className="bg-image w-100%">
+      {/* <div className="bg-image w-100%">
         {/* <button onClick={()=>{ navigate("/services/bookride", { state: { from: "Continue Booking" } })}}>Continue Booking</button> */}
         {/* <video autoPlay muted loop id="myVideo" src={homeBackground}/> */}
-        <div className="text-content customheader">
+        {/* <div className="text-content customheader">
           <div className="text-div">
             <div className="text-heading-first">
               When you book a chauffeur,
@@ -135,7 +137,7 @@ function Home() {
             </button>
           </div>
         </div>
-      </div>
+      </div>  */}
 
       <section className="container customheader">
         <div className="custom-form searchform">
@@ -176,6 +178,7 @@ function Home() {
                   </Autocomplete>
                 </LoadScript>
               </div>
+
               <div className="col-md-3 form-contain">
                 <label htmlFor="toaddress" className="form-label">
                   To
@@ -293,8 +296,7 @@ function Home() {
                 <div className="explore-content p-3">
                   <h3 className="text-title">Easy Online Booking</h3>
                   <p className="paragraph font-dosis p-3">
-                    Lorem ipsum dolor sit amet consectaadipisicing elit. magnam
-                    dolor accusamus dolores .
+                  Schedule your ride with our quick and easy online booking 
                   </p>
                 </div>
               </div>
@@ -312,8 +314,8 @@ function Home() {
                   <div className="explore-content p-3">
                     <h3 className="text-title">Professional Drivers</h3>
                     <p className="paragraph font-dosis p-3">
-                      A new Shuttle train service between Singapore and Johar
-                      Bahru kicked off on Wednesday.
+                    With our professional drivers, you can expect a safe, 
+                    courteous and reliable ride
                     </p>
                   </div>
                 </div>
@@ -330,8 +332,8 @@ function Home() {
                   <div className="explore-content p-3">
                     <h3 className="text-title">Variety of Cars Brands</h3>
                     <p className="paragraph font-dosis p-3">
-                      The service ,called Shuttle Tebrau ,is operated by
-                      Malaysia's JB Sentral in just five minutes.
+                    Ride in style with our fleet of top-brand cars suitable for 
+                    corporate, events, tourism & leisure 
                     </p>
                   </div>
                 </div>
@@ -348,8 +350,8 @@ function Home() {
                   <div className="explore-content  p-3">
                     <h3 className="text-title">Online Payment</h3>
                     <p className="paragraph font-dosis p-3">
-                      York AirPort Service is a Private bus company that
-                      provides transportation area airports and Manha .
+                    Book and pay online with our easy, secured and 
+                    efficient online payment system using your debit cards
                     </p>
                   </div>
                 </div>
@@ -369,13 +371,14 @@ function Home() {
                 <h3 className="font-inria">About Us</h3>
 
                 <p className="aboutus-details font-inria">
-                  Lorem Ipsum is simply dummy text of the printing and
-                  typesetting industry. Lorem Ipsum has been the industry's
-                  standard dummy text ever since the 1500s, when an unknown
-                  printer took a galley of type and scrambled it to make a type
-                  specimen book.Lorem Ipsum is simply dummy text of the printing and
-                  typesetting industry.Lorem Ipsum is simply dummy text of the printing and
-                  typesetting industry.
+                At GenAlpha Plus, we prioritize safety and quality in all 
+                aspects of our operations. The Vehicle Inspection 
+                Module is designed to ensure that all vehicles used in 
+                our chauffeur services meet the highest standards of 
+                safety, cleanliness, and functionality. This module 
+                outlines the procedures and requirements for 
+                inspecting vehicles before they are approved for use on 
+                our platform. 
                 </p>
 
                 <button className="aboutus-btn font-inria">Book a ride</button>
@@ -392,19 +395,19 @@ function Home() {
             <p>our aims is to fill a gap in niche market of Trade</p>
           </div>
           <div className="row">
-            <div className="col-md-4">
+            <div className="col-md-4" onClick={()=>navigate('/services/chaufferservices')}>
               <div>
                 <img src={ourservices1} alt="not found" />
               </div>
               <h3>Chauffer Services</h3>
             </div>
-            <div className="col-md-4">
+            <div className="col-md-4" onClick={()=>navigate('/services/chaufferservices')}>
               <div>
                 <img src={ourservices2} alt="not found" />
               </div>
               <h3>Events</h3>
             </div>
-            <div className="col-md-4">
+            <div className="col-md-4" onClick={()=>navigate('/services/chaufferservices')}>
               <div>
                 <img src={ourservices3} alt="not found" />
               </div>
@@ -570,7 +573,7 @@ function Home() {
                 peace of mind in the palm of your hand
               </p>
               <div className="google-img-container ">
-                <img src={google} alt="not found" className="google-img" />
+              <a href="https://play.google.com/" target="_blank"><img src={google} alt="not found" className="google-img" /></a>
               </div>
             </div>
           </div>

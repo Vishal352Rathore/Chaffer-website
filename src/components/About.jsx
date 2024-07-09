@@ -42,34 +42,21 @@ const About = () => {
           <div className="col-md-7">
             <div className="aboutus-para">
               <p className="font-dosis">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris
-                a enim aliquam, condimen-tum nisl a, laoreet lectus. Aliquam
-                convallis sed elit nec vehicula. Praesent gravida, massa sit
-                amet ullamcorper fringilla, tortor nunc ultrices dui, in
-                tristique leo leosed massa.
-              </p>
-              <p className="font-dosis">
-                Quisque et lectus pulvinar, porttitor mi non, elementum dui.
-                Morbi mi nisl, tincidunt sed venenatis eget, finibus eu mauris.
-                Nullam nisi lacus, feugiat eget varius eget, pellentesque dictum
-                odio. Sed sollicitudin viverra est, at aliquam metus ultrices
-                id.Duis eu purus vel nisl commodo facilisis vitae ut lectus.
-              </p>
-
-              <p className="font-dosis">
-                Sed elementum dapibus tellus, a dictum metus interdum ac. Nullam
-                condimentum, dui volutpat fringilla molestie, libero tortor
-                ultrices lorem, at tempus diam purus non velit. Aliqu-am vel
-                nulla eleifend, consequat elit id, tristique massa. Fusce dolor
-                velit, blandit ac erat ac, vestibulum ornare diam. Sed
-                sollicitudin viverra est, at aliquam metus ultrices id.
+              At GenAlpha Plus, we prioritize safety and quality in all 
+              aspects of our operations. The Vehicle Inspection 
+              Module is designed to ensure that all vehicles used in 
+              our chauffeur services meet the highest standards of 
+              safety, cleanliness, and functionality. This module 
+              outlines the procedures and requirements for 
+              inspecting vehicles before they are approved for use on 
+              our platform
               </p>
             </div>
           </div>
         </div>
       </section>
 
-      <section className="container">
+      {/* <section className="container">
         <div className="row">
           <div className="col-md-12">
             <div className="ourcompany-container">
@@ -93,7 +80,7 @@ const About = () => {
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* Carousel */}
 
@@ -254,7 +241,7 @@ const About = () => {
         <div className="row">
           <div className="col-md-4   about-our-service-coloumn-forma1">
             <img src={forma1} alt="not found" />
-            <p>Limousine Events</p>
+            <p>Writeup</p>
           </div>
           <div className="col-md-4   about-our-service-coloumn-forma1">
             <img src={forma2} alt="not found" />
@@ -267,19 +254,13 @@ const About = () => {
         </div>
         <div className="row">
           <p className="col-md-4 forma1-para">
-            The exclusive way to travel Lorem ipsum dolor sit amet, consectetur
-            adipisicing elit. Omnis molestias, ea necessitatibus esse
-            repellendus eveniet.
+            Make Your transportation stress-free with our reliable and comfortable rides.Get to your event safely and in style with our professional drivers and luxurious vehicles.Our Fleet is available for all your event needs including weddings, corporate events or a night out of town.
           </p>
           <p className="col-md-4 forma1-para">
-            Enjoy the comfort of our limousine anf business vans.prepare for
-            your next business meeting in peace, or lat your Chauffer show you
-            the highlights of the city.
+           Arrive at your destination in style, with our expertly trained and attentive chauffeurs.
           </p>
           <p className="col-md-4 forma1-para">
-            However you may spend your time -you can fully rely on your
-            Chauffer. Stay relaxed, and reach your destination safely. Step
-            right in and sit back. We will take care of everythings else.
+            Avoid The Hassle Of airport parking and traffic and traffic and let us handle your transportation to/from the airport.
           </p>
         </div>
       </section>

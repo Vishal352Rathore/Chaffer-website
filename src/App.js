@@ -45,10 +45,7 @@ function App() {
           path="forgotpassword/otpverify/newpassword"
           element={<NewPassword />}
         />
-        <Route
-          path="services/chaufferservices"
-          element={<ChaufferServices />}
-        />
+     
          <Route path='services/bookride' element={<BookRide/>}/>
         <Route path='services/serviceclass' element={<ServiceClass/>}/>
         <Route path='services/serviceclass/pickup' element={<Pickup/>}/>
@@ -64,6 +61,10 @@ function App() {
       
         <Route path="cities" element={<CitiesAndClasses />} />
         <Route path="termsandcondition" element={<TermsAndCondition />} />
+        <Route
+          path="services/chaufferservices"
+          element={<ChaufferServices />}
+        />
         {/* <Route path='/resetpassword' element={<ResetPassword/>}/> */}
        
         <Route path='citiesandclasses' element={<CitiesAndClasses/>}/>
