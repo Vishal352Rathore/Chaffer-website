@@ -1,5 +1,8 @@
 import React from 'react';
-import "../CssStyle/Headers.css";
+import "../CssStyle/Homeslide.css";
+import homeslide1 from "../cab_images/homeslide1.jpg";
+import homeslide2 from "../cab_images/homeslide2.jpg";
+import homeslide3 from "../cab_images/homeslide3.jpg"
 
 const Homeslide = () => {
   return (
@@ -11,16 +14,16 @@ const Homeslide = () => {
   </div>
       <div className="carousel-inner" style={{paddingBottom: '5.25rem' }}>
         <div className="carousel-item active" style={{ height: '720px'}}>
-          <img src="https://cdn.mainichi.jp/vol1/2023/09/13/20230913p2a00m0na023000p/8.jpg?1" className="d-block w-100" alt="..." />
+          <img src={homeslide1} className="d-block w-100" alt="..." />
           <div className="carousel-caption d-none d-md-block">
-            <button type="button" className='btn-slide btn btn-outline-light btn-lg bg-danger text-light' style={{marginBottom: '35px' , marginRight: '20px'}}>Book A Ride</button>
+            <button type="button" className='btn-slide btn btn-outline-light btn-lg bg-danger text-light' style={{marginBottom: '35px' , marginRight: '20px' ,}}>Book A Ride</button>
             <button type="button" className='btn-slide btn btn-outline-light btn-lg bg-transparent text-light' style={{marginBottom: '35px'}}>Contact us</button>
             <p>We Are Your Safe, Affordable, Reliable and Car Service Option</p>
             <h1>PREMIUM CAR SERVICE</h1>
           </div>
         </div>
         <div className="carousel-item" style={{ height: '720px' }}>
-          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS2IiPrRYMVajAoaZLqc9TEJdcZ3rxAq1eNhvaiCkFHXuV_84Ab2GhheF7eKZ5tCtW-JIc&usqp=CAU" className="d-block w-100" alt="..." />
+          <img src={homeslide2} className="d-block w-100" alt="..." />
           <div className="carousel-caption d-none d-md-block">
             <button type="button" className='btn-slide btn btn-outline-light btn-lg bg-danger text-light' style={{marginBottom: '35px' , marginRight: '20px'}}>Book A Ride</button>
             <button type="button" className='btn-slide btn btn-outline-light btn-lg bg-transparent text-light' style={{marginBottom: '35px'}}>Contact us</button>
@@ -29,7 +32,7 @@ const Homeslide = () => {
           </div>
         </div>
         <div className="carousel-item" style={{ height: '720px' }} >
-          <img src="https://www.shutterstock.com/image-photo/taxi-driver-female-passenger-600nw-2259565351.jpg" className="d-block w-100"  alt="..." />
+          <img src={homeslide3} className="d-block w-100"  alt="..." />
           <div className="carousel-caption d-none d-md-block">
           <button type="button" className='btn-slide btn btn-outline-light btn-lg bg-danger text-light' style={{marginBottom: '35px' , marginRight: '20px'}}>Book A Ride</button>
           <button type="button" className='btn-slide btn btn-outline-light btn-lg bg-transparent text-light' style={{marginBottom: '35px'}}>Contact us</button>

@@ -70,7 +70,8 @@ video{
     font-weight: 400;
     line-height: 21px;
     text-align: left;
-    color: #fff;
+    /* color: #fff; */
+    color: #000;
     text-transform: capitalize;
 }
 

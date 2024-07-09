@@ -1,0 +1,56 @@
+.carousel-control-next, .carousel-control-prev{
+
+}
+.carousel-item {
+    height: 720px; /* Default height */
+  }
+  
+  /* Media queries for responsiveness */
+  @media (max-width: 768px) {
+    .carousel-item {
+      height: 400px;
+    }
+  }
+  
+  @media (min-width: 768px) and (max-width: 992px) {
+    .carousel-item {
+      height: 500px;
+    }
+  }
+  
+  /* Add more media queries as needed for larger screens */
+  
+  /* Example: Large screens */
+  @media (min-width: 1200px) {
+    .carousel-item {
+      height: 720px; /* Adjust height for large screens */
+    }
+  }
+  
+
+.carousel-item {
+    height: 720px; /* Default height */
+  }
+  
+  /* Media queries for responsiveness */
+  @media (max-width: 768px) {
+    .carousel-item {
+      height: 400px; /* Adjust height for smaller screens */
+    }
+  }
+  
+  @media (min-width: 768px) and (max-width: 992px) {
+    .carousel-item {
+      height: 500px; /* Adjust height for medium screens */
+    }
+  }
+  
+  /* Add more media queries as needed for larger screens */
+  
+  /* Example: Large screens */
+  @media (min-width: 1200px) {
+    .carousel-item {
+      height: 720px; /* Adjust height for large screens */
+    }
+  }
+  
