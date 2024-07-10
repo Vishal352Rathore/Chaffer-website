@@ -59,7 +59,8 @@ const About = () => {
       {/* <section className="container">
         <div className="row">
           <div className="col-md-12">
-            <div className="ourcompany-container">
+            <div className="ourcompany-container">.
+
               <p className="ourcompany">Our Company</p>
               <p className="ourcompany-para1">
                 Lorem ipsum dolor sit amet, consectetur adipisici elit, sed
