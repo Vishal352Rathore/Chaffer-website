@@ -397,7 +397,7 @@ function Home() {
       </section>
 
       <section className="service-container">
-        <div className="container customheader mt-5 pt-5">
+        <div className="container customheader pt-5">
           <div className="row ">
             <h3>Our Services</h3>
             <p>our aims is to fill a gap in niche market of Trade</p>

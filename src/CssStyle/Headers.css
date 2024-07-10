@@ -80,7 +80,7 @@ video{
 .sign-in-btn {
     background-color: #c23041;
     padding: 8px 40px;
-    font-size: 18px;
+    font-size: 16px;
     font-weight: 400;
     color:#fff;
     font-family: poppins;
@@ -210,7 +210,6 @@ input.form-control.input-text.pac-target-input  , input.datapicker ,select.form-
 .custom-form {
     background: #282725;
     padding: 0;
-    margin-top: -88px;
 }
 
 .custom-form.searchform {
