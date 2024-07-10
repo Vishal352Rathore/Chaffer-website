@@ -29,6 +29,10 @@ import BookRide from "./components/BookRide";
 import History from "./components/History";
 import DefaultLayout from "./components/DefaultLayout";
 import Home from "./components/Home";
+import OnlineBooking from "./components/OnlineBooking";
+import ProfessionalDrivers from "./components/ProfessionalDrivers";
+import CarsBrands from "./components/CarsBrands";
+import OnlinePayment from "./components/OnlinePayment";
 
 function App() {
   return (
@@ -54,6 +58,10 @@ function App() {
         <Route path="/" element={<DefaultLayout />} >
         <Route index element={<Home />} />
         <Route path="home" element={<Home/>} />
+        <Route path="/onlinebooking" element={<OnlineBooking />} />
+        <Route path="/professional" element={<ProfessionalDrivers />} />
+        <Route path="/carbrands" element={<CarsBrands/>} />
+        <Route path="/onlinepayment" element={<OnlinePayment />} />
       
         <Route path="about" element={<About />} />
         <Route path="help" element={<Help />} />

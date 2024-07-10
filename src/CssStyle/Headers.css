@@ -16,7 +16,9 @@ body {
     background-size: cover;
     height: 75vh;
 }
-
+.hidden-lines{
+ text-decoration: none;
+}
 /* Override the default border styles */
 .react-datepicker__input-container input:focus {
     border: none;

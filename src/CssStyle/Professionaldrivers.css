@@ -1,0 +1,45 @@
+.our-profession{
+    font-family: 'Dosis';
+    font-size: 34px;
+    font-weight: 600;
+    text-align: center;
+    padding: 50px 0px 0px 0px ;
+    color: #000000;  
+}
+.expertise-heading{
+    font-family: 'Dosis';
+    font-size: 24px;
+    font-weight: 600;
+    text-align: center;
+    margin: 0;
+    padding: 50px 0px 0px 0px ;
+    color: #000000;
+}
+.driver-section {
+    padding: 20px;
+  }
+  
+  .expertise-driver {
+    display: flex;
+    align-items: flex-start; /* Align items to the top */
+  }
+  
+  .driver-image {
+    flex: 1;
+    max-width: 150px; /* Adjust size as needed */
+    margin-right: 20px; /* Space between image and text */
+  }
+  
+  .driver-details {
+    flex: 2;
+  }
+
+  
+  .profession-para{
+    margin: 10px 0 0 0;
+    font-size: 16px;
+    font-weight: 500;
+    text-align: center;
+    color: #000000;
+  }
+  

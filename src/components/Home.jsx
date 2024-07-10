@@ -10,7 +10,7 @@ import ourservices2 from "../cabimages-22/2.jpg";
 import ourservices3 from "../cabimages-22/3.jpg";
 import location from "../cab_images/location.png";
 import calender from "../cab_images/calender.png";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "../CssStyle/Headers.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import google from "../cab_images/googleAppimg.png";
@@ -285,6 +285,7 @@ function Home() {
         <div className="container  customheader">
           <div className="row pb-5 bg-white">
             <div className="col-md-3">
+            <Link to="/onlinebooking" className="hidden-lines">
               <div className="">
                 <div className="d-flex justify-content-center">
                   <img
@@ -299,12 +300,14 @@ function Home() {
                   Schedule your ride with our quick and easy online booking 
                   </p>
                 </div>
-              </div>
-              
+                 </div>
+                 </Link>
             </div>
             <div className="col-md-3">
+            <Link to="/professional" className="hidden-lines">
                 <div className="">
                   <div className="d-flex justify-content-center">
+                    
                     <img
                       src={img02}
                       alt="not found"
@@ -319,8 +322,10 @@ function Home() {
                     </p>
                   </div>
                 </div>
+                </Link>
               </div>
               <div className="col-md-3 ">
+                <Link to="/carbrands" className="hidden-lines">
                 <div className="">
                   <div className="d-flex justify-content-center">
                     <img
@@ -337,8 +342,10 @@ function Home() {
                     </p>
                   </div>
                 </div>
+                </Link>
               </div>
               <div className="col-md-3">
+                <Link to="/onlinepayment" className="hidden-lines">
                 <div className="">
                   <div className="d-flex justify-content-center">
                     <img
@@ -355,6 +362,7 @@ function Home() {
                     </p>
                   </div>
                 </div>
+                </Link>
               </div>
           </div>
         </div>
