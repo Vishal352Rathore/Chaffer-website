@@ -1,8 +1,8 @@
 import React from 'react';
 import "../CssStyle/Homeslide.css";
-import homeslide1 from "../cab_images/homeslide1.jpg";
-import homeslide2 from "../cab_images/homeslide2.jpg";
-import homeslide3 from "../cab_images/homeslide3.jpg"
+import homeslide1 from "../cab_images/backgroundslide1.jpg";
+import homeslide2 from "../cab_images/backgroundslide2.jpg";
+import homeslide3 from "../cab_images/backgroundslide3.jpg";
 
 const Homeslide = () => {
   return (
@@ -43,12 +43,10 @@ const Homeslide = () => {
         </div>
       </div>
       <button className="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
-        <span className="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span className="visually-hidden">Previous</span>
+        <span className="carousel-control-prev-icon" aria="true"></span>
       </button>
       <button className="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
-        <span className="carousel-control-next-icon" aria-hidden="true"></span>
-        <span className="visually-hidden">Next</span>
+        <span className="carousel-control-next-icon" aria="true"></span>
       </button>
     </div>
     </div>
