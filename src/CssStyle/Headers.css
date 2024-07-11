@@ -825,6 +825,7 @@ img.image-aboutus {
         margin-top: 20px;
     }
     .datapicker {
+        width: 50px;
         padding: 20px 0 0 10px;
         border: unset;
     }
