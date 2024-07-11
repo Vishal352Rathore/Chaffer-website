@@ -18,7 +18,8 @@ const ProfessionalDrivers = () => {
           </div>
         </section>
       </section>
-      <section>
+      <div className="container">
+        <div className="row">
         <div class="driver-section">
           <h1 class="our-profession">Our Professional Drivers</h1>
           <div
@@ -36,12 +37,7 @@ const ProfessionalDrivers = () => {
               <img
                 src={cabdriver}
                 alt="Pineapple"
-                style={{
-                  width: "370px",
-                  height: "370px",
-                  float: "left",
-                  margin: "0px 20px",
-                }}
+              
               />
               <h4 style={{ fontWeight: "bold" }}>Expertise and Training</h4>
               Our drivers are highly trained professionals with extensive
@@ -70,11 +66,8 @@ const ProfessionalDrivers = () => {
               <img
                 src={proffessionalDriver}
                 alt="Pineapple"
-                style={{
-                  width: "370px",
-                  height: "370px",
+                style={{   
                   float: "right",
-                  margin: "0px 20px",
                 }}
               />
               <h4 style={{ fontWeight: "bold" }}>Professionalism</h4>
@@ -101,11 +94,8 @@ const ProfessionalDrivers = () => {
               <img
                 src={customerSatisfaction}
                 alt="Pineapple"
-                style={{
-                  width: "370px",
-                  height: "370px",
+                style={{   
                   float: "left",
-                  margin: "0px 20px",
                 }}
               />
               <h4 style={{ fontWeight: "bold" }}>
@@ -136,11 +126,8 @@ const ProfessionalDrivers = () => {
               <img
                 src={cabdriver}
                 alt="Pineapple"
-                style={{
-                  width: "370px",
-                  height: "370px",
+                style={{   
                   float: "right",
-                  margin: "0px 20px",
                 }}
               />
               <h4 style={{ fontWeight: "bold" }}>Safety and Reliability</h4>
@@ -168,12 +155,7 @@ const ProfessionalDrivers = () => {
               <img
                 src={customerFeedback}
                 alt="Pineapple"
-                style={{
-                  width: "370px",
-                  height: "370px",
-                  float: "left",
-                  margin: "0px 20px",
-                }}
+            
               />
               <h4 style={{ fontWeight: "bold" }}>Customer Feedback</h4>
               We take pride in the positive feedback we receive from our
@@ -188,7 +170,8 @@ const ProfessionalDrivers = () => {
             </p>
           </div>
         </div>
-      </section>
+      </div>
+      </div>
     </div>
   );
 };
