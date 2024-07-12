@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
 import imageAbout from "../cab_images/img5about.jpg";
-import img01 from "../cabimages-22/01.png";
-import img02 from "../cabimages-22/02.png";
-import img03 from "../cabimages-22/03.png";
-import img04 from "../cabimages-22/04.png";
+// import img01 from "../cabimages-22/01.png";
+// import img02 from "../cabimages-22/02.png";
+// import img03 from "../cabimages-22/03.png";
+// import img04 from "../cabimages-22/04.png";
 import car1 from "../cabimages-22/bus_1.jpg";
 import ourservices1 from "../cabimages-22/1.jpg";
 import ourservices2 from "../cabimages-22/2.jpg";
@@ -16,7 +16,11 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import google from "../cab_images/googleAppimg.png";
 import { LoadScript, Autocomplete } from "@react-google-maps/api";
 import DatePicker from "react-datepicker";
-import "react-datepicker/dist/react-datepicker.css";
+import 'react-datepicker/dist/react-datepicker.css';
+import profesionalDrivers from "../cab_images/profesionalDrivers.png"
+import vehicleBrand from "../cab_images/VehicleBrand.png";
+import onlinePayment from "../cab_images/onlinePayment.png";
+import onlineBooking from "../cab_images/onlineBooking.png";
 import homeBackground from "../videos/home-page-video.webm";
 import Homeslide from "./Homeslide";
 
@@ -297,7 +301,7 @@ function Home() {
               <div className="">
                 <div className="d-flex justify-content-center">
                   <img
-                    src={img01}
+                    src={onlineBooking}
                     alt="not found"
                     className="online-booking-img"
                   />
@@ -319,7 +323,7 @@ function Home() {
                 <div className="">
                   <div className="d-flex justify-content-center">
                     <img
-                      src={img02}
+                      src={profesionalDrivers}
                       alt="not found"
                       className="professionaldriver-img"
                     />
@@ -341,7 +345,7 @@ function Home() {
                 <div className="">
                   <div className="d-flex justify-content-center">
                     <img
-                      src={img03}
+                      src={vehicleBrand}
                       alt="not found"
                       className="carbrands-img"
                     />
@@ -363,7 +367,7 @@ function Home() {
                 <div className="">
                   <div className="d-flex justify-content-center">
                     <img
-                      src={img04}
+                      src={onlinePayment}
                       alt="not found"
                       className="paymentcard-img"
                     />
@@ -418,28 +422,19 @@ function Home() {
             <p>our aims is to fill a gap in niche market of Trade</p>
           </div>
           <div className="row">
-            <div
-              className="col-md-4"
-              onClick={() => navigate("/services/chaufferservices")}
-            >
+            <div className="col-md-4" onClick={()=>navigate('/services/chaufferservices' ,{ state: { from: "Bussiness Events" }})}>
               <div>
                 <img src={ourservices1} alt="not found" />
               </div>
-              <h3>Chauffer Services</h3>
+              <h3>Business & Corporate Events </h3>
             </div>
-            <div
-              className="col-md-4"
-              onClick={() => navigate("/services/chaufferservices")}
-            >
+            <div className="col-md-4" onClick={()=>navigate('/services/chaufferservices' ,{ state: { from: "Events" }})}>
               <div>
                 <img src={ourservices2} alt="not found" />
               </div>
               <h3>Events</h3>
             </div>
-            <div
-              className="col-md-4"
-              onClick={() => navigate("/services/chaufferservices")}
-            >
+            <div className="col-md-4" onClick={()=>navigate('/services/chaufferservices' ,{ state: { from: "Airport Transfer" }})}>
               <div>
                 <img src={ourservices3} alt="not found" />
               </div>
