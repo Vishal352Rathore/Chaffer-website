@@ -155,7 +155,7 @@ const ProfessionalDrivers = () => {
               <img
                 src={customerFeedback}
                 alt="Pineapple"
-            
+                className="customerFeedback"
               />
               <h4 style={{ fontWeight: "bold" }}>Customer Feedback</h4>
               We take pride in the positive feedback we receive from our

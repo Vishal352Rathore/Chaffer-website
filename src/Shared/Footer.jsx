@@ -53,9 +53,9 @@ const Footer = () => {
             </div>
             <div className="col-md-2 coloumn_ourServices col-sm-3">
               <p className="our_service">Our Services</p>
-              <Link to="/services/chaufferservices" className="hidden-lines"><p className="about fontcolor">Airport transfer</p></Link>
-              <Link to="/services/chaufferservices" className="hidden-lines"><p className="fontcolor">Events</p></ Link>
-              <Link to="/services/chaufferservices" className="hidden-lines"><p className="fontcolor">Chauffeur services</p></ Link>
+              <Link to="/services/chaufferservices" state={{ from: "Airport Transfer" }} className="hidden-lines"><p className="about fontcolor">Airport transfer</p></Link>
+              <Link to="/services/chaufferservices" state={{ from: "Events" }} className="hidden-lines"><p className="fontcolor">Events</p></ Link>
+              <Link to="/services/chaufferservices" state={{ from: "Bussiness Events"}} className="hidden-lines"><p className="fontcolor">Bussiness Events</p></ Link>
             </div>
             <div className="col-md-2 coloumn_ourServices col-sm-3">
               <p className="our_service">About Us</p>

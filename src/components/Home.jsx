@@ -19,6 +19,7 @@ import DatePicker from "react-datepicker";
 import 'react-datepicker/dist/react-datepicker.css';
 import profesionalDrivers from "../cab_images/profesionalDrivers.png"
 import vehicleBrand from "../cab_images/VehicleBrand.png";
+import cars from "../cab_images/carvehicle.png";
 import onlinePayment from "../cab_images/onlinePayment.png";
 import onlineBooking from "../cab_images/onlineBooking.png";
 import homeBackground from "../videos/home-page-video.webm";
@@ -345,7 +346,7 @@ function Home() {
                 <div className="">
                   <div className="d-flex justify-content-center">
                     <img
-                      src={vehicleBrand}
+                      src={cars}
                       alt="not found"
                       className="carbrands-img"
                     />

@@ -84,7 +84,7 @@ const About = () => {
       </section> */}
 
       {/* Carousel */}
-
+<div className="aboutslider">
       <div
         id="carouselExampleCaptions"
         className="carousel slide"
@@ -115,7 +115,7 @@ const About = () => {
         <div className="carousel-inner">
           <div class="carousel-item active">
             <img src={thirdimg} class="d-block w-100 slider-img" alt="..." />
-            <div class="carousel-caption d-none d-md-block ">
+            <div class="carousel-caption">
               <section className="container">
                 <div className="row mb-4">
                   <span className="col-md-2 text-right font-dosis">
@@ -145,7 +145,7 @@ const About = () => {
           </div>
           <div class="carousel-item">
             <img src={thirdimg} class="d-block w-100 slider-img" alt="..." />
-            <div class="carousel-caption d-none d-md-block">
+            <div class="carousel-caption">
               <section className="container">
                 <div className="row mb-4">
                   <span className="col-md-2 text-right font-dosis">
@@ -173,9 +173,9 @@ const About = () => {
               </section>
             </div>
           </div>
-          <div class="carousel-item ">
+          <div class="carousel-item">
             <img src={thirdimg} class="d-block w-100 slider-img" alt="..." />
-            <div class="carousel-caption d-none d-md-block">
+            <div class="carousel-caption">
             <section className="container">
                 <div className="row mb-4">
                   <span className="col-md-2 text-right font-dosis">
@@ -291,6 +291,7 @@ const About = () => {
 
       </section>
 
+   </div>
     </div>
   );
 };

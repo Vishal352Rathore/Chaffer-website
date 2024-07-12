@@ -67,8 +67,8 @@
       
     }
 
-    .home_slide_carousel .carousel-control-next, .carousel-control-prev{
-      height:30%;
+    .home_slide_carousel .carousel-control-next .carousel-control-prev{
+      height:90%;
      }
     .home_slide_carousel .btn-slide1 {
         color: white;

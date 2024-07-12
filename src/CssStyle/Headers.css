@@ -43,7 +43,9 @@ body {
     padding: 5px;
     border-radius: 4px;
   }
-  
+  .react-datepicker{
+    display: inline-flex !important;
+  }
   /* Remove default focus outline */
   .react-datepicker__input-container input:focus {
     outline: none;
@@ -104,7 +106,7 @@ video{
     text-shadow: 3px 3px 3px #908889;
     color: #6d5256;
 }
-.active {
+.home-container .active {
     font-family: poppins;
     font-size: 14px;
     /* font-size: 18px; */
@@ -175,7 +177,6 @@ input.form-control.input-text.pac-target-input  , input.datapicker ,select.form-
 }
 
 .react-datepicker-ignore-onclickoutside {
-
     outline: none !important;
 }
 
@@ -298,9 +299,13 @@ input.form-control.input-text.pac-target-input  , input.datapicker ,select.form-
 
 .chooseUs img {
     height: 64px;
+    transition: transform .2s;
+}
+.chooseUs img:hover{
+    transform: scale(1.5);
 }
 
-.font-dosis {
+.customheader .font-dosis {
     font-family: 'Dosis';
     padding-top: 10px;
 }
@@ -622,6 +627,10 @@ div#navbarNavDropdown {
     }
 } */
 
+
+@media only screen and (min-width:330px) and (max-width:765px){
+ 
+}
 
 @media (max-width: 765px) {
     /* navbar responsive start */
