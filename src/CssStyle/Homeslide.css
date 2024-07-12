@@ -1,9 +1,9 @@
 .home_slide_carousel #carouselExampleCaptions{
     height: 620px;
   }
-  .home_slide_carousel .carousel-control-next, .carousel-control-prev{
- height:30%;
-}
+  /* .home_slide_carousel .carousel-control-next, .carousel-control-prev{
+ height:100%;
+} */
  .home_slide_carousel .carousel-item {
     height: 620px; /* Default height */
   }
@@ -11,7 +11,7 @@
     height: 620px;
   }
 
-  .carousel-item img {
+  .home_slide_carousel .carousel-item img {
     height: 620px;
     object-fit: cover; 
   }
@@ -49,7 +49,12 @@
 .home_slide_carousel .btn-slide2:hover {
     background-color: darkblue !important;
 }
-
+.visually-show{
+  font-size: 2rem;
+}
+.carousel-control-next:hover{
+  background-color: rgb(201, 60, 60);
+}
   
   
   /* Media queries for responsiveness */
@@ -59,8 +64,12 @@
       }
       .home_slide_carousel .carousel-item {
       height: 400px;
-      object-fit: cover; 
+      
     }
+
+    .home_slide_carousel .carousel-control-next .carousel-control-prev{
+      height:90%;
+     }
     .home_slide_carousel .btn-slide1 {
         color: white;
         border: 1px solid white;
@@ -105,7 +114,6 @@
       }
       .home_slide_carousel  .carousel-item {
       height: 500px;
-      object-fit: cover;
     }
     .home_slide_carousel .btn-slide1 {
         background-color: transparent;
@@ -150,7 +158,7 @@
       }
       .home_slide_carousel .carousel-item {
       height: 620px; 
-      object-fit: cover;/* Adjust height for large screens */
+/* Adjust height for large screens */
     }
     .home_slide_carousel .btn-slide1 {
         background-color: transparent;
@@ -188,7 +196,7 @@
   @media (min-width: 1199px) and (max-width: 1600px) {
       .home_slide_carousel .carousel-item {
       height: 820px;
-      object-fit: cover; /* Adjust height for large screens */
+      /* Adjust height for large screens */
     }
     .home_slide_carousel .btn-slide1 {
         background-color: transparent;

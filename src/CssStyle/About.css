@@ -5,6 +5,14 @@
     width: 100%;
     height: 40vh; /* Adjust as needed */
 }
+.aboutslider.carousel-item{
+    height: 350px;
+}
+
+.aboutslider .font-dosis {
+    font-family: 'Dosis';
+    padding-top: 10px;
+}
 
 .text-content-aboutus{
     display: flex;
@@ -37,6 +45,11 @@
     height: 40vh;
 }
 
+.aboutus-img img {
+    width: 100%;
+    height: 40vh;
+    border-radius: 5px;
+}
 
 .story-aboutus {
     font-family: 'Dosis';
@@ -48,6 +61,7 @@
 }
 .aboutus-para {
     height: 100%;
+    font-family: 'Dosis';
     font-size: 20px;
     font-weight: 500;
     text-align: left;
@@ -75,7 +89,7 @@
     color: #000000;
 }
 /* carousel */
-.slider-img{
+.aboutslider .slider-img{
     height: 338px;
     margin-top: 20px;
 }
@@ -89,8 +103,9 @@
     padding: 30px 0px;
 } */
 .about-our-service-coloumn-forma1 p{
-    font-size: 24px;
+    font-size: 20px;
     font-family: 'Dosis';
+    padding-top: 30px;
 }
 .about-our-service{
     font-family: 'Dosis';
@@ -108,8 +123,7 @@
 }
 .forma1-para{
     font-family: 'Dosis';
-    font-size: 18px;
-    text-align: left;
+    text-align: center;
     color: #1b1b17;
     /*padding: 0px 30px; */
 }
@@ -118,9 +132,9 @@
 /* ************************** Testimonial ************************** */
 
 
-.carousel-control-prev-icon, .carousel-control-next-icon{
+/* .carousel-control-prev-icon, .carousel-control-next-icon{
     display: none;
-}
+} */
 .carousel-control-prev
 .carousel-control-next:focus, .carousel-control-next:hover, .carousel-control-prev:focus, .carousel-control-prev:hover {
     color: #fff;
@@ -137,6 +151,23 @@
 
 }
 
+@media  screen and (min-width:360px) and  (max-width:768px) {
+.carousel-item{
+    height: 300px;
+}
+.aboutslider .font-dosis {
+    font-family: 'Dosis';
+    padding-top: 0px;
+    margin: 0px;
+    font-size: x-small;
+}
+
+
+.aboutslider.carousel-control-prev.carousel-control-next{
+   height: 20px;
+}
+}
+
 @media  screen and (min-width:992px) and  (max-width:1199px) {
     
     .aboutus-img img{
@@ -145,6 +176,7 @@
     }
     .aboutus-para {
         font-size: 16px;
+        font-family: 'Dosis';
         font-weight: 500;
         text-align: left;
         padding: 4px 30px;
@@ -183,6 +215,44 @@
     .ourcompany-para1, .ourcompany-para2 {
         line-height: unset;
     }
+
+      
+    .aboutus-img img{
+        width: 100%;
+        height: 40vh;
+    }
+    .aboutus-para {
+        font-size: 16px;
+        font-family: 'Dosis';
+        font-weight: 500;
+        text-align: left;
+        padding: 4px 30px;
+        color: #000000;
+    }
+    .story-aboutus {
+        padding: 30px 0px 5px 0px;
+    }
+    .ourcompany-container {
+        padding: 50px 20px 20px 0px;
+    }
+    .ourcompany-para1, .ourcompany-para2 {
+        font-family: 'Dosis';
+        font-size: 16px;
+        font-weight: 500;
+        line-height: 20px;
+        text-align: left;
+        color: #000000;
+    }
+    .carousel-item {
+        position: relative;
+        display: none;
+        float: left;
+        width: 100%;
+        margin-right: -100%;
+        padding: 0px 10px;
+        backface-visibility: hidden;
+        transition: transform .6s ease-in-out;
+    }
 }
 @media  screen and (min-width:300px) and (max-width:767px) {
    
@@ -192,5 +262,38 @@
     }
     .ourcompany-para1, .ourcompany-para2 {
         line-height: unset;
+    }
+
+    .aboutus-para {
+        font-size: 16px;
+        font-family: 'Dosis';
+        font-weight: 500;
+        text-align: left;
+        padding: 4px 30px;
+        color: #000000;
+    }
+    .story-aboutus {
+        padding: 30px 0px 5px 0px;
+    }
+    .ourcompany-container {
+        padding: 50px 20px 20px 0px;
+    }
+    .ourcompany-para1, .ourcompany-para2 {
+        font-family: 'Dosis';
+        font-size: 16px;
+        font-weight: 500;
+        line-height: 20px;
+        text-align: left;
+        color: #000000;
+    }
+    .carousel-item {
+        position: relative;
+        display: none;
+        float: left;
+        width: 100%;
+        margin-right: -100%;
+        padding: 0px 10px;
+        backface-visibility: hidden;
+        transition: transform .6s ease-in-out;
     }
 }

@@ -71,6 +71,11 @@
 .fontcolor {
     color: rgb(172, 176, 179);
 }
+
+.hidden-lines{
+    text-decoration: none;
+    color: #fff;
+   }
 /* .mobile_container {
     font-size: 30px;
     color: rgb(245, 228, 206);

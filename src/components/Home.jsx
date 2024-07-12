@@ -19,13 +19,13 @@ import DatePicker from "react-datepicker";
 import 'react-datepicker/dist/react-datepicker.css';
 import profesionalDrivers from "../cab_images/profesionalDrivers.png"
 import vehicleBrand from "../cab_images/VehicleBrand.png";
+import cars from "../cab_images/carvehicle.png";
 import onlinePayment from "../cab_images/onlinePayment.png";
 import onlineBooking from "../cab_images/onlineBooking.png";
 import homeBackground from "../videos/home-page-video.webm";
 import Homeslide from "./Homeslide";
 import playStore from "../cab_images/Play_store.png"
 import appleStore from "../cab_images/Apple_store.png"
-
 
 const categories = ["Ride", "Comfort", "City to city", "Airport Transfer"];
 
@@ -34,8 +34,8 @@ function Home() {
   const token = localStorage.getItem("userToken");
   const [coordinates, setCoordinates] = useState({
     pickUpLocation: "",
-    dropLocation:"",
-  })
+    dropLocation: "",
+  });
 
   const YOUR_GOOGLE_MAPS_API_KEY = "AIzaSyCZ0UycRv9Fy9PMDBY-uoU_SkXZGnmjP18";
   const [isLogin, setIsLogin] = useState(false);
@@ -51,7 +51,6 @@ function Home() {
     }
   }, []);
 
-
   const [Info, setInfo] = useState({
     pickUpLocation: "",
     dropLocation: "",
@@ -59,11 +58,14 @@ function Home() {
     category: "Ride",
   });
 
-  const [isSuggestionSelected, setIsSuggestionSelected] = useState({ pickUpLocation: false, dropOffLocation: false });
+  const [isSuggestionSelected, setIsSuggestionSelected] = useState({
+    pickUpLocation: false,
+    dropOffLocation: false,
+  });
 
-
-  const handlePlaceSelect = (place ,name) => {
-    const { lat, lng } = place.geometry.location === null ? null :place.geometry.location;
+  const handlePlaceSelect = (place, name) => {
+    const { lat, lng } =
+      place.geometry.location === null ? null : place.geometry.location;
     setInfo((Info) => ({ ...Info, [name]: place.formatted_address }));
     setCoordinates((prevCoordinates) => ({
       ...prevCoordinates,
@@ -71,19 +73,21 @@ function Home() {
     }));
     // TODO: Set lat long
     console.log("Selected place:", place.formatted_address);
-    console.log('Coordinates:name', `${name} ${lat()},${lng()}` );
+    console.log("Coordinates:name", `${name} ${lat()},${lng()}`);
     setIsSuggestionSelected({ ...isSuggestionSelected, [name]: true });
   };
 
-
   const handleChange = (e) => {
     setInfo({ ...Info, [e.target.name]: e.target.value });
-    setIsSuggestionSelected({ ...isSuggestionSelected, [e.target.name]: false });
+    setIsSuggestionSelected({
+      ...isSuggestionSelected,
+      [e.target.name]: false,
+    });
   };
 
   const handleBlur = (fieldName) => {
     if (!isSuggestionSelected[fieldName]) {
-      setInfo({ ...Info, [fieldName]: '' });
+      setInfo({ ...Info, [fieldName]: "" });
     }
   };
 
@@ -105,8 +109,14 @@ function Home() {
 
       localStorage.setItem("pickUpLocation", userData.pickUpLocation);
       localStorage.setItem("dropLocation", userData.dropLocation);
-      localStorage.setItem("pickUpLocationCoordinates", userData.pickUpLocationCoordinates);
-      localStorage.setItem("dropLocationCoordinates", userData.dropLocationCoordinates);
+      localStorage.setItem(
+        "pickUpLocationCoordinates",
+        userData.pickUpLocationCoordinates
+      );
+      localStorage.setItem(
+        "dropLocationCoordinates",
+        userData.dropLocationCoordinates
+      );
       localStorage.setItem("dateTime", userData.dateTime);
       localStorage.setItem("category", userData.category);
 
@@ -122,12 +132,12 @@ function Home() {
   return (
     <div className="home-container">
       {/* <Header /> */}
-     <Homeslide />
-   
+      <Homeslide />
+
       {/* <div className="bg-image w-100%">
         {/* <button onClick={()=>{ navigate("/services/bookride", { state: { from: "Continue Booking" } })}}>Continue Booking</button> */}
-        {/* <video autoPlay muted loop id="myVideo" src={homeBackground}/> */}
-        {/* <div className="text-content customheader">
+      {/* <video autoPlay muted loop id="myVideo" src={homeBackground}/> */}
+      {/* <div className="text-content customheader">
           <div className="text-div">
             <div className="text-heading-first">
               When you book a chauffeur,
@@ -153,8 +163,7 @@ function Home() {
                 <label className="form-label ">From</label>
                 <LoadScript
                   googleMapsApiKey={YOUR_GOOGLE_MAPS_API_KEY}
-                  libraries={libraries} 
-                  
+                  libraries={libraries}
                 >
                   <Autocomplete
                     onLoad={(autocomplete) => {
@@ -191,7 +200,7 @@ function Home() {
                 </label>
                 <LoadScript
                   googleMapsApiKey={YOUR_GOOGLE_MAPS_API_KEY}
-                  libraries={libraries} 
+                  libraries={libraries}
                 >
                   <Autocomplete
                     onLoad={(autocomplete) => {
@@ -241,7 +250,6 @@ function Home() {
                     className="datapicker"
                     required
                   />
-                 
                 </div>
               </div>
               <div className="col-md-3 form-contain">
@@ -288,10 +296,11 @@ function Home() {
             </div>
           </div>
         </div>
-        <div className="container  customheader">
+        <div className="container customheader">
           <div className="row pb-5 bg-white">
             <div className="col-md-3">
-            <Link to="/onlinebooking" className="hidden-lines">
+            {/* <div className="card"> */}
+              <Link to="/onlinebooking" className="hidden-lines">
               <div className="">
                 <div className="d-flex justify-content-center">
                   <img
@@ -308,12 +317,14 @@ function Home() {
                 </div>
                  </div>
                  </Link>
-            </div>
+                 {/* </div> */}
+              </div>
+           
             <div className="col-md-3">
-            <Link to="/professional" className="hidden-lines">
+            {/* <div className="card"> */}
+              <Link to="/professional" className="hidden-lines">
                 <div className="">
                   <div className="d-flex justify-content-center">
-                    
                     <img
                       src={profesionalDrivers}
                       alt="not found"
@@ -323,19 +334,21 @@ function Home() {
                   <div className="explore-content p-3">
                     <h3 className="text-title">Professional Drivers</h3>
                     <p className="paragraph font-dosis p-3">
-                    With our professional drivers, you can expect a safe, 
-                    courteous and reliable ride
+                      With our professional drivers, you can expect a safe,
+                      courteous and reliable ride
                     </p>
                   </div>
                 </div>
-                </Link>
-              </div>
-              <div className="col-md-3 ">
-                <Link to="/carbrands" className="hidden-lines">
+              </Link>
+              {/* </div> */}
+            </div>
+            <div className="col-md-3 ">
+            {/* <div className="card"> */}
+              <Link to="/carbrands" className="hidden-lines">
                 <div className="">
                   <div className="d-flex justify-content-center">
                     <img
-                      src={vehicleBrand}
+                      src={cars}
                       alt="not found"
                       className="carbrands-img"
                     />
@@ -343,15 +356,17 @@ function Home() {
                   <div className="explore-content p-3">
                     <h3 className="text-title">Variety of Cars Brands</h3>
                     <p className="paragraph font-dosis p-3">
-                    Ride in style with our fleet of top-brand cars suitable for 
-                    corporate, events, tourism & leisure 
+                      Ride in style with our fleet of top-brand cars suitable
+                      for corporate, events, tourism & leisure
                     </p>
                   </div>
                 </div>
-                </Link>
-              </div>
-              <div className="col-md-3">
-                <Link to="/onlinepayment" className="hidden-lines">
+              </Link>
+              {/* </div> */}
+            </div>
+            <div className="col-md-3">
+            {/* <div className="card"> */}
+              <Link to="/onlinepayment" className="hidden-lines">
                 <div className="">
                   <div className="d-flex justify-content-center">
                     <img
@@ -363,13 +378,15 @@ function Home() {
                   <div className="explore-content  p-3">
                     <h3 className="text-title">Online Payment</h3>
                     <p className="paragraph font-dosis p-3">
-                    Book and pay online with our easy, secured and 
-                    efficient online payment system using your debit cards
+                      Book and pay online with our easy, secured and efficient
+                      online payment system using your debit cards
                     </p>
                   </div>
                 </div>
-                </Link>
-              </div>
+              </Link>
+              {/* </div> */}
+            </div>
+          
           </div>
         </div>
       </section>
@@ -385,17 +402,16 @@ function Home() {
                 <h3 className="font-inria">About Us</h3>
 
                 <p className="aboutus-details font-inria">
-                At GenAlpha Plus, we prioritize safety and quality in all 
-                aspects of our operations. The Vehicle Inspection 
-                Module is designed to ensure that all vehicles used in 
-                our chauffeur services meet the highest standards of 
-                safety, cleanliness, and functionality. This module 
-                outlines the procedures and requirements for 
-                inspecting vehicles before they are approved for use on 
-                our platform. 
+                  At GenAlpha Plus, we prioritize safety and quality in all
+                  aspects of our operations. The Vehicle Inspection Module is
+                  designed to ensure that all vehicles used in our chauffeur
+                  services meet the highest standards of safety, cleanliness,
+                  and functionality. This module outlines the procedures and
+                  requirements for inspecting vehicles before they are approved
+                  for use on our platform.
                 </p>
 
-                <button className="aboutus-btn font-inria">Book a ride</button>
+                <Link to="/about" className="hidden-lines"><button className="aboutus-btn font-inria">Go to About Us</button></ Link>
               </div>
             </div>
           </div>
@@ -601,7 +617,6 @@ function Home() {
           </div>
         </div>
       </section>
-      
     </div>
   );
 }

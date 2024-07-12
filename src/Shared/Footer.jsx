@@ -5,7 +5,7 @@ import logo from "../cab_images/logo.png";
 // import google from "../cab_images/googleAppimg.png";
 import playStore from "../cab_images/Play_store.png"
 import appleStore from "../cab_images/Apple_store.png"
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const Footer = () => {
 
@@ -53,13 +53,14 @@ const Footer = () => {
             </div>
             <div className="col-md-2 coloumn_ourServices col-sm-3">
               <p className="our_service">Our Services</p>
-              <p className="about fontcolor">Airport transfer</p>
-              <p className="fontcolor">Events </p>
-              <p className="fontcolor">Chauffeur services</p>
+              <Link to="/services/chaufferservices" state={{ from: "Airport Transfer" }} className="hidden-lines"><p className="about fontcolor">Airport transfer</p></Link>
+              <Link to="/services/chaufferservices" state={{ from: "Events" }} className="hidden-lines"><p className="fontcolor">Events</p></ Link>
+              <Link to="/services/chaufferservices" state={{ from: "Bussiness Events"}} className="hidden-lines"><p className="fontcolor">Bussiness Events</p></ Link>
             </div>
             <div className="col-md-2 coloumn_ourServices col-sm-3">
               <p className="our_service">About Us</p>
-              <p className="about fontcolor">Chauffeurs</p>
+            
+              <Link to="about" className="hidden-lines" ><p className="about fontcolor">Chauffeurs</p></Link>
               <p className="fontcolor">Blog </p>
               <p className="fontcolor">FAQs</p>
               <p className="fontcolor">Testimonials</p>

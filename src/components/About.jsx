@@ -84,7 +84,7 @@ const About = () => {
       </section> */}
 
       {/* Carousel */}
-
+<div className="aboutslider">
       <div
         id="carouselExampleCaptions"
         className="carousel slide"
@@ -115,7 +115,7 @@ const About = () => {
         <div className="carousel-inner">
           <div class="carousel-item active">
             <img src={thirdimg} class="d-block w-100 slider-img" alt="..." />
-            <div class="carousel-caption d-none d-md-block ">
+            <div class="carousel-caption">
               <section className="container">
                 <div className="row mb-4">
                   <span className="col-md-2 text-right font-dosis">
@@ -145,7 +145,7 @@ const About = () => {
           </div>
           <div class="carousel-item">
             <img src={thirdimg} class="d-block w-100 slider-img" alt="..." />
-            <div class="carousel-caption d-none d-md-block">
+            <div class="carousel-caption">
               <section className="container">
                 <div className="row mb-4">
                   <span className="col-md-2 text-right font-dosis">
@@ -175,7 +175,7 @@ const About = () => {
           </div>
           <div class="carousel-item">
             <img src={thirdimg} class="d-block w-100 slider-img" alt="..." />
-            <div class="carousel-caption d-none d-md-block">
+            <div class="carousel-caption">
             <section className="container">
                 <div className="row mb-4">
                   <span className="col-md-2 text-right font-dosis">
@@ -239,12 +239,12 @@ const About = () => {
             </p>
           </div>
         </div>
-        <div className="row">
+        {/* <div className="row">
           <div className="col-md-4   about-our-service-coloumn-forma1">
             <img src={forma1} alt="not found" />
             <p>Writeup</p>
           </div>
-          <div className="col-md-4   about-our-service-coloumn-forma1">
+          <div className="col-md-4 about-our-service-coloumn-forma1">
             <img src={forma2} alt="not found" />
             <p>Chauffer Service</p>
           </div>
@@ -252,7 +252,7 @@ const About = () => {
             <img src={forma3} alt="not found" className="forma3" />
             <p>Airport Transfer</p>
           </div>
-        </div>
+        </div> 
         <div className="row">
           <p className="col-md-4 forma1-para">
             Make Your transportation stress-free with our reliable and comfortable rides.Get to your event safely and in style with our professional drivers and luxurious vehicles.Our Fleet is available for all your event needs including weddings, corporate events or a night out of town.
@@ -263,9 +263,35 @@ const About = () => {
           <p className="col-md-4 forma1-para">
             Avoid The Hassle Of airport parking and traffic and traffic and let us handle your transportation to/from the airport.
           </p>
-        </div>
+        </div> */}
+
+<div className="row">
+  <div className="col-md-4 about-our-service-coloumn-forma1">
+    <img src={forma1} alt="not found" />
+    <p>Writeup</p>
+    <p className="forma1-para">
+      Make Your transportation stress-free with our reliable and comfortable rides. Get to your event safely and in style with our professional drivers and luxurious vehicles. Our Fleet is available for all your event needs including weddings, corporate events or a night out of town.
+    </p>
+  </div>
+  <div className="col-md-4 about-our-service-coloumn-forma1">
+    <img src={forma2} alt="not found" />
+    <p>Chauffer Service</p>
+    <p className="forma1-para">
+      Arrive at your destination in style, with our expertly trained and attentive chauffeurs.
+    </p>
+  </div>
+  <div className="col-md-4 about-our-service-coloumn about-our-service-coloumn-forma1">
+    <img src={forma3} alt="not found" className="forma3" />
+    <p>Airport Transfer</p>
+    <p className="forma1-para">
+      Avoid The Hassle Of airport parking and traffic and traffic and let us handle your transportation to/from the airport.
+    </p>
+  </div>
+</div>
+
       </section>
 
+   </div>
     </div>
   );
 };
