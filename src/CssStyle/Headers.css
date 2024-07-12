@@ -626,7 +626,37 @@ div#navbarNavDropdown {
         padding: 20px
     }
 } */
+.home-container .google-img-container {
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+}
 
+.home-container .google-img a {
+    width: 240px;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.home-container .google-img a img {
+    width:100%;
+    height: 100%;
+}
+
+.home-container .apple-img a {
+    width: 220px;
+    height: 70px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.home-container .apple-img a img {
+    width:100%;
+    height: 100%;
+}
 
 @media only screen and (min-width:330px) and (max-width:765px){
  

@@ -24,6 +24,8 @@ import onlinePayment from "../cab_images/onlinePayment.png";
 import onlineBooking from "../cab_images/onlineBooking.png";
 import homeBackground from "../videos/home-page-video.webm";
 import Homeslide from "./Homeslide";
+import playStore from "../cab_images/Play_store.png"
+import appleStore from "../cab_images/Apple_store.png"
 
 const categories = ["Ride", "Comfort", "City to city", "Airport Transfer"];
 
@@ -600,11 +602,17 @@ function Home() {
                 Easily book change or cancel rider on the go think of it as
                 peace of mind in the palm of your hand
               </p>
-              <div className="google-img-container ">
-                <a href="https://play.google.com/" target="_blank">
-                  <img src={google} alt="not found" className="google-img" />
-                </a>
-              </div>
+              {/* <div className="google-img-container ">
+              <a href="https://play.google.com/" target="_blank"><img src={google} alt="not found" className="google-img" /></a>
+              </div> */}
+               <div className="google-img-container">
+              <span className="google-img">
+              <a href="https://play.google.com/" target="_blank">  <img src={playStore} alt="not found"/> </a>  
+              </span>
+              <span className="apple-img">
+              <a href="https://www.apple.com/in/app-store/" target="_blank">  <img src={appleStore} alt="not found"/> </a>  
+              </span>
+              </div> 
             </div>
           </div>
         </div>
