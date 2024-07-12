@@ -26,10 +26,10 @@ const OnlinePayment = () => {
         <div class="driver-section">
           <h1 class="our-profession">Payment Options</h1>
           <p>We accept a variety of payment methods to ensure flexibility:</p>
-          <p>• Credit Cards (Visa, MasterCard, American Express, Discover)</p>
           <p>• Debit Cards</p>
-          <p>• Digital Wallets (PayPal, Apple Pay, Google Wallet)</p>
           <p>• Bank Transfers</p>
+          <p>• Digital Wallets (PayPal, Apple Pay, Google Wallet)</p>
+          <p>• Credit Cards (Visa, MasterCard, American Express, Discover)</p>
         </div>
       </section>
       <section>

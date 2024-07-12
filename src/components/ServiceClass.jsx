@@ -28,6 +28,7 @@ const ServiceClass = ({ handleNextButon, from }) => {
   console.log("toLongitude", toLongitude);
 
   const [vehicleData, setVehicleData] = useState(null);
+  
   useEffect(() => {
     const fetchData = async () => {
       try {

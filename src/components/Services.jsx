@@ -2,8 +2,9 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import "../CssStyle/Services.css";
 import "bootstrap/dist/css/bootstrap.min.css";
-import img1 from "../cabimages-22/3.jpg";
-
+import ourservices1 from "../cabimages-22/1.jpg";
+import ourservices2 from "../cabimages-22/2.jpg";
+import ourservices3 from "../cabimages-22/3.jpg";
 const Services = () => {
   const navigate = useNavigate();
 
@@ -38,25 +39,25 @@ const Services = () => {
           <div className="col-md-12  ">
             <div className="container">
               <div className="row">
-                <div className="col-md-4" onClick={()=>navigate('/services/chaufferservices')}>
+                <div className="col-md-4"onClick={()=>navigate('/services/chaufferservices' ,{ state: { from: "Bussiness Events" }})}>
                   <img
-                    src={img1}
+                    src={ourservices1}
                     alt="not found"
                     className="img-size-services"
                   />
-                  <p className="img-name-service">chauffer service</p>
+                  <p className="img-name-service">Business & Corporate Events</p>
                 </div>
-                <div className="col-md-4 " onClick={()=>navigate('/services/chaufferservices')}>
+                <div className="col-md-4 " onClick={()=>navigate('/services/chaufferservices' ,{ state: { from: "Events" }})}>
                   <img
-                    src={img1}
+                    src={ourservices2}
                     alt="not found"
                     className="img-size-services"
                   />
                   <p className="img-name-service">Events</p>
                 </div>
-                <div className="col-md-4 " onClick={()=>navigate('/services/chaufferservices')}>
+                <div className="col-md-4 " onClick={()=>navigate('/services/chaufferservices' ,{ state: { from: "Airport Transfer" }})}>
                   <img
-                    src={img1}
+                    src={ourservices3}
                     alt="not found"
                     className="img-size-services"
                   />
