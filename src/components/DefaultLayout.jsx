@@ -14,11 +14,11 @@ const DefaultLayout = () => {
   }, [location]);
 
   return (
-    <div>
-      <div className="nav-bar-position">
+    <div  >
+      <div  className="nav-bar-position"> 
         <Header />
       </div>{" "}
-      <div ref={topRef}  className="content">
+      <div ref={topRef} className="content">
         <Outlet />
       </div>
       <Footer />
