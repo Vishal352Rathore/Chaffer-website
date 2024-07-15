@@ -8,16 +8,21 @@ const DefaultLayout = () => {
   const location = useLocation();
 
   useEffect(() => {
-    if (topRef.current) {
-      topRef.current.scrollIntoView({ behavior: 'smooth' });
-    }
+   if (topRef.current) {
+    const topPosition = topRef.current.offsetTop - 95; // Adjusted for margin-top
+    window.scrollTo({
+      top: topPosition,
+      behavior: 'smooth'
+    });
+  }
   }, [location]);
 
   return (
-    <div  >
+    <div>
       <div  className="nav-bar-position"> 
         <Header />
       </div>{" "}
+      
       <div ref={topRef} className="content">
         <Outlet />
       </div>
