@@ -7,10 +7,12 @@ import "../CssStyle/ChaufferServices.css";
 import businessExecutive from "../clickable-imgs/business-executive-cab.jpg";
 import Events from "../clickable-imgs/Events.png";
 import airportTrasfer from "../clickable-imgs/AirportTransfer.png"
-import { useLocation } from "react-router-dom";
+import { useLocation ,useNavigate } from "react-router-dom";
 
 
 const ChaufferServices = () => {
+  const navigate = useNavigate();
+
   const location = useLocation();
   const { from } = location && (location.state || { from: "Bussiness Events" });
 console.log("Redirected from:", from);
@@ -86,16 +88,17 @@ console.log("Redirected from:", from);
                   color: " #1E1E1E;",
                 }}
               >
-                <li>
+                <li onClick={()=>navigate('/services/chaufferservices' ,{ state: { from: "Bussiness Events" }})} >
                   <span
                     className="pe-3"
                     style={{ color: "rgb(235, 225, 175)" }}
+                    
                   >
                     <i class="fa-solid fa-arrow-right"></i>
                   </span>
                   Bussiness Class
                 </li>
-                <li>
+                {/* <li>
                   <span
                     className="pe-3"
                     style={{ color: "rgb(235, 225, 175)" }}
@@ -103,8 +106,8 @@ console.log("Redirected from:", from);
                     <i class="fa-solid fa-arrow-right"></i>
                   </span>
                   Promo
-                </li>
-                <li>
+                </li> */}
+                <li onClick={()=>navigate('/services/chaufferservices' ,{ state: { from: "Airport Transfer" }})}>
                   <span
                     className="pe-3"
                     style={{ color: "rgb(235, 225, 175)" }}
@@ -113,7 +116,7 @@ console.log("Redirected from:", from);
                   </span>
                   Airport transport
                 </li>
-                <li>
+                {/* <li>
                   <span
                     className="pe-3"
                     style={{ color: "rgb(235, 225, 175)" }}
@@ -121,8 +124,8 @@ console.log("Redirected from:", from);
                     <i class="fa-solid fa-arrow-right"></i>
                   </span>
                   Chauffer Service
-                </li>
-                <li>
+                </li> */}
+                <li onClick={()=>navigate('/services/chaufferservices' ,{ state: { from: "Events" }})}>
                   <span
                     className="pe-3"
                     style={{ color: "rgb(235, 225, 175)" }}
@@ -131,7 +134,7 @@ console.log("Redirected from:", from);
                   </span>
                   Weddings
                 </li>
-                <li>
+                {/* <li>
                   <span
                     className="pe-3"
                     style={{ color: "rgb(235, 225, 175)" }}
@@ -139,7 +142,7 @@ console.log("Redirected from:", from);
                     <i class="fa-solid fa-arrow-right"></i>
                   </span>
                   Parties
-                </li>
+                </li> */}
               </ul>
             </div>
             <div className="pt-4">
@@ -198,7 +201,7 @@ console.log("Redirected from:", from);
               >
                 <div className="text-start">
                   <strong style={{ color: "#fff" }}>Email</strong>
-                  <p style={{ color: "#ccc" }}>info@prodrive.com</p>
+                  <p style={{ color: "#ccc" }}>info@genalphaplus.ng</p>
                 </div>
                 <img
                   src={email}
@@ -207,7 +210,6 @@ console.log("Redirected from:", from);
                 />
               </div>
             </div>
-
             <div className="pt-2">
               <div
                 className="pt-3 ps-2 pb-2 pe-3"

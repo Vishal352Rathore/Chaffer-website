@@ -37,7 +37,7 @@ function Home() {
     dropLocation: "",
   });
 
-  const YOUR_GOOGLE_MAPS_API_KEY = "AIzaSyCZ0UycRv9Fy9PMDBY-uoU_SkXZGnmjP18";
+  const YOUR_GOOGLE_MAPS_API_KEY = "AIzaSyBwjeVvT9oL3MeMQVzF-kOg-BWqzSgi8GM";
   const [isLogin, setIsLogin] = useState(false);
   const libraries = ["places"];
 
