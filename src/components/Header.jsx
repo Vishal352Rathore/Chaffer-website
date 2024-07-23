@@ -38,7 +38,12 @@ const Header = () => {
   return (
     <nav className="navbar navbar-expand-lg navbar-light">
       <div className="container customheader">
-        <Link className="navbar-brand" to="/">
+        <Link className="navbar-brand" to="/home"  onClick={() => {
+                  setIsActive("home");
+                  if (window.innerWidth < 992) {
+                    document.querySelector(".navbar-toggler").click();
+                  }
+                }}>
           <img src={image1} alt="not found" className="logo" />
         </Link>
         <button
