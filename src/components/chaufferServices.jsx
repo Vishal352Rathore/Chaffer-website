@@ -87,7 +87,6 @@ console.log("Redirected from:", from);
                   fontSize: "25px",
                   color: " #1E1E1E;",
                 }}
-                onClick={()=>navigate('/services')} 
               >
                 <li onClick={()=>navigate('/services/chaufferservices' ,{ state: { from: "Bussiness Events" }})} >
                   <span

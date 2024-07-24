@@ -1,3 +1,7 @@
+/* .container{
+    cursor: pointer;
+} */
+
 .chaufferservices {
     font-family: "Inter", sans-serif;
 }
@@ -40,7 +44,7 @@ ul[title]::before {
     text-align: left;
     color : #969696;
     font-size: 16px;
-
+     cursor: pointer;
 }
 .address-img{
     width:70px;
