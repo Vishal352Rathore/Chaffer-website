@@ -3,30 +3,23 @@ import { useNavigate, Link } from "react-router-dom";
 import { toast } from "react-toastify";
 import image1 from "../cab_images/logo.png";
 import "../CssStyle/Headers.css";
-
 const Header = () => {
   const [isLogin, setIsLogin] = useState(false);
   const token = localStorage.getItem("userToken");
   const [isActive, setIsActive] = useState("home");
+  const [isNavOpen, setIsNavOpen] = useState(false); // State to manage navbar toggle
   const navigate = useNavigate();
-
   useEffect(() => {
-    console.log("Running useEffect");
-    console.log("token before condition:", token);
     if (token) {
       setIsLogin(true);
-      console.log("Setting isLogin to true");
     } else {
       setIsLogin(false);
-      console.log("islogin", isLogin);
     }
-    console.log("token after condition:", token);
-  }, []);
-
+  }, [token]);
   const handleLogin = (e) => {
     e.preventDefault();
     if (isLogin) {
-      localStorage.removeItem("userToken"); // Make sure this matches the key used in getItem
+      localStorage.removeItem("userToken");
       setIsLogin(false);
       toast.success("Logout successful!");
       navigate("/");
@@ -34,41 +27,32 @@ const Header = () => {
       navigate("/login");
     }
   };
-
+  const toggleNav = () => {
+    setIsNavOpen(!isNavOpen); // Toggle the state of navbar open/close
+  };
+  const closeNav = () => {
+    setIsNavOpen(false); // Close navbar when a link is clicked
+  };
   return (
     <nav className="navbar navbar-expand-lg navbar-light">
       <div className="container customheader">
-        <Link className="navbar-brand" to="/home"  onClick={() => {
-                  setIsActive("home");
-                  if (window.innerWidth < 992) {
-                    document.querySelector(".navbar-toggler").click();
-                  }
-                }}>
+        <Link className="navbar-brand" to="/">
           <img src={image1} alt="not found" className="logo" />
         </Link>
         <button
           className="navbar-toggler"
           type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#navbarSupportedContent"
-          aria-controls="navbarSupportedContent"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
+          onClick={toggleNav} // Toggle the navbar state on button click
         >
           <span className="navbar-toggler-icon"></span>
         </button>
-        <div className="collapse navbar-collapse" id="navbarSupportedContent">
+        <div className={`collapse navbar-collapse ${isNavOpen ? 'show' : ''}`}>
           <ul className="navbar-nav me-4 mb-2 mb-lg-0">
             <li className="nav-item">
               <Link
                 className={`nav-link ${isActive === "home" ? "active" : ""}`}
                 to="/home"
-                onClick={() => {
-                  setIsActive("home");
-                  if (window.innerWidth < 992) {
-                    document.querySelector(".navbar-toggler").click();
-                  }
-                }}
+                onClick={() => { setIsActive("home"); closeNav(); }}
               >
                 Home
               </Link>
@@ -76,16 +60,9 @@ const Header = () => {
             {isLogin && (
               <li className="nav-item">
                 <Link
-                  className={`nav-link ${
-                    isActive === "history" ? "active" : ""
-                  }`}
+                  className={`nav-link ${isActive === "history" ? "active" : ""}`}
                   to="/history"
-                  onClick={() => {
-                    setIsActive("history");
-                    if (window.innerWidth < 992) {
-                      document.querySelector(".navbar-toggler").click();
-                    }
-                  }}
+                  onClick={() => { setIsActive("history"); closeNav(); }}
                 >
                   History
                 </Link>
@@ -95,12 +72,7 @@ const Header = () => {
               <Link
                 className={`nav-link ${isActive === "about" ? "active" : ""}`}
                 to="/about"
-                onClick={() => {
-                  setIsActive("about");
-                  if (window.innerWidth < 992) {
-                    document.querySelector(".navbar-toggler").click();
-                  }
-                }}
+                onClick={() => { setIsActive("about"); closeNav(); }}
               >
                 About Us
               </Link>
@@ -109,28 +81,16 @@ const Header = () => {
               <Link
                 className={`nav-link ${isActive === "help" ? "active" : ""}`}
                 to="/help"
-                onClick={() => {
-                  setIsActive("help");
-                  if (window.innerWidth < 992) {
-                    document.querySelector(".navbar-toggler").click();
-                  }
-                }}
+                onClick={() => { setIsActive("help"); closeNav(); }}
               >
-                Help us
+                Help Us
               </Link>
             </li>
             <li className="nav-item">
               <Link
-                className={`nav-link ${
-                  isActive === "services" ? "active" : ""
-                }`}
+                className={`nav-link ${isActive === "services" ? "active" : ""}`}
                 to="/services"
-                onClick={() => {
-                  setIsActive("services");
-                  if (window.innerWidth < 992) {
-                    document.querySelector(".navbar-toggler").click();
-                  }
-                }}
+                onClick={() => { setIsActive("services"); closeNav(); }}
               >
                 Services
               </Link>
@@ -139,12 +99,7 @@ const Header = () => {
               <Link
                 className={`nav-link ${isActive === "cities" ? "active" : ""}`}
                 to="/cities"
-                onClick={() => {
-                  setIsActive("cities");
-                  if (window.innerWidth < 992) {
-                    document.querySelector(".navbar-toggler").click();
-                  }
-                }}
+                onClick={() => { setIsActive("cities"); closeNav(); }}
               >
                 Cities
               </Link>
@@ -160,5 +115,13 @@ const Header = () => {
     </nav>
   );
 };
-
 export default Header;
+
+
+
+
+
+
+
+
+
