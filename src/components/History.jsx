@@ -11,7 +11,7 @@ const History = () => {
   const [loading, setLoading] = useState(true);
   const user_id = localStorage.getItem("user_id");
 
-  const URL = `https://chauffer-staging-tse4a.ondigitalocean.app/v1/ride/getridebyuserId/${user_id}`;
+  const URL = ` https://chauffer-staging-tse4a.ondigitalocean.app/v1/ride/getRide`;
   const token = localStorage.getItem("userToken");
   const [rideData, setRideData] = useState(null);
   const navigate = useNavigate();
@@ -22,13 +22,17 @@ const History = () => {
      token: token,
   };
 
+  const data = {
+    userId: user_id
+  };
+
   useEffect(() => {
     const fetchData = async () => {
       try {
         if (token) {
           try {
-            const response = await axios.get(URL, {
-              method: "GET",
+            const response = await axios.post(URL,data ,{
+              method: "POST",
               headers: headers,
             });
 

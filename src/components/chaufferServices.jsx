@@ -80,13 +80,14 @@ console.log("Redirected from:", from);
           <div className="col-md-4">
             <div className="diffservices  pt-4 pb-4">
               <ul
-                title="Service"
+                title="Services"
                 style={{
                   listStyleType: "none",
                   textAlign: "left",
                   fontSize: "25px",
                   color: " #1E1E1E;",
                 }}
+                onClick={()=>navigate('/services')} 
               >
                 <li onClick={()=>navigate('/services/chaufferservices' ,{ state: { from: "Bussiness Events" }})} >
                   <span

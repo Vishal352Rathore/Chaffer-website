@@ -1,9 +1,9 @@
 .home_slide_carousel #carouselExampleCaptions{
     height: 620px;
   }
-  /* .home_slide_carousel .carousel-control-next, .carousel-control-prev{
+  .home_slide_carousel .carousel-control-next, .carousel-control-prev{
  height:100%;
-} */
+}
  .home_slide_carousel .carousel-item {
     height: 620px; /* Default height */
   }
@@ -184,11 +184,11 @@
     .home_slide_carousel .text-size{
       margin-bottom: 10px;
     }
-    /* .btn-slide1,
+    .btn-slide1,
   .btn-slide2 {
     font-size: 18px; /* Increase font size for medium screens */
-    /* padding: 12px 24px; /* Adjust padding as needed */
-  /* }  */
+    padding: 12px 24px; /* Adjust padding as needed */
+     } 
   }
   
 

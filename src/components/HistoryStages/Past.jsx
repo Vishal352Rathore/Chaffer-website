@@ -20,12 +20,12 @@ const Past = ({rideData}) => {
                   <div className="history-card">
                     <div className="card-row">
                       <img src={Pickup_green} alt="" />
-                      <p>{ride.pickUpLocation.substring(0,34)+" ..."}</p>
+                      <p>{ride.pickupAddress.substring(0,34)+" ..."}</p>
                     </div>
 
                     <div className="card-row">
                       <img src={Drop_red} alt="" />
-                      <p>{ride.dropLocation.substring(0,34)+" ..."}</p>
+                      <p>{ride.dropAddress.substring(0,34)+" ..."}</p>
                     </div>
 
                     <hr style={{border: "1px solid black"}}/>
