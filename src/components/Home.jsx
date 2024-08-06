@@ -16,16 +16,17 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import google from "../cab_images/googleAppimg.png";
 import { LoadScript, Autocomplete } from "@react-google-maps/api";
 import DatePicker from "react-datepicker";
-import 'react-datepicker/dist/react-datepicker.css';
-import profesionalDrivers from "../cab_images/profesionalDrivers.png"
+import "react-datepicker/dist/react-datepicker.css";
+import profesionalDrivers from "../cab_images/profesionalDrivers.png";
 import vehicleBrand from "../cab_images/VehicleBrand.png";
 import cars from "../cab_images/carvehicle.png";
 import onlinePayment from "../cab_images/onlinePayment.png";
 import onlineBooking from "../cab_images/onlineBooking.png";
 import homeBackground from "../videos/home-page-video.webm";
 import Homeslide from "./Homeslide";
-import playStore from "../cab_images/Play_store.png"
-import appleStore from "../cab_images/Apple_store.png"
+import playStore from "../cab_images/Play_store.png";
+import appleStore from "../cab_images/Apple_store.png";
+// import { requestForToken } from '../firabse';
 
 const categories = ["Ride", "Comfort", "City to city", "Airport Transfer"];
 
@@ -42,6 +43,7 @@ function Home() {
   const libraries = ["places"];
 
   useEffect(() => {
+    // requestForToken();
     if (token) {
       setIsLogin(true);
       console.log("islogin", isLogin);
@@ -187,7 +189,7 @@ function Home() {
                         value={Info.pickUpLocation}
                         onChange={handleChange}
                         onBlur={() => handleBlur("pickUpLocation")}
-                        // required
+                        required
                       />
                     </div>
                   </Autocomplete>
@@ -224,7 +226,7 @@ function Home() {
                         value={Info.dropLocation}
                         onChange={handleChange}
                         onBlur={() => handleBlur("dropLocation")}
-                        // required
+                        required
                       />
                     </div>
                   </Autocomplete>
@@ -299,29 +301,29 @@ function Home() {
         <div className="container customheader">
           <div className="row pb-5 bg-white">
             <div className="col-md-3">
-            {/* <div className="card"> */}
+              {/* <div className="card"> */}
               <Link to="/onlinebooking" className="hidden-lines">
-              <div className="">
-                <div className="d-flex justify-content-center">
-                  <img
-                    src={onlineBooking}
-                    alt="not found"
-                    className="online-booking-img"
-                  />
+                <div className="">
+                  <div className="d-flex justify-content-center">
+                    <img
+                      src={onlineBooking}
+                      alt="not found"
+                      className="online-booking-img"
+                    />
+                  </div>
+                  <div className="explore-content p-3">
+                    <h3 className="text-title">Easy Online Booking</h3>
+                    <p className="paragraph font-dosis p-3">
+                      Schedule your ride with our quick and easy online booking
+                    </p>
+                  </div>
                 </div>
-                <div className="explore-content p-3">
-                  <h3 className="text-title">Easy Online Booking</h3>
-                  <p className="paragraph font-dosis p-3">
-                  Schedule your ride with our quick and easy online booking 
-                  </p>
-                </div>
-                 </div>
-                 </Link>
-                 {/* </div> */}
-              </div>
-           
+              </Link>
+              {/* </div> */}
+            </div>
+
             <div className="col-md-3">
-            {/* <div className="card"> */}
+              {/* <div className="card"> */}
               <Link to="/professional" className="hidden-lines">
                 <div className="">
                   <div className="d-flex justify-content-center">
@@ -343,15 +345,11 @@ function Home() {
               {/* </div> */}
             </div>
             <div className="col-md-3 ">
-            {/* <div className="card"> */}
+              {/* <div className="card"> */}
               <Link to="/carbrands" className="hidden-lines">
                 <div className="">
                   <div className="d-flex justify-content-center">
-                    <img
-                      src={cars}
-                      alt="not found"
-                      className="carbrands-img"
-                    />
+                    <img src={cars} alt="not found" className="carbrands-img" />
                   </div>
                   <div className="explore-content p-3">
                     <h3 className="text-title">Variety of Cars Brands</h3>
@@ -365,7 +363,7 @@ function Home() {
               {/* </div> */}
             </div>
             <div className="col-md-3">
-            {/* <div className="card"> */}
+              {/* <div className="card"> */}
               <Link to="/onlinepayment" className="hidden-lines">
                 <div className="">
                   <div className="d-flex justify-content-center">
@@ -386,7 +384,6 @@ function Home() {
               </Link>
               {/* </div> */}
             </div>
-          
           </div>
         </div>
       </section>
@@ -411,7 +408,11 @@ function Home() {
                   for use on our platform.
                 </p>
 
-                <Link to="/about" className="hidden-lines"><button className="aboutus-btn font-inria">Go to About Us</button></ Link>
+                <Link to="/about" state={{ from: "about" }} className="hidden-lines">
+                  <button className="aboutus-btn font-inria">
+                    Go to About Us
+                  </button>
+                </Link>
               </div>
             </div>
           </div>
@@ -425,19 +426,40 @@ function Home() {
             <p>our aims is to fill a gap in niche market of Trade</p>
           </div>
           <div className="row">
-            <div className="col-md-4" onClick={()=>navigate('/services/chaufferservices' ,{ state: { from: "Bussiness Events" }})}>
+            <div
+              className="col-md-4"
+              onClick={() =>
+                navigate("/services/chaufferservices", {
+                  state: { from: "Bussiness Events" },
+                })
+              }
+            >
               <div>
                 <img src={ourservices1} alt="not found" />
               </div>
               <h3>Business & Corporate Events </h3>
             </div>
-            <div className="col-md-4" onClick={()=>navigate('/services/chaufferservices' ,{ state: { from: "Events" }})}>
+            <div
+              className="col-md-4"
+              onClick={() =>
+                navigate("/services/chaufferservices", {
+                  state: { from: "Events" },
+                })
+              }
+            >
               <div>
                 <img src={ourservices2} alt="not found" />
               </div>
               <h3>Events</h3>
             </div>
-            <div className="col-md-4" onClick={()=>navigate('/services/chaufferservices' ,{ state: { from: "Airport Transfer" }})}>
+            <div
+              className="col-md-4"
+              onClick={() =>
+                navigate("/services/chaufferservices", {
+                  state: { from: "Airport Transfer" },
+                })
+              }
+            >
               <div>
                 <img src={ourservices3} alt="not found" />
               </div>
@@ -605,14 +627,20 @@ function Home() {
               {/* <div className="google-img-container ">
               <a href="https://play.google.com/" target="_blank"><img src={google} alt="not found" className="google-img" /></a>
               </div> */}
-               <div className="google-img-container">
-              <span className="google-img">
-              <a href="https://play.google.com/" target="_blank">  <img src={playStore} alt="not found"/> </a>  
-              </span>
-              <span className="apple-img">
-              <a href="https://www.apple.com/in/app-store/" target="_blank">  <img src={appleStore} alt="not found"/> </a>  
-              </span>
-              </div> 
+              <div className="google-img-container">
+                <span className="google-img">
+                  <a href="https://play.google.com/" target="_blank">
+                    {" "}
+                    <img src={playStore} alt="not found" />{" "}
+                  </a>
+                </span>
+                <span className="apple-img">
+                  <a href="https://www.apple.com/in/app-store/" target="_blank">
+                    {" "}
+                    <img src={appleStore} alt="not found" />{" "}
+                  </a>
+                </span>
+              </div>
             </div>
           </div>
         </div>

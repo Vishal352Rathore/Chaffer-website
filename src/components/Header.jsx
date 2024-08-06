@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useNavigate, Link } from "react-router-dom";
+import { useNavigate, Link ,useLocation} from "react-router-dom";
 import { toast } from "react-toastify";
 import image1 from "../cab_images/logo.png";
 import "../CssStyle/Headers.css";
@@ -8,7 +8,20 @@ const Header = () => {
   const token = localStorage.getItem("userToken");
   const [isActive, setIsActive] = useState("home");
   const [isNavOpen, setIsNavOpen] = useState(false); // State to manage navbar toggle
-  const navigate = useNavigate();
+  const location = useLocation();
+  
+  useEffect(() => {
+    const { from } = location.state || { from: "home" };
+    if(from === "Bussiness Events" || from === "Events" || from === "Airport Transfer"){
+      setIsActive("services");
+    }else{
+      setIsActive(from)
+    }
+
+  }, [location.state]);
+  const navigate = useNavigate(); 
+
+
   useEffect(() => {
     if (token) {
       setIsLogin(true);
@@ -36,7 +49,7 @@ const Header = () => {
   return (
     <nav className="navbar navbar-expand-lg navbar-light">
       <div className="container customheader">
-        <Link className="navbar-brand" to="/">
+        <Link className="navbar-brand" to="/" onClick={() => { setIsActive("home"); closeNav(); }}>
           <img src={image1} alt="not found" className="logo" />
         </Link>
         <button

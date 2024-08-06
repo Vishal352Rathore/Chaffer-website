@@ -15,9 +15,7 @@ const ChaufferServices = () => {
 
   const location = useLocation();
   const { from } = location && (location.state || { from: "Bussiness Events" });
-console.log("Redirected from:", from);
-
-
+  console.log("Redirected from:", from);
 
   return (
     <div className="chaufferservices">
