@@ -232,7 +232,7 @@ const About = () => {
 
       <section className="container mb-5 pb-5">
         <div className="row">
-          <div className="col-md-12">
+          <div className="col-md-12 mb-5">
             <p className="about-our-service">Our Services</p>
             <p className="about-our-service-aim">
               Our aim is to fill a gap in niche market of trade{" "}
